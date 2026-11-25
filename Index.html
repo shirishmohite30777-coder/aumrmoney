@@ -6,6 +6,472 @@
   <title>AUMRMoney | Practical Wealth, SIPs & Financial Clarity</title>
   <style>
     :root {
+      --bg: #f6f8f5;
+      --surface: #ffffff;
+      --text: #0f1f19;
+      --muted: #4a5d54;
+      --green-dark: #0b3d2e;
+      --green-mid: #14533e;
+      --gold: #d4af37;
+      --gold-light: #fef9e7;
+      --orange: #f97316;
+      --orange-dark: #ea580c;
+      --border: #dce5df;
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: var(--surface);
+      border-bottom: 2px solid var(--gold);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .brand {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--green-dark);
+      letter-spacing: -0.02em;
+    }
+
+    .brand span {
+      color: var(--orange);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--orange-dark);
+    }
+
+    /* Dark Green, Gold & Bright Orange Welcome Banner */
+    .hero-wrap {
+      padding: 28px 0 16px;
+    }
+
+    .hero {
+      background: linear-gradient(125deg, var(--green-dark) 0%, var(--green-mid) 52%, var(--orange) 130%);
+      color: #ffffff;
+      border: 2px solid var(--gold);
+      border-radius: 20px;
+      padding: 56px 28px;
+      text-align: center;
+      box-shadow: 0 14px 32px rgba(11, 61, 46, 0.18);
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.2);
+      color: #fde68a;
+      font-size: 0.84rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+      border: 1px solid var(--gold);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      max-width: 760px;
+      margin: 0 auto 18px;
+    }
+
+    h1 .gold-text {
+      color: #fde047;
+    }
+
+    .hero p {
+      font-size: 1.06rem;
+      color: rgba(255, 255, 255, 0.94);
+      max-width: 640px;
+      margin: 0 auto 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--orange);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: 1px solid #fde047;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .btn:hover {
+      background: var(--orange-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-green {
+      background: var(--green-dark);
+      color: #ffffff;
+      border: 1px solid var(--gold);
+    }
+
+    .btn-green:hover {
+      background: var(--green-mid);
+    }
+
+    /* Services */
+    section {
+      padding: 36px 0;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      color: var(--green-dark);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+      border-left: 4px solid var(--gold);
+      padding-left: 12px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .card:nth-child(2) {
+      border-top-color: var(--orange);
+    }
+
+    .card:nth-child(3) {
+      border-top-color: var(--green-dark);
+    }
+
+    .card h3 {
+      font-size: 1.12rem;
+      margin-bottom: 8px;
+      color: var(--green-dark);
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Inquiry & UPI Box */
+    .split {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    form label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 6px;
+    }
+
+    form input {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    form input:focus {
+      outline: none;
+      border-color: var(--orange);
+    }
+
+    .upi-box {
+      background: var(--gold-light);
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 14px;
+      font-size: 0.92rem;
+    }
+
+    .upi-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .upi-id {
+      font-family: monospace;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--orange-dark);
+      background: var(--surface);
+      padding: 5px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--gold);
+      display: inline-block;
+    }
+
+    .copy-btn {
+      background: var(--orange);
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      background: var(--orange-dark);
+    }
+
+    .status-msg {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: var(--green-mid);
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 36px;
+      background: var(--green-dark);
+      border-top: 3px solid var(--gold);
+      padding: 28px 0;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.85rem;
+    }
+
+    .disclaimer {
+      margin-top: 12px;
+      font-size: 0.78rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.72);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand">AUMR<span>Money</span></a>
+      <nav class="nav-links">
+        <a href="#services">Solutions</a>
+        <a href="#calculators">Calculators</a>
+        <a href="#contact">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="hero-wrap">
+      <section class="hero">
+        <span class="badge">Vadodara, Gujarat &bull; Financial Awareness &amp; Planning</span>
+        <h1>Disciplined Wealth Building &amp; <span class="gold-text">Practical Financial Tools</span></h1>
+        <p>
+          AUMRMoney helps individuals and families build steady financial habits through mutual fund
+          distribution guidance, SIP planning, risk profiling, retirement roadmaps, and term protection.
+        </p>
+        <a href="#contact" class="btn">Request a Callback</a>
+      </section>
+    </div>
+
+    <section id="services">
+      <h2 class="section-title">Core Focus Areas</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Mutual Funds &amp; SIPs</h3>
+          <p>
+            Goal-aligned Systematic Investment Plans and fund category education designed for long-term
+            consistency rather than short-term noise.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Risk Profiling &amp; Retirement</h3>
+          <p>
+            Structured conversations around time horizon, comfort with volatility, and sustainable
+            retirement cash-flow planning.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Term Insurance &amp; Protection</h3>
+          <p>
+            Straightforward income-replacement cover planning so core family goals stay protected
+            against unexpected events.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculators">
+      <h2 class="section-title">Planning Calculators &amp; Resources</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Retirement Planner</h3>
+          <p>Estimate target corpus and monthly savings needed for comfortable post-work years.</p>
+        </div>
+        <div class="card">
+          <h3>Long-Term Equity Planner</h3>
+          <p>Model multi-year compounding scenarios across varying investment horizons and step-ups.</p>
+        </div>
+        <div class="card">
+          <h3>Term Cover Estimator</h3>
+          <p>Check baseline protection needs based on annual expenses, liabilities, and dependents.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="split">
+        <div class="card">
+          <h3>Quick Inquiry Form</h3>
+          <p style="margin-bottom: 16px;">Share your details and we will follow up on your planning or calculator request.</p>
+          <form id="inquiryForm">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your full name" required />
+
+            <label for="phone">Phone Number</label>
+            <input id="phone" name="phone" type="tel" placeholder="+91 98XXX XXXXX" required />
+
+            <label for="email">Email ID</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+            <button type="submit" class="btn btn-green">Submit Inquiry</button>
+            <p id="formStatus" class="status-msg" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>Calculator Access &amp; UPI Details</h3>
+          <p>
+            Pay via UPI using the ID below or scan the QR image once uploaded as <code>qr.png</code>
+            in your repository.
+          </p>
+          <div class="upi-box">
+            <strong>UPI Payment Details</strong>
+            <div class="upi-row">
+              <span id="upiValue" class="upi-id">9099910615@ybl</span>
+              <button type="button" id="copyUpiBtn" class="copy-btn">Copy UPI ID</button>
+            </div>
+            <p id="copyStatus" class="status-msg" aria-live="polite" style="margin-top:8px;"></p>
+            <img
+              id="qrImage"
+              src="qr.png"
+              alt="AUMRMoney UPI QR Code"
+              style="display:block;max-width:180px;margin-top:12px;border-radius:8px;border:1px solid #d4af37;"
+              onerror="this.style.display='none'; document.getElementById('qrFallback').style.display='block';"
+            />
+            <p id="qrFallback" style="display:none;margin-top:10px;font-size:0.84rem;color:#4a5d54;">
+              Upload your QR image file as <code>qr.png</code> in the repository root to display it here automatically.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div><strong>AUMRMoney</strong> &bull; Built with GitHub Pages</div>
+      <p class="disclaimer">
+        Disclaimer: Mutual fund investments are subject to market risks. Read all scheme-related
+        documents carefully before investing. Calculators and informational content on this page are
+        for educational and planning illustration purposes only.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById("inquiryForm");
+    const statusEl = document.getElementById("formStatus");
+    const copyBtn = document.getElementById("copyUpiBtn");
+    const copyStatus = document.getElementById("copyStatus");
+    const upiValue = document.getElementById("upiValue").textContent.trim();
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      statusEl.textContent =
+        "Thank you, " +
+        name +
+        ". Your inquiry details are ready—connect this form to Formspree, Google Apps Script, or your CRM to capture submissions automatically.";
+      form.reset();
+    });
+
+    copyBtn.addEventListener("click", function () {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(upiValue).then(function () {
+          copyStatus.textContent = "Copied UPI ID: " + upiValue;
+        }).catch(function () {
+          copyStatus.textContent = "UPI ID: " + upiValue;
+        });
+      } else {
+        copyStatus.textContent = "UPI ID: " + upiValue;
+      }
+    });
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AUMRMoney | Practical Wealth, SIPs & Financial Clarity</title>
+  <style>
+    :root {
       --bg: #f7f9fc;
       --surface: #ffffff;
       --text: #0f172a;

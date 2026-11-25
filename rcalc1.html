@@ -1,1 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rcalc1 | Retirement Planner — AUM R Money Tree</title>
+  <style>
+    :root {
+      --bg: #f4f7f4;
+      --surface: #ffffff;
+      --text: #0f1f19;
+      --muted: #495d54;
+      --green-dark: #0b3d2e;
+      --green-mid: #14533e;
+      --gold: #d4af37;
+      --gold-soft: #fef9e7;
+      --orange: #f97316;
+      --orange-dark: #ea580c;
+      --border: #d9e3dc;
+      --radius: 14px;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .brand-bar {
+      background: linear-gradient(120deg, var(--green-dark) 0%, var(--green-mid) 62%, #1d6b50 100%);
+      color: #ffffff;
+      border-bottom: 3px solid var(--gold);
+      padding: 20px 0;
+    }
+
+    .brand-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      align-items: center;
+    }
+
+    .brand-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fde047;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-tagline {
+      font-size: 0.85rem;
+      color: #fed7aa;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .distributor-box {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .distributor-box strong {
+      color: #ffffff;
+      font-size: 1rem;
+    }
+
+    .arn-pill {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.2);
+      border: 1px solid var(--gold);
+      color: #fde68a;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 999px;
+      margin-top: 4px;
+    }
+
+    .contact-mini {
+      font-size: 0.86rem;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .contact-mini div {
+      margin-bottom: 3px;
+    }
+
+    main {
+      padding: 28px 0 36px;
+    }
+
+    .page-head {
+      margin-bottom: 20px;
+    }
+
+    .page-head h1 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: var(--green-dark);
+      letter-spacing: -0.02em;
+    }
+
+    .page-head p {
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 22px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 6px 20px rgba(11, 61, 46, 0.05);
+    }
+
+    .card.results-card {
+      border-top-color: var(--orange);
+    }
+
+    .card h2 {
+      font-size: 1.18rem;
+      color: var(--green-dark);
+      margin-bottom: 14px;
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 5px;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.96rem;
+      color: var(--text);
+    }
+
+    .field input:focus {
+      outline: none;
+      border-color: var(--orange);
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .btn {
+      background: var(--orange);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 11px 18px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--orange-dark);
+    }
+
+    .btn-secondary {
+      background: var(--green-dark);
+      color: #ffffff;
+    }
+
+    .btn-secondary:hover {
+      background: var(--green-mid);
+    }
+
+    .kpi-box {
+      background: var(--gold-soft);
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .kpi-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .kpi-value {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--green-dark);
+      margin-top: 2px;
+    }
+
+    .kpi-value.highlight {
+      color: var(--orange-dark);
+    }
+
+    .summary-list {
+      list-style: none;
+      font-size: 0.92rem;
+    }
+
+    .summary-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .summary-list li:last-child {
+      border-bottom: none;
+    }
+
+    .upi-panel {
+      margin-top: 22px;
+      background: var(--surface);
+      border: 1px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      align-items: center;
+    }
+
+    .upi-chip {
+      display: inline-block;
+      font-family: monospace;
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--orange-dark);
+      background: var(--gold-soft);
+      border: 1px solid var(--gold);
+      padding: 5px 10px;
+      border-radius: 6px;
+      margin-top: 6px;
+    }
+
+    .qr-preview {
+      max-width: 150px;
+      border-radius: 10px;
+      border: 1px solid var(--gold);
+    }
+
+    footer {
+      background: var(--green-dark);
+      color: rgba(255, 255, 255, 0.88);
+      border-top: 3px solid var(--gold);
+      padding: 22px 0;
+      font-size: 0.84rem;
+    }
+
+    .partners {
+      margin-bottom: 8px;
+      color: #fde68a;
+      font-weight: 600;
+    }
+
+    .disclaimer {
+      font-size: 0.76rem;
+      color: rgba(255, 255, 255, 0.74);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <header class="brand-bar">
+    <div class="container brand-grid">
+      <div>
+        <div class="brand-title">AUM R Money Tree</div>
+        <div class="brand-tagline">INVEST TODAY | GROW TOMORROW &bull; Wealth for a Brighter Tomorrow</div>
+      </div>
+      <div class="distributor-box">
+        <strong>Shirish Mohite</strong><br />
+        <span>Mutual Fund Distributor</span><br />
+        <span class="arn-pill">ARN - 362794</span>
+      </div>
+      <div class="contact-mini">
+        <div>Phone: <strong>9099910615</strong></div>
+        <div>Email: <strong>aumrmoney@gmail.com</strong></div>
+        <div>Location: <strong>Vadodara, Gujarat - 390002</strong></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-head">
+      <h1>Rcalc1 — Retirement Corpus &amp; Monthly SIP Calculator</h1>
+      <p>Plan your retirement target corpus and estimate the monthly investment needed to reach it.</p>
+    </div>
+
+    <div class="calc-grid">
+      <section class="card">
+        <h2>Your Planning Inputs</h2>
+        <form id="rcalcForm">
+          <div class="field">
+            <label for="currentAge">Current Age (Years)</label>
+            <input id="currentAge" type="number" min="18" max="80" value="50" required />
+          </div>
+
+          <div class="field">
+            <label for="retireAge">Target Retirement Age (Years)</label>
+            <input id="retireAge" type="number" min="35" max="85" value="60" required />
+          </div>
+
+          <div class="field">
+            <label for="monthlyExpense">Desired Monthly Retirement Income Today (Rs.)</label>
+            <input id="monthlyExpense" type="number" min="1000" step="500" value="50000" required />
+          </div>
+
+          <div class="field">
+            <label for="inflationRate">Expected Annual Inflation (%)</label>
+            <input id="inflationRate" type="number" min="0" max="20" step="0.1" value="6" required />
+          </div>
+
+          <div class="field">
+            <label for="preReturn">Expected Pre-Retirement Annual Return (%)</label>
+            <input id="preReturn" type="number" min="1" max="30" step="0.1" value="12" required />
+          </div>
+
+          <div class="field">
+            <label for="postReturn">Expected Post-Retirement Annual Return (%)</label>
+            <input id="postReturn" type="number" min="1" max="20" step="0.1" value="8" required />
+          </div>
+
+          <div class="field">
+            <label for="yearsInRetirement">Retirement Payout Duration (Years)</label>
+            <input id="yearsInRetirement" type="number" min="5" max="45" value="25" required />
+          </div>
+
+          <div class="btn-row">
+            <button type="submit" class="btn">Calculate Retirement Plan</button>
+            <button type="button" id="resetBtn" class="btn btn-secondary">Reset Defaults</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card results-card">
+        <h2>Projected Retirement Summary</h2>
+
+        <div class="kpi-box">
+          <div class="kpi-label">Required Monthly SIP</div>
+          <div id="monthlySipOut" class="kpi-value highlight">Rs. 0</div>
+        </div>
+
+        <div class="kpi-box">
+          <div class="kpi-label">Target Corpus at Retirement</div>
+          <div id="targetCorpusOut" class="kpi-value">Rs. 0</div>
+        </div>
+
+        <ul class="summary-list">
+          <li><span>Years to Retire</span><strong id="yearsToRetireOut">0 yrs</strong></li>
+          <li><span>Inflation-Adjusted Monthly Income at Retirement</span><strong id="futureMonthlyOut">Rs. 0</strong></li>
+          <li><span>Total Estimated Invested Amount</span><strong id="totalInvestedOut">Rs. 0</strong></li>
+          <li><span>Estimated Wealth Gain</span><strong id="wealthGainOut">Rs. 0</strong></li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="upi-panel">
+      <div>
+        <h2 style="font-size:1.1rem;color:var(--green-dark);margin-bottom:6px;">Calculator Access &amp; UPI Payment</h2>
+        <p style="font-size:0.9rem;color:var(--muted);">
+          Pay via UPI using the ID below or scan your uploaded <code>qr.png</code> image in the repository.
+        </p>
+        <div class="upi-chip">9099910615@ybl</div>
+      </div>
+      <div>
+        <img
+          src="qr.png"
+          alt="AUM R Money Tree UPI QR Code"
+          class="qr-preview"
+          onerror="this.style.display='none'; document.getElementById('qrNote').style.display='block';"
+        />
+        <p id="qrNote" style="display:none;font-size:0.84rem;color:var(--muted);">
+          Add <code>qr.png</code> to your repository folder to display your QR code here.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="partners">
+        Associated with: NJ Wealth &bull; Nuvama Wealth &bull; Samco Securities &bull; Plan &bull; Invest &bull; Grow &bull; Prosper
+      </div>
+      <div>
+        <strong>Shirish Mohite</strong> | Mutual Fund Distributor (ARN - 362794) | 9099910615 | aumrmoney@gmail.com | Vadodara, Gujarat - 390002
+      </div>
+      <p class="disclaimer">
+        Disclaimer: Mutual fund investments are subject to market risks. Read all scheme-related documents carefully before investing. Calculator figures are illustrative planning estimates only and do not guarantee future returns.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById("rcalcForm");
+    const resetBtn = document.getElementById("resetBtn");
+
+    function formatINR(num) {
+      if (!isFinite(num) || num <= 0) return "Rs. 0";
+      return "Rs. " + Math.round(num).toLocaleString("en-IN");
+    }
+
+    function calculatePlan() {
+      const currentAge = Number(document.getElementById("currentAge").value);
+      const retireAge = Number(document.getElementById("retireAge").value);
+      const monthlyExpense = Number(document.getElementById("monthlyExpense").value);
+      const inflationRate = Number(document.getElementById("inflationRate").value) / 100;
+      const preReturn = Number(document.getElementById("preReturn").value) / 100;
+      const postReturn = Number(document.getElementById("postReturn").value) / 100;
+      const yearsInRetirement = Number(document.getElementById("yearsInRetirement").value);
+
+      const yearsToRetire = Math.max(1, retireAge - currentAge);
+      const futureMonthlyIncome = monthlyExpense * Math.pow(1 + inflationRate, yearsToRetire);
+
+      const postMonthlyRate = postReturn / 12;
+      const payoutMonths = Math.max(12, yearsInRetirement * 12);
+
+      const targetCorpus =
+        postMonthlyRate > 0
+          ? futureMonthlyIncome * ((1 - Math.pow(1 + postMonthlyRate, -payoutMonths)) / postMonthlyRate)
+          : futureMonthlyIncome * payoutMonths;
+
+      const preMonthlyRate = preReturn / 12;
+      const sipMonths = yearsToRetire * 12;
+
+      const monthlySip =
+        preMonthlyRate > 0
+          ? targetCorpus * (preMonthlyRate / (Math.pow(1 + preMonthlyRate, sipMonths) - 1))
+          : targetCorpus / sipMonths;
+
+      const totalInvested = monthlySip * sipMonths;
+      const wealthGain = Math.max(0, targetCorpus - totalInvested);
+
+      document.getElementById("yearsToRetireOut").textContent = yearsToRetire + " yrs";
+      document.getElementById("futureMonthlyOut").textContent = formatINR(futureMonthlyIncome);
+      document.getElementById("monthlySipOut").textContent = formatINR(monthlySip);
+      document.getElementById("targetCorpusOut").textContent = formatINR(targetCorpus);
+      document.getElementById("totalInvestedOut").textContent = formatINR(totalInvested);
+      document.getElementById("wealthGainOut").textContent = formatINR(wealthGain);
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      calculatePlan();
+    });
+
+    resetBtn.addEventListener("click", function () {
+      form.reset();
+      calculatePlan();
+    });
+
+    calculatePlan();
+  </script>
+</body>
+</html>

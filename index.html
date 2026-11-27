@@ -1,3 +1,882 @@
-<h3>Social Media</h3>
-              <p>Social Media - aumrmoney Youtube,aumrmoney-Instagram-aumrmoney-facebook</p>
-              
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AUMRMoney | Practical Wealth, SIPs &amp; Financial Clarity</title>
+  <meta name="description" content="Practical mutual fund guidance, goal-based SIP planning, retirement calculators, and transparent financial education by AUMRMoney." />
+  <style>
+    :root {
+      --green-dark: #0b3d2e;
+      --green-mid: #14533e;
+      --green-light: #e8f3ee;
+      --gold: #d4af37;
+      --gold-soft: #f7ecc8;
+      --orange: #f97316;
+      --orange-hover: #ea580c;
+      --blue-accent: #0284c7;
+      --blue-soft: #e0f2fe;
+      --bg: #f6f8f7;
+      --surface: #ffffff;
+      --text: #11201a;
+      --muted: #4b5d54;
+      --border: #dce5e0;
+      --radius: 14px;
+      --shadow: 0 10px 28px rgba(11, 61, 46, 0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 84px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    /* Sticky Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 61, 46, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid rgba(212, 175, 55, 0.45);
+      color: #ffffff;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: 0.3px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      color: #0b241c;
+      font-weight: 900;
+      font-size: 1rem;
+    }
+
+    .brand-tag {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: #e6f0ec;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* 4-Language Switcher */
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .lang-btn {
+      background: transparent;
+      color: #e6f0ec;
+      border: none;
+      padding: 5px 9px;
+      border-radius: 7px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .lang-btn.active {
+      background: var(--gold);
+      color: #0b241c;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 68%, #184e68 100%);
+      color: #ffffff;
+      padding: 64px 0 56px;
+      border-bottom: 4px solid var(--gold);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.18);
+      color: var(--gold-soft);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 4vw, 2.85rem);
+      line-height: 1.2;
+      max-width: 20ch;
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      max-width: 62ch;
+      color: #d9ebe4;
+      font-size: 1.05rem;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.2s ease;
+    }
+
+    .btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-hover);
+    }
+
+    .btn-secondary {
+      background: var(--blue-soft);
+      color: #075985;
+    }
+
+    .btn-secondary:hover {
+      background: #bae6fd;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--green-dark);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--green-dark);
+      background: var(--green-light);
+    }
+
+    /* Sections */
+    section {
+      padding: 56px 0;
+    }
+
+    .section-head {
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      color: var(--blue-accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 6px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.45rem, 2.6vw, 2rem);
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 64ch;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .badge {
+      display: inline-block;
+      width: fit-content;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .badge-live {
+      background: var(--green-light);
+      color: var(--green-dark);
+      border: 1px solid #b7d7c8;
+    }
+
+    .badge-soon {
+      background: var(--gold-soft);
+      color: #7c5800;
+      border: 1px solid #e6cf85;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      color: var(--green-dark);
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .form-row {
+      margin-bottom: 14px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 11px 13px;
+      border-radius: 10px;
+      border: 1px solid #c6d3cc;
+      font-size: 0.95rem;
+      background: #ffffff;
+      color: var(--text);
+    }
+
+    input:focus {
+      outline: 2px solid var(--blue-accent);
+      border-color: var(--blue-accent);
+    }
+
+    .form-status {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      min-height: 22px;
+    }
+
+    .status-ok {
+      color: var(--green-mid);
+    }
+
+    .status-err {
+      color: #b91c1c;
+    }
+
+    .info-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 12px 0 18px;
+      font-size: 0.93rem;
+    }
+
+    .upi-box {
+      background: var(--green-light);
+      border: 1px dashed var(--green-mid);
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 10px;
+    }
+
+    .upi-code {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 8px;
+      background: #ffffff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-family: monospace;
+      font-size: 0.9rem;
+    }
+
+    .qr-wrap {
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .qr-wrap img {
+      max-width: 150px;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      padding: 6px;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--green-dark);
+      color: #d9ebe4;
+      padding: 36px 0;
+      border-top: 3px solid var(--gold);
+      font-size: 0.86rem;
+    }
+
+    .disclaimer {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      color: #b5cfc5;
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 860px) {
+      .grid-3,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        gap: 12px;
+        font-size: 0.88rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand">
+        <span class="brand-mark">A</span>
+        <span>AUMR<span class="brand-tag">Money</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="#services" data-i18n="navServices">Solutions</a>
+        <a href="#calculators" data-i18n="navCalculators">Calculators</a>
+        <a href="#contact" data-i18n="navContact">Connect</a>
+      </nav>
+
+      <div class="lang-switcher" role="group" aria-label="Language switcher">
+        <button type="button" class="lang-btn active" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="hi">हिन्दी</button>
+        <button type="button" class="lang-btn" data-lang="mr">मराठी</button>
+        <button type="button" class="lang-btn" data-lang="gu">ગુજરાતી</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow" data-i18n="eyebrow">AMFI-Registered Mutual Fund Distributor • Practical Guidance</span>
+        <h1 data-i18n="heroTitle">Disciplined Wealth Building &amp; Practical Financial Clarity</h1>
+        <p data-i18n="heroSubtitle">
+          Explore goal-based SIP planning, retirement readiness tools, and structured equity study calculators designed for long-term investors.
+        </p>
+        <div class="hero-actions">
+          <a href="#calculators" class="btn btn-primary" data-i18n="ctaCalculators">Explore Calculators</a>
+          <a href="#contact" class="btn btn-secondary" data-i18n="ctaConnect">Request a Callback</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker" data-i18n="servicesKicker">Financial Solutions</div>
+          <h2 data-i18n="servicesTitle">Structured Support Around Real Goals</h2>
+          <p data-i18n="servicesDesc">Clear planning steps without hype or guaranteed-return claims.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div>
+              <h3 data-i18n="svc1Title">Goal-Based SIP Planning</h3>
+              <p data-i18n="svc1Desc">Align monthly SIPs with defined timelines, risk comfort, and cash-flow milestones.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div>
+              <h3 data-i18n="svc2Title">Retirement Readiness</h3>
+              <p data-i18n="svc2Desc">Estimate post-retirement income needs, inflation impact, and step-up savings targets.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div>
+              <h3 data-i18n="svc3Title">Portfolio &amp; Risk Review</h3>
+              <p data-i18n="svc3Desc">Periodic check-ins to review asset allocation, overlap, and alignment with your plan.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculators">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker" data-i18n="calcKicker">Interactive Tools</div>
+          <h2 data-i18n="calcTitle">Financial Calculators</h2>
+          <p data-i18n="calcDesc">Test assumptions and plan scenarios using our browser and sheet-based tools.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div>
+              <span class="badge badge-live" data-i18n="statusLive">Available</span>
+              <h3 style="margin-top: 10px;" data-i18n="calc1Title">Retirement Planner (Rcalc1)</h3>
+              <p data-i18n="calc1Desc">Model retirement corpus requirements and monthly SIP contributions with realistic return assumptions.</p>
+            </div>
+            <a href="rcalc1.html" class="btn btn-primary" data-i18n="openTool">Open Calculator</a>
+          </article>
+
+          <article class="card">
+            <div>
+              <span class="badge badge-live" data-i18n="statusLive">Available</span>
+              <h3 style="margin-top: 10px;" data-i18n="calc2Title">Bharat Wealth Equity Study</h3>
+              <p data-i18n="calc2Desc">Explore structured equity screening and educational paper-testing workflows.</p>
+            </div>
+            <a href="bharat-wealth.html" class="btn btn-secondary" data-i18n="openTool">Open Calculator</a>
+          </article>
+
+          <article class="card">
+            <div>
+              <span class="badge badge-soon" data-i18n="statusSoon">Coming Soon</span>
+              <h3 style="margin-top: 10px;" data-i18n="calc3Title">Life Risk &amp; Term Estimator</h3>
+              <p data-i18n="calc3Desc">Age-aware protection and term coverage planning tool currently in development.</p>
+            </div>
+            <button type="button" class="btn btn-outline" disabled data-i18n="statusSoon">Coming Soon</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker" data-i18n="contactKicker">Get in Touch</div>
+          <h2 data-i18n="contactTitle">Connect with AUMRMoney</h2>
+          <p data-i18n="contactDesc">Share your contact details for a callback or reach out directly.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card">
+            <form id="leadForm" novalidate>
+              <div class="form-row">
+                <label for="leadName" data-i18n="labelName">Full Name</label>
+                <input id="leadName" name="name" type="text" required placeholder="Your full name" />
+              </div>
+
+              <div class="form-row">
+                <label for="leadPhone" data-i18n="labelPhone">Phone / WhatsApp</label>
+                <input id="leadPhone" name="phone" type="tel" required placeholder="+91 98765 43210" />
+              </div>
+
+              <div class="form-row">
+                <label for="leadEmail" data-i18n="labelEmail">Email Address</label>
+                <input id="leadEmail" name="email" type="email" required placeholder="you@example.com" />
+              </div>
+
+              <button type="submit" class="btn btn-primary" data-i18n="submitBtn">Request Callback</button>
+              <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+
+          <div class="card">
+            <div>
+              <h3 data-i18n="directTitle">Direct Contact &amp; UPI</h3>
+              <ul class="info-list">
+                <li><strong>Advisor:</strong> Shirish Mohite (ARN - 362794)</li>
+                <li><strong>Location:</strong> Vadodara, Gujarat</li>
+                <li><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/919099910615" target="_blank" rel="noopener noreferrer">+91 9099910615</a></li>
+                <li><strong>Email:</strong> <a href="mailto:aumrmoney@gmail.com">aumrmoney@gmail.com</a></li>
+              </ul>
+
+              <div class="upi-box">
+                <strong data-i18n="upiLabel">UPI ID (Educational / Resource Contributions)</strong>
+                <div class="upi-code">
+                  <span id="upiIdText">shirish.mohite@okicici</span>
+                  <button type="button" id="copyUpiBtn" class="btn btn-outline" style="padding: 5px 10px; font-size: 0.8rem;" data-i18n="copyBtn">Copy</button>
+                </div>
+                <div class="qr-wrap">
+                  <img src="qr.png" alt="AUMRMoney UPI QR Code" onerror="this.style.display='none'" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <strong>AUMRMoney</strong> — Shirish Mohite | AMFI-Registered Mutual Fund Distributor (ARN - 362794)
+      </div>
+      <div class="disclaimer" data-i18n="disclaimer">
+        Mutual fund investments are subject to market risks. Read all scheme-related documents carefully before investing. Calculators and screening tools on this site are for educational and planning illustration purposes and do not constitute guaranteed returns or investment advice.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Optional: Replace with your deployed Google Apps Script Web App URL if desired
+    const APPS_SCRIPT_URL = "";
+
+    const translations = {
+      en: {
+        navServices: "Solutions",
+        navCalculators: "Calculators",
+        navContact: "Connect",
+        eyebrow: "AMFI-Registered Mutual Fund Distributor • Practical Guidance",
+        heroTitle: "Disciplined Wealth Building & Practical Financial Clarity",
+        heroSubtitle: "Explore goal-based SIP planning, retirement readiness tools, and structured equity study calculators designed for long-term investors.",
+        ctaCalculators: "Explore Calculators",
+        ctaConnect: "Request a Callback",
+        servicesKicker: "Financial Solutions",
+        servicesTitle: "Structured Support Around Real Goals",
+        servicesDesc: "Clear planning steps without hype or guaranteed-return claims.",
+        svc1Title: "Goal-Based SIP Planning",
+        svc1Desc: "Align monthly SIPs with defined timelines, risk comfort, and cash-flow milestones.",
+        svc2Title: "Retirement Readiness",
+        svc2Desc: "Estimate post-retirement income needs, inflation impact, and step-up savings targets.",
+        svc3Title: "Portfolio & Risk Review",
+        svc3Desc: "Periodic check-ins to review asset allocation, overlap, and alignment with your plan.",
+        calcKicker: "Interactive Tools",
+        calcTitle: "Financial Calculators",
+        calcDesc: "Test assumptions and plan scenarios using our browser and sheet-based tools.",
+        statusLive: "Available",
+        statusSoon: "Coming Soon",
+        calc1Title: "Retirement Planner (Rcalc1)",
+        calc1Desc: "Model retirement corpus requirements and monthly SIP contributions with realistic return assumptions.",
+        calc2Title: "Bharat Wealth Equity Study",
+        calc2Desc: "Explore structured equity screening and educational paper-testing workflows.",
+        calc3Title: "Life Risk & Term Estimator",
+        calc3Desc: "Age-aware protection and term coverage planning tool currently in development.",
+        openTool: "Open Calculator",
+        contactKicker: "Get in Touch",
+        contactTitle: "Connect with AUMRMoney",
+        contactDesc: "Share your contact details for a callback or reach out directly.",
+        labelName: "Full Name",
+        labelPhone: "Phone / WhatsApp",
+        labelEmail: "Email Address",
+        submitBtn: "Request Callback",
+        directTitle: "Direct Contact & UPI",
+        upiLabel: "UPI ID (Educational / Resource Contributions)",
+        copyBtn: "Copy",
+        copiedBtn: "Copied",
+        disclaimer: "Mutual fund investments are subject to market risks. Read all scheme-related documents carefully before investing. Calculators and screening tools on this site are for educational and planning illustration purposes and do not constitute guaranteed returns or investment advice."
+      },
+      hi: {
+        navServices: "समाधान",
+        navCalculators: "कैलकुलेटर",
+        navContact: "संपर्क",
+        eyebrow: "AMFI पंजीकृत म्यूचुअल फंड वितरक • व्यावहारिक मार्गदर्शन",
+        heroTitle: "अनुशासित वेल्थ निर्माण और स्पष्ट वित्तीय योजना",
+        heroSubtitle: "लक्ष्य-आधारित SIP योजना, रिटायरमेंट तैयारी टूल्स और इक्विटी स्टडी कैलकुलेटर देखें।",
+        ctaCalculators: "कैलकुलेटर देखें",
+        ctaConnect: "कॉल-बैक अनुरोध करें",
+        servicesKicker: "वित्तीय समाधान",
+        servicesTitle: "वास्तविक लक्ष्यों के अनुसार व्यवस्थित मार्गदर्शन",
+        servicesDesc: "बिना किसी गारंटी वाले दावों के स्पष्ट और व्यावहारिक कदम।",
+        svc1Title: "लक्ष्य-आधारित SIP योजना",
+        svc1Desc: "मासिक SIP को समय-सीमा, जोखिम क्षमता और नकदी प्रवाह के अनुसार जोड़ें।",
+        svc2Title: "रिटायरमेंट तैयारी",
+        svc2Desc: "रिटायरमेंट के बाद की आय आवश्यकताओं, महंगाई और स्टेप-अप बचत का अनुमान लगाएं।",
+        svc3Title: "पोर्टफोलियो व जोखिम समीक्षा",
+        svc3Desc: "एसेट एलोकेशन और ओवरलैप की समय-समय पर समीक्षा करें।",
+        calcKicker: "इंटरैक्टिव टूल्स",
+        calcTitle: "वित्तीय कैलकुलेटर",
+        calcDesc: "विभिन्न मान्यताओं के साथ अपने वित्तीय लक्ष्यों का आकलन करें।",
+        statusLive: "उपलब्ध",
+        statusSoon: "जल्द आ रहा है",
+        calc1Title: "रिटायरमेंट प्लानर (Rcalc1)",
+        calc1Desc: "रिटायरमेंट कॉर्पस और मासिक SIP की गणना व्यावहारिक रिटर्न मान्यताओं के साथ करें।",
+        calc2Title: "भारत वेल्थ इक्विटी स्टडी",
+        calc2Desc: "इक्विटी स्क्रीनिंग और पेपर-टेस्टिंग वर्कफ़्लो का अध्ययन करें।",
+        calc3Title: "लाइफ रिस्क और टर्म एस्टिमेटर",
+        calc3Desc: "आयु-आधारित टर्म कवरेज और सुरक्षा अनुमान टूल निर्माणाधीन है।",
+        openTool: "कैलकुलेटर खोलें",
+        contactKicker: "संपर्क करें",
+        contactTitle: "AUMRMoney से जुड़ें",
+        contactDesc: "कॉल-बैक के लिए अपना विवरण साझा करें या सीधे संपर्क करें।",
+        labelName: "पूरा नाम",
+        labelPhone: "फ़ोन / व्हाट्सएप",
+        labelEmail: "ईमेल पता",
+        submitBtn: "कॉल-बैक अनुरोध करें",
+        directTitle: "सीधा संपर्क और UPI",
+        upiLabel: "UPI ID (शैक्षणिक / संसाधन योगदान)",
+        copyBtn: "कॉपी करें",
+        copiedBtn: "कॉपी हो गया",
+        disclaimer: "म्यूचुअल फंड निवेश बाजार जोखिमों के अधीन हैं। निवेश करने से पहले योजना से संबंधित सभी दस्तावेजों को ध्यान से पढ़ें। इस वेबसाइट पर दिए गए कैलकुलेटर केवल शैक्षणिक और योजना उदाहरण के लिए हैं; ये सुनिश्चित रिटर्न या निवेश सलाह नहीं हैं।"
+      },
+      mr: {
+        navServices: "उपाय",
+        navCalculators: "कॅल्क्युलेटर्स",
+        navContact: "संपर्क",
+        eyebrow: "AMFI नोंदणीकृत म्युच्युअल फंड वितरक • व्यावहारिक मार्गदर्शन",
+        heroTitle: "शिस्तबद्ध संपत्ती निर्मिती आणि स्पष्ट आर्थिक नियोजन",
+        heroSubtitle: "ध्येयनिहाय SIP नियोजन, निवृत्ती तयारी साधने आणि इक्विटी अभ्यास कॅल्क्युलेटर्स पहा.",
+        ctaCalculators: "कॅल्क्युलेटर्स पहा",
+        ctaConnect: "कॉल-बॅक विनंती करा",
+        servicesKicker: "आर्थिक उपाय",
+        servicesTitle: "वास्तविक उद्दिष्टांसाठी सुसूत्र मार्गदर्शन",
+        servicesDesc: "कोणत्याही हमी परताव्याच्या दाव्याशिवाय स्पष्ट नियोजन पावले.",
+        svc1Title: "ध्येयनिहाय SIP नियोजन",
+        svc1Desc: "मासिक SIP तुमच्या कालावधी, जोखीम क्षमता आणि रोख प्रवाहाशी जुळवून घ्या.",
+        svc2Title: "निवृत्ती सज्जता",
+        svc2Desc: "निवृत्तीनंतरच्या गरजा, महागाईचा परिणाम आणि स्टेप-अप बचतीचा अंदाज घ्या.",
+        svc3Title: "पोर्टफोलिओ व जोखीम आढावा",
+        svc3Desc: "अॅसेट अलोकेशन आणि ओव्हरलॅपचा नियमित आढावा घ्या.",
+        calcKicker: "संवादात्मक साधने",
+        calcTitle: "आर्थिक कॅल्क्युलेटर्स",
+        calcDesc: "वेगवेगळ्या गृहीतकांसह आर्थिक उद्दिष्टांची चाचणी घ्या.",
+        statusLive: "उपलब्ध",
+        statusSoon: "लवकरच येत आहे",
+        calc1Title: "निवृत्ती प्लॅनर (Rcalc1)",
+        calc1Desc: "निवृत्ती निधी आणि मासिक SIP ची गणना वास्तववादी परताव्याच्या गृहीतकांसह करा.",
+        calc2Title: "भारत वेल्थ इक्विटी स्टडी",
+        calc2Desc: "इक्विटी स्क्रिनिंग आणि पेपर-टेस्टिंग पद्धती समजून घ्या.",
+        calc3Title: "लाइफ रिस्क व टर्म एस्टिमेटर",
+        calc3Desc: "वयोमानानुसार टर्म कव्हरेज नियोजन साधन तयार केले जात आहे.",
+        openTool: "कॅल्क्युलेटर उघडा",
+        contactKicker: "संपर्क साधा",
+        contactTitle: "AUMRMoney शी संपर्क साधा",
+        contactDesc: "कॉल-बॅकसाठी तुमचा तपशील भरा किंवा थेट संपर्क साधा.",
+        labelName: "पूर्ण नाव",
+        labelPhone: "फोन / व्हॉट्सॲप",
+        labelEmail: "ईमेल पत्ता",
+        submitBtn: "कॉल-बॅक विनंती करा",
+        directTitle: "थेट संपर्क व UPI",
+        upiLabel: "UPI ID (शैक्षणिक / संसाधन सहकार्य)",
+        copyBtn: "कॉपी करा",
+        copiedBtn: "कॉपी झाले",
+        disclaimer: "म्युच्युअल फंड गुंतवणूक बाजार जोखमींच्या अधीन आहे. गुंतवणूक करण्यापूर्वी योजनेशी संबंधित सर्व कागदपत्रे काळजीपूर्वक वाचा. या साइटवरील कॅल्क्युलेटर्स केवळ शैक्षणिक व नियोजन उदाहरणासाठी आहेत; हा हमी परतावा किंवा गुंतवणूक सल्ला नाही."
+      },
+      gu: {
+        navServices: "ઉકેલો",
+        navCalculators: "કેલ્ક્યુલેટર્સ",
+        navContact: "સંપર્ક",
+        eyebrow: "AMFI રજિસ્ટર્ડ મ્યુચ્યુઅલ ફંડ ડિસ્ટ્રિબ્યુટર • વ્યવહારુ માર્ગદર્શન",
+        heroTitle: "શિસ્તબદ્ધ સંપત્તિ નિર્માણ અને સ્પષ્ટ નાણાકીય આયોજન",
+        heroSubtitle: "લક્ષ્ય આધારિત SIP આયોજન, નિવૃત્તિ તૈયારી ટૂલ્સ અને ઇક્વિટી અભ્યાસ કેલ્ક્યુલેટર્સ જુઓ.",
+        ctaCalculators: "કેલ્ક્યુલેટર્સ જુઓ",
+        ctaConnect: "કોલ-બેક વિનંતી કરો",
+        servicesKicker: "નાણાકીય ઉકેલો",
+        servicesTitle: "વાસ્તવિક લક્ષ્યો મુજબ વ્યવસ્થિત માર્ગદર્શન",
+        servicesDesc: "ખાતરીપૂર્વકના વળતરના દાવા વિના સ્પષ્ટ આયોજન પગલાં.",
+        svc1Title: "લક્ષ્ય આધારિત SIP આયોજન",
+        svc1Desc: "માસિક SIP ને સમયમર્યાદા, જોખમ ક્ષમતા અને રોકડ પ્રવાહ સાથે જોડો.",
+        svc2Title: "નિવૃત્તિ તૈયારી",
+        svc2Desc: "નિવૃત્તિ પછીની જરૂરિયાતો, મોંઘવારી અને સ્ટેપ-અપ બચતનો અંદાજ લગાવો.",
+        svc3Title: "પોર્ટફોલિયો અને જોખમ સમીક્ષા",
+        svc3Desc: "એસેટ એલોકેશન અને ઓવરલેપની નિયમિત સમીક્ષા કરો.",
+        calcKicker: "ઇન્ટરેક્ટિવ ટૂલ્સ",
+        calcTitle: "નાણાકીય કેલ્ક્યુલેટર્સ",
+        calcDesc: "વિવિધ ધારણાઓ સાથે નાણાકીય લક્ષ્યોનું આયોજન કરો.",
+        statusLive: "ઉપલબ્ધ",
+        statusSoon: "ટૂંક સમયમાં આવી રહ્યું છે",
+        calc1Title: "નિવૃત્તિ પ્લાનર (Rcalc1)",
+        calc1Desc: "નિવૃત્તિ ફંડ અને માસિક SIP ની ગણતરી વાસ્તવિક વળતર ધારણાઓ સાથે કરો.",
+        calc2Title: "ભારત વેલ્થ ઇક્વિટી સ્ટડી",
+        calc2Desc: "ઇક્વિટી સ્ક્રીનિંગ અને પેપર-ટેસ્ટિંગ પ્રક્રિયા સમજો.",
+        calc3Title: "લાઇફ રિસ્ક અને ટર્મ એસ્ટિમેટર",
+        calc3Desc: "ઉંમર આધારિત ટર્મ કવરેજ આયોજન ટૂલ વિકાસ હેઠળ છે.",
+        openTool: "કેલ્ક્યુલેટર ખોલો",
+        contactKicker: "સંપર્ક કરો",
+        contactTitle: "AUMRMoney સાથે જોડાઓ",
+        contactDesc: "કોલ-બેક માટે તમારી વિગતો આપો અથવા સીધો સંપર્ક કરો.",
+        labelName: "પૂરું નામ",
+        labelPhone: "ફોન / વોટ્સએપ",
+        labelEmail: "ઈમેલ સરનામું",
+        submitBtn: "કોલ-બેક વિનંતી કરો",
+        directTitle: "સીધો સંપર્ક અને UPI",
+        upiLabel: "UPI ID (શૈક્ષણિક / સંસાધન યોગદાન)",
+        copyBtn: "કોપી કરો",
+        copiedBtn: "કોપી થયું",
+        disclaimer: "મ્યુચ્યુઅલ ફંડ રોકાણ બજારના જોખમોને આધીન છે. રોકાણ કરતા પહેલાં યોજના સંબંધિત તમામ દસ્તાવેજો કાળજીપૂર્વક વાંચો. આ સાઇટ પરના કેલ્ક્યુલેટર્સ માત્ર શૈક્ષણિક અને આયોજન ઉદાહરણ માટે છે; આ ખાતરીપૂર્વકનું વળતર કે રોકાણ સલાહ નથી."
+      }
+    };
+
+    let currentLang = "en";
+
+    function applyLanguage(lang) {
+      currentLang = translations[lang] ? lang : "en";
+      document.documentElement.lang = currentLang;
+      const dict = translations[currentLang];
+
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key]) {
+          el.textContent = dict[key];
+        }
+      });
+
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        btn.classList.toggle("active", btn.getAttribute("data-lang") === currentLang);
+      });
+    }
+
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => applyLanguage(btn.getAttribute("data-lang")));
+    });
+
+    const leadForm = document.getElementById("leadForm");
+    const formStatus = document.getElementById("formStatus");
+
+    leadForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("leadName").value.trim();
+      const phone = document.getElementById("leadPhone").value.trim();
+      const email = document.getElementById("leadEmail").value.trim();
+
+      if (!name || !phone || !email) {
+        formStatus.className = "form-status status-err";
+        formStatus.textContent = "Please fill in your name, phone number, and email address.";
+        return;
+      }
+
+      const payload = { name, phone, email, submittedAt: new Date().toISOString(), source: "aumrmoney-index" };
+
+      if (!APPS_SCRIPT_URL) {
+        formStatus.className = "form-status status-ok";
+        formStatus.textContent = "Callback request noted. You can also message +91 9099910615 on WhatsApp.";
+        leadForm.reset();
+        return;
+      }
+
+      try {
+        await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        formStatus.className = "form-status status-ok";
+        formStatus.textContent = "Thank you! Your callback request has been submitted.";
+        leadForm.reset();
+      } catch (err) {
+        formStatus.className = "form-status status-err";
+        formStatus.textContent = "Could not submit automatically. Please reach out on WhatsApp at +91 9099910615.";
+      }
+    });
+
+    const copyUpiBtn = document.getElementById("copyUpiBtn");
+    const upiIdText = document.getElementById("upiIdText");
+
+    copyUpiBtn.addEventListener("click", async () => {
+      const upi = upiIdText.textContent.trim();
+      const dict = translations[currentLang];
+      try {
+        await navigator.clipboard.writeText(upi);
+        copyUpiBtn.textContent = dict.copiedBtn || "Copied";
+        setTimeout(() => {
+          copyUpiBtn.textContent = dict.copyBtn || "Copy";
+        }, 1800);
+      } catch (_) {
+        copyUpiBtn.textContent = upi;
+      }
+    });
+  </script>
+</body>
+</html>

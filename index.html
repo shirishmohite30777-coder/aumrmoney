@@ -3,21 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AUMRMoney | Practical Wealth, SIPs & Financial Clarity</title>
+  <title>AUMRMoney | Practical Wealth, SIPs &amp; Financial Clarity</title>
   <style>
     :root {
-      --bg: #f6f8f5;
+      --bg: #f4f7f4;
       --surface: #ffffff;
       --text: #0f1f19;
-      --muted: #4a5d54;
+      --muted: #495d54;
       --green-dark: #0b3d2e;
       --green-mid: #14533e;
       --gold: #d4af37;
-      --gold-light: #fef9e7;
+      --gold-soft: #fef9e7;
       --orange: #f97316;
       --orange-dark: #ea580c;
-      --border: #dce5df;
+      --border: #d9e3dc;
       --radius: 14px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 84px;
     }
 
     * {
@@ -33,41 +38,42 @@
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    section[id] {
+      scroll-margin-top: 84px;
     }
 
     .container {
-      max-width: 1040px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
-    /* Header */
     header {
-      background: var(--surface);
-      border-bottom: 2px solid var(--gold);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--gold);
     }
 
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
       min-height: 68px;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 8px 0;
+      flex-wrap: nowrap;
     }
 
     .brand {
-      font-size: 1.35rem;
+      font-size: 1.45rem;
       font-weight: 800;
       color: var(--green-dark);
+      text-decoration: none;
       letter-spacing: -0.02em;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .brand span {
@@ -77,142 +83,143 @@
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
+      gap: 16px;
+      flex-wrap: nowrap;
     }
 
     .nav-links {
       display: flex;
-      gap: 24px;
+      align-items: center;
+      gap: 18px;
+      white-space: nowrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--green-dark);
+      font-weight: 600;
       font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--muted);
     }
 
     .nav-links a:hover {
-      color: var(--orange-dark);
+      color: var(--orange);
     }
 
     .lang-switcher {
       display: flex;
+      align-items: center;
       gap: 6px;
-      flex-wrap: wrap;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .lang-btn {
-      background: var(--bg);
-      color: var(--green-dark);
       border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 5px 10px;
+      background: #ffffff;
+      color: var(--green-dark);
+      border-radius: 999px;
+      padding: 5px 11px;
       font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.15s ease;
-    }
-
-    .lang-btn:hover {
-      border-color: var(--orange);
-      color: var(--orange-dark);
     }
 
     .lang-btn.active {
       background: var(--green-dark);
       color: #ffffff;
-      border-color: var(--gold);
-    }
-
-    /* Dark Green, Gold & Bright Orange Welcome Banner */
-    .hero-wrap {
-      padding: 28px 0 16px;
+      border-color: var(--green-dark);
     }
 
     .hero {
-      background: linear-gradient(125deg, var(--green-dark) 0%, var(--green-mid) 52%, var(--orange) 130%);
+      background: linear-gradient(120deg, var(--green-dark) 0%, var(--green-mid) 62%, #1d6b50 100%);
       color: #ffffff;
-      border: 2px solid var(--gold);
-      border-radius: 20px;
-      padding: 56px 28px;
-      text-align: center;
-      box-shadow: 0 14px 32px rgba(11, 61, 46, 0.18);
+      padding: 68px 0 60px;
+      border-bottom: 4px solid var(--gold);
     }
 
-    .badge {
+    .hero-eyebrow {
       display: inline-block;
-      background: rgba(212, 175, 55, 0.2);
-      color: #fde68a;
-      font-size: 0.84rem;
-      font-weight: 600;
-      padding: 6px 16px;
-      border-radius: 999px;
-      margin-bottom: 18px;
+      background: rgba(212, 175, 55, 0.18);
       border: 1px solid var(--gold);
+      color: #fde68a;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
     }
 
-    h1 {
+    .hero h1 {
       font-size: clamp(2rem, 4vw, 3rem);
       line-height: 1.15;
-      letter-spacing: -0.03em;
       max-width: 760px;
-      margin: 0 auto 18px;
-    }
-
-    h1 .gold-text {
-      color: #fde047;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
     }
 
     .hero p {
-      font-size: 1.06rem;
-      color: rgba(255, 255, 255, 0.94);
-      max-width: 640px;
-      margin: 0 auto 28px;
+      max-width: 680px;
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .btn {
       display: inline-block;
       background: var(--orange);
       color: #ffffff;
+      text-decoration: none;
       font-weight: 700;
-      padding: 12px 24px;
-      border-radius: 8px;
-      border: 1px solid #fde047;
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: none;
       cursor: pointer;
-      font-size: 1rem;
-      transition: transform 0.15s ease, background 0.15s ease;
+      font-size: 0.95rem;
     }
 
     .btn:hover {
       background: var(--orange-dark);
-      transform: translateY(-1px);
     }
 
-    .btn-green {
-      background: var(--green-dark);
-      color: #ffffff;
-      border: 1px solid var(--gold);
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #fde68a;
+      color: #fde68a;
     }
 
-    .btn-green:hover {
-      background: var(--green-mid);
+    .btn-outline:hover {
+      background: rgba(253, 230, 138, 0.12);
     }
 
-    /* Services */
     section {
-      padding: 36px 0;
+      padding: 54px 0;
     }
 
-    .section-title {
-      font-size: 1.5rem;
+    .section-head {
+      margin-bottom: 26px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.5rem, 2.8vw, 2rem);
       color: var(--green-dark);
-      margin-bottom: 20px;
       letter-spacing: -0.02em;
-      border-left: 4px solid var(--gold);
-      padding-left: 12px;
+      margin-bottom: 6px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 660px;
     }
 
     .grid-3 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 20px;
     }
 
@@ -221,73 +228,161 @@
       border: 1px solid var(--border);
       border-top: 4px solid var(--gold);
       border-radius: var(--radius);
-      padding: 24px;
-    }
-
-    .card:nth-child(2) {
-      border-top-color: var(--orange);
-    }
-
-    .card:nth-child(3) {
-      border-top-color: var(--green-dark);
+      padding: 22px;
+      box-shadow: 0 6px 20px rgba(11, 61, 46, 0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
     }
 
     .card h3 {
-      font-size: 1.12rem;
-      margin-bottom: 8px;
-      color: var(--green-dark);
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    /* Inquiry & UPI Box */
-    .split {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      align-items: start;
-    }
-
-    form label {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: 1.15rem;
       color: var(--green-dark);
       margin-bottom: 6px;
     }
 
-    form input {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1px solid var(--border);
+    .card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .calc-card.coming-soon {
+      border-top-color: #94a3b8;
+      background: #f9fbf9;
+    }
+
+    .card-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .badge-live {
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #86efac;
+    }
+
+    .badge-soon {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fcd34d;
+    }
+
+    .calc-link {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--orange);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 9px 14px;
       border-radius: 8px;
-      font-size: 0.95rem;
+      align-self: flex-start;
+    }
+
+    .calc-link:hover {
+      background: var(--orange-dark);
+    }
+
+    .calc-status-disabled {
+      display: inline-block;
+      background: #e2e8f0;
+      color: #475569;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 8px 14px;
+      border-radius: 8px;
+      align-self: flex-start;
+      cursor: not-allowed;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
+      align-items: start;
+    }
+
+    .field {
       margin-bottom: 14px;
     }
 
-    form input:focus {
+    .field label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 5px;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
       outline: none;
       border-color: var(--orange);
     }
 
-    .upi-box {
-      background: var(--gold-light);
-      border: 1px solid var(--gold);
-      border-radius: 12px;
-      padding: 18px;
-      margin-top: 14px;
-      font-size: 0.92rem;
+    .contact-item {
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 0.95rem;
     }
 
-    .upi-row {
+    .contact-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .contact-item strong {
+      color: var(--green-dark);
+      display: block;
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 2px;
+    }
+
+    .contact-item a {
+      color: var(--orange-dark);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    .upi-box {
+      margin-top: 12px;
+      background: var(--gold-soft);
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      padding: 14px;
       display: flex;
-      align-items: center;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .upi-id {
@@ -295,64 +390,102 @@
       font-size: 0.98rem;
       font-weight: 700;
       color: var(--orange-dark);
-      background: var(--surface);
-      padding: 5px 10px;
-      border-radius: 6px;
-      border: 1px solid var(--gold);
-      display: inline-block;
+      margin: 4px 0 8px;
     }
 
     .copy-btn {
-      background: var(--orange);
+      background: var(--green-dark);
       color: #ffffff;
       border: none;
-      border-radius: 6px;
-      padding: 6px 12px;
-      font-size: 0.85rem;
-      font-weight: 600;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.84rem;
+      font-weight: 700;
       cursor: pointer;
     }
 
     .copy-btn:hover {
-      background: var(--orange-dark);
+      background: var(--green-mid);
     }
 
-    .status-msg {
-      margin-top: 12px;
+    .qr-img {
+      width: 120px;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid var(--gold);
+    }
+
+    .form-msg {
+      margin-top: 10px;
       font-size: 0.9rem;
-      color: var(--green-mid);
+      font-weight: 600;
+      color: var(--green-dark);
+    }
+
+    footer {
+      background: var(--green-dark);
+      color: rgba(255, 255, 255, 0.88);
+      border-top: 3px solid var(--gold);
+      padding: 26px 0;
+      font-size: 0.86rem;
+    }
+
+    .footer-brand {
+      font-weight: 800;
+      color: #fde047;
+      margin-bottom: 6px;
+    }
+
+    .footer-partners {
+      color: #fde68a;
+      margin-bottom: 8px;
       font-weight: 600;
     }
 
-    /* Footer */
-    footer {
-      margin-top: 36px;
-      background: var(--green-dark);
-      border-top: 3px solid var(--gold);
-      padding: 28px 0;
-      color: rgba(255, 255, 255, 0.85);
-      font-size: 0.85rem;
+    .footer-disclaimer {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.76);
+      line-height: 1.5;
     }
 
-    .disclaimer {
-      margin-top: 12px;
-      font-size: 0.78rem;
-      line-height: 1.5;
-      color: rgba(255, 255, 255, 0.72);
+    @media (max-width: 760px) {
+      html {
+        scroll-padding-top: 124px;
+      }
+
+      section[id] {
+        scroll-margin-top: 124px;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        padding: 10px 0;
+      }
+
+      .nav-right {
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
     }
   </style>
 </head>
-<body>
+<body id="top">
   <header>
     <div class="container nav">
-      <a href="#" class="brand">AUMR<span>Money</span></a>
+      <a href="#top" class="brand">AUMR<span>Money</span></a>
       <div class="nav-right">
-        <nav class="nav-links">
-          <a href="#services" data-i18n="nav_solutions">Solutions</a>
-          <a href="#calculators" data-i18n="nav_calculators">Calculators</a>
-          <a href="#contact" data-i18n="nav_connect">Connect</a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#services" data-i18n="navServices">Solutions</a>
+          <a href="#calculators" data-i18n="navCalculators">Calculators</a>
+          <a href="#contact" data-i18n="navContact">Connect</a>
         </nav>
-        <div class="lang-switcher" role="group" aria-label="Language switcher">
+        <div class="lang-switcher" role="group" aria-label="Language selector">
           <button type="button" class="lang-btn active" data-lang="en">English</button>
           <button type="button" class="lang-btn" data-lang="hi">हिन्दी</button>
           <button type="button" class="lang-btn" data-lang="mr">मराठी</button>
@@ -362,100 +495,141 @@
     </div>
   </header>
 
-  <main class="container">
-    <div class="hero-wrap">
-      <section class="hero">
-        <span class="badge" data-i18n="hero_badge">Vadodara, Gujarat &bull; Financial Awareness &amp; Planning</span>
-        <h1>
-          <span data-i18n="hero_title_1">Disciplined Wealth Building &amp;</span>
-          <span class="gold-text" data-i18n="hero_title_gold">Practical Financial Tools</span>
-        </h1>
-        <p data-i18n="hero_desc">
-          AUMRMoney helps individuals and families build steady financial habits through mutual fund
-          distribution guidance, SIP planning, risk profiling, retirement roadmaps, and term protection.
-        </p>
-        <a href="#contact" class="btn" data-i18n="hero_cta">Request a Callback</a>
-      </section>
-    </div>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-eyebrow" data-i18n="heroEyebrow">AMFI-Registered Mutual Fund Distributor &bull; ARN - 362794</div>
+        <h1 data-i18n="heroTitle">Disciplined Wealth Building &amp; Practical Financial Clarity</h1>
+        <p data-i18n="heroDesc">Structured SIP planning, goal-based mutual fund distribution, and retirement readiness tools by Shirish Mohite (AUMRMoney), Vadodara.</p>
+        <div class="hero-actions">
+          <a href="#calculators" class="btn" data-i18n="heroCtaPrimary">Explore Calculators</a>
+          <a href="#contact" class="btn btn-outline" data-i18n="heroCtaSecondary">Book a Consultation</a>
+        </div>
+      </div>
+    </section>
 
     <section id="services">
-      <h2 class="section-title" data-i18n="services_title">Core Focus Areas</h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3 data-i18n="s1_title">Mutual Funds &amp; SIPs</h3>
-          <p data-i18n="s1_desc">
-            Goal-aligned Systematic Investment Plans and fund category education designed for long-term
-            consistency rather than short-term noise.
-          </p>
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="servicesTitle">Financial Solutions</h2>
+          <p data-i18n="servicesSubtitle">Simple, goal-oriented guidance tailored for families, professionals, and retirees.</p>
         </div>
-        <div class="card">
-          <h3 data-i18n="s2_title">Risk Profiling &amp; Retirement</h3>
-          <p data-i18n="s2_desc">
-            Structured conversations around time horizon, comfort with volatility, and sustainable
-            retirement cash-flow planning.
-          </p>
-        </div>
-        <div class="card">
-          <h3 data-i18n="s3_title">Term Insurance &amp; Protection</h3>
-          <p data-i18n="s3_desc">
-            Straightforward income-replacement cover planning so core family goals stay protected
-            against unexpected events.
-          </p>
+        <div class="grid-3">
+          <article class="card">
+            <div>
+              <h3 data-i18n="svc1Title">Goal-Based SIP Planning</h3>
+              <p data-i18n="svc1Desc">Align monthly investments with milestones such as education, home purchase, and long-term wealth creation.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div>
+              <h3 data-i18n="svc2Title">Retirement Readiness</h3>
+              <p data-i18n="svc2Desc">Estimate inflation-adjusted retirement corpus requirements and build a steady investment roadmap.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div>
+              <h3 data-i18n="svc3Title">Portfolio &amp; Risk Review</h3>
+              <p data-i18n="svc3Desc">Periodic asset allocation checkups and term protection awareness for balanced family security.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="calculators">
-      <h2 class="section-title" data-i18n="calc_title">Planning Calculators</h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3 data-i18n="c1_title">Long-Term Equity Planner</h3>
-          <p data-i18n="c1_desc">Project long-term wealth creation through disciplined monthly SIP contributions.</p>
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="calcTitle">Financial Calculators</h2>
+          <p data-i18n="calcSubtitle">Interactive planning tools to estimate targets and understand compounding.</p>
         </div>
-        <div class="card">
-          <h3><a href="rcalc1.html" style="text-decoration:underline;" data-i18n="c2_title">Retirement Planner (Rcalc1)</a></h3>
-          <p data-i18n="c2_desc">Estimate target corpus and monthly savings needed for comfortable post-work years.</p>
-        </div>
-        <div class="card">
-          <h3 data-i18n="c3_title">Term Cover Estimator</h3>
-          <p data-i18n="c3_desc">Assess adequate protection based on annual income, liabilities, and family needs.</p>
+        <div class="grid-3">
+          <article class="card calc-card coming-soon" aria-disabled="true">
+            <div>
+              <div class="card-top-row">
+                <h3 data-i18n="calc1Title">Long-Term Equity Planner</h3>
+                <span class="badge badge-soon" data-i18n="comingSoonBadge">Coming Soon</span>
+              </div>
+              <p data-i18n="calc1Desc">Project long-term SIP compounding and wealth growth across market cycles.</p>
+            </div>
+            <span class="calc-status-disabled" aria-disabled="true" data-i18n="comingSoonBtn">Coming Soon</span>
+          </article>
+
+          <article class="card calc-card">
+            <div>
+              <div class="card-top-row">
+                <h3 data-i18n="calc2Title">Retirement Planner</h3>
+                <span class="badge badge-live" data-i18n="liveBadge">Available</span>
+              </div>
+              <p data-i18n="calc2Desc">Calculate your inflation-adjusted retirement corpus and required monthly SIP.</p>
+            </div>
+            <a href="rcalc1.html" class="calc-link" data-i18n="openCalcBtn">Open Calculator &rarr;</a>
+          </article>
+
+          <article class="card calc-card coming-soon" aria-disabled="true">
+            <div>
+              <div class="card-top-row">
+                <h3 data-i18n="calc3Title">Term Cover Estimator</h3>
+                <span class="badge badge-soon" data-i18n="comingSoonBadge">Coming Soon</span>
+              </div>
+              <p data-i18n="calc3Desc">Assess adequate family protection cover based on income, liabilities, and goals.</p>
+            </div>
+            <span class="calc-status-disabled" aria-disabled="true" data-i18n="comingSoonBtn">Coming Soon</span>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="contact">
-      <h2 class="section-title" data-i18n="contact_title">Get in Touch</h2>
-      <div class="split">
-        <div class="card">
-          <h3 data-i18n="form_title">Quick Inquiry Form</h3>
-          <form id="inquiryForm">
-            <label for="name" data-i18n="label_name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" data-i18n-placeholder="ph_name" required />
-
-            <label for="phone" data-i18n="label_phone">Phone / WhatsApp</label>
-            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required />
-
-            <label for="goal" data-i18n="label_goal">Financial Goal</label>
-            <input type="text" id="goal" name="goal" placeholder="e.g., SIP, Retirement, Term Plan" data-i18n-placeholder="ph_goal" required />
-
-            <button type="submit" class="btn btn-green" data-i18n="btn_submit">Send Inquiry</button>
-            <p class="status-msg" id="formStatus"></p>
-          </form>
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="contactTitle">Connect with AUMRMoney</h2>
+          <p data-i18n="contactSubtitle">Reach out for mutual fund distribution, SIP setup, or retirement planning discussions.</p>
         </div>
+        <div class="contact-grid">
+          <div class="card">
+            <h3 data-i18n="formTitle">Send an Inquiry</h3>
+            <form id="contactForm">
+              <div class="field">
+                <label for="nameInput" data-i18n="labelName">Full Name</label>
+                <input id="nameInput" type="text" required placeholder="Your name" data-i18n-placeholder="phName" />
+              </div>
+              <div class="field">
+                <label for="phoneInput" data-i18n="labelPhone">Phone / WhatsApp</label>
+                <input id="phoneInput" type="tel" required placeholder="+91 9099910615" data-i18n-placeholder="phPhone" />
+              </div>
+              <div class="field">
+                <label for="goalInput" data-i18n="labelGoal">Goal or Message</label>
+                <textarea id="goalInput" rows="3" required placeholder="Tell us about your investment or retirement goal" data-i18n-placeholder="phGoal"></textarea>
+              </div>
+              <button type="submit" class="btn" data-i18n="submitBtn">Request Callback</button>
+              <div id="formMsg" class="form-msg" aria-live="polite"></div>
+            </form>
+          </div>
 
-        <div class="card">
-          <h3 data-i18n="direct_title">Direct Contact &amp; UPI</h3>
-          <p data-i18n="direct_desc">
-            Available for structured financial awareness, goal planning, and mutual fund distribution
-            consultations from Vadodara, Gujarat.
-          </p>
-          <div class="upi-box">
-            <strong data-i18n="upi_label">UPI ID for Consultation / Service Support:</strong>
-            <div class="upi-row">
-              <span class="upi-id" id="upiValue">shirish.mohite@okicici</span>
-              <button type="button" class="copy-btn" id="copyUpiBtn" data-i18n="btn_copy">Copy UPI ID</button>
+          <div class="card">
+            <h3 data-i18n="directTitle">Direct Contact &amp; UPI</h3>
+            <p data-i18n="directDesc">Available for structured financial awareness, goal planning, and mutual fund distribution consultations from Vadodara, Gujarat.</p>
+
+            <div class="contact-item">
+              <strong data-i18n="directPhoneLabel">Phone / WhatsApp</strong>
+              <a href="tel:+919099910615">+91 9099910615</a> &bull;
+              <a href="https://wa.me/919099910615" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             </div>
-            <p class="status-msg" id="copyStatus" style="margin-top: 8px;"></p>
+
+            <div class="contact-item">
+              <strong data-i18n="directEmailLabel">Email</strong>
+              <a href="mailto:aumrmoney@gmail.com">aumrmoney@gmail.com</a>
+            </div>
+
+            <div class="upi-box">
+              <div>
+                <div style="font-size: 0.84rem; font-weight: 700; color: var(--green-dark);" data-i18n="upiLabel">UPI ID for Consultation / Service Support:</div>
+                <div class="upi-id" id="upiIdText">shirish.mohite@okicici</div>
+                <button type="button" class="copy-btn" id="copyUpiBtn" data-i18n="copyUpiBtn">Copy UPI ID</button>
+              </div>
+              <img src="qr.png" alt="AUMRMoney UPI QR Code" class="qr-img" />
+            </div>
           </div>
         </div>
       </div>
@@ -464,191 +638,226 @@
 
   <footer>
     <div class="container">
-      <div><strong>AUMRMoney</strong> &bull; <span data-i18n="footer_loc">Vadodara, Gujarat, India</span></div>
-      <div class="disclaimer" data-i18n="footer_disclaimer">
-        Disclaimer: Mutual fund investments are subject to market risks. Read all scheme related
-        documents carefully before investing. Content on this website is for educational and
-        informational purposes only and should not be construed as guaranteed return advice.
-      </div>
+      <div class="footer-brand" data-i18n="footerBrand">AUMRMoney &bull; Shirish Mohite (ARN - 362794) &bull; Vadodara, Gujarat</div>
+      <div class="footer-partners" data-i18n="footerPartners">Partners: NJ IndiaInvest &bull; ICICI Prudential Mutual Fund &bull; HDFC Mutual Fund &bull; SBI Mutual Fund &bull; Axis Mutual Fund &bull; Kotak Mahindra Mutual Fund &bull; Nippon India Mutual Fund &bull; UTI Mutual Fund &bull; Mirae Asset Mutual Fund &bull; Edelweiss Mutual Fund</div>
+      <div class="footer-disclaimer" data-i18n="footerDisclaimer">Disclaimer: Mutual Fund investments are subject to market risks, read all scheme related documents carefully.</div>
     </div>
   </footer>
 
   <script>
     const translations = {
       en: {
-        nav_solutions: "Solutions",
-        nav_calculators: "Calculators",
-        nav_connect: "Connect",
-        hero_badge: "Vadodara, Gujarat \u2022 Financial Awareness & Planning",
-        hero_title_1: "Disciplined Wealth Building &",
-        hero_title_gold: "Practical Financial Tools",
-        hero_desc: "AUMRMoney helps individuals and families build steady financial habits through mutual fund distribution guidance, SIP planning, risk profiling, retirement roadmaps, and term protection.",
-        hero_cta: "Request a Callback",
-        services_title: "Core Focus Areas",
-        s1_title: "Mutual Funds & SIPs",
-        s1_desc: "Goal-aligned Systematic Investment Plans and fund category education designed for long-term consistency rather than short-term noise.",
-        s2_title: "Risk Profiling & Retirement",
-        s2_desc: "Structured conversations around time horizon, comfort with volatility, and sustainable retirement cash-flow planning.",
-        s3_title: "Term Insurance & Protection",
-        s3_desc: "Straightforward income-replacement cover planning so core family goals stay protected against unexpected events.",
-        calc_title: "Planning Calculators",
-        c1_title: "Long-Term Equity Planner",
-        c1_desc: "Project long-term wealth creation through disciplined monthly SIP contributions.",
-        c2_title: "Retirement Planner (Rcalc1)",
-        c2_desc: "Estimate target corpus and monthly savings needed for comfortable post-work years.",
-        c3_title: "Term Cover Estimator",
-        c3_desc: "Assess adequate protection based on annual income, liabilities, and family needs.",
-        contact_title: "Get in Touch",
-        form_title: "Quick Inquiry Form",
-        label_name: "Full Name",
-        ph_name: "Enter your name",
-        label_phone: "Phone / WhatsApp",
-        label_goal: "Financial Goal",
-        ph_goal: "e.g., SIP, Retirement, Term Plan",
-        btn_submit: "Send Inquiry",
-        direct_title: "Direct Contact & UPI",
-        direct_desc: "Available for structured financial awareness, goal planning, and mutual fund distribution consultations from Vadodara, Gujarat.",
-        upi_label: "UPI ID for Consultation / Service Support:",
-        btn_copy: "Copy UPI ID",
-        footer_loc: "Vadodara, Gujarat, India",
-        footer_disclaimer: "Disclaimer: Mutual fund investments are subject to market risks. Read all scheme related documents carefully before investing. Content on this website is for educational and informational purposes only and should not be construed as guaranteed return advice.",
-        copy_ok: "UPI ID copied: shirish.mohite@okicici",
-        copy_fail: "Copy failed. Please copy shirish.mohite@okicici manually.",
-        form_ok: "Thank you, {name}. Your inquiry details are ready—connect this form to Formspree, Google Apps Script, or EmailJS to receive submissions directly."
+        navServices: "Solutions",
+        navCalculators: "Calculators",
+        navContact: "Connect",
+        heroEyebrow: "AMFI-Registered Mutual Fund Distributor \u2022 ARN - 362794",
+        heroTitle: "Disciplined Wealth Building & Practical Financial Clarity",
+        heroDesc: "Structured SIP planning, goal-based mutual fund distribution, and retirement readiness tools by Shirish Mohite (AUMRMoney), Vadodara.",
+        heroCtaPrimary: "Explore Calculators",
+        heroCtaSecondary: "Book a Consultation",
+        servicesTitle: "Financial Solutions",
+        servicesSubtitle: "Simple, goal-oriented guidance tailored for families, professionals, and retirees.",
+        svc1Title: "Goal-Based SIP Planning",
+        svc1Desc: "Align monthly investments with milestones such as education, home purchase, and long-term wealth creation.",
+        svc2Title: "Retirement Readiness",
+        svc2Desc: "Estimate inflation-adjusted retirement corpus requirements and build a steady investment roadmap.",
+        svc3Title: "Portfolio & Risk Review",
+        svc3Desc: "Periodic asset allocation checkups and term protection awareness for balanced family security.",
+        calcTitle: "Financial Calculators",
+        calcSubtitle: "Interactive planning tools to estimate targets and understand compounding.",
+        calc1Title: "Long-Term Equity Planner",
+        calc1Desc: "Project long-term SIP compounding and wealth growth across market cycles.",
+        calc2Title: "Retirement Planner",
+        calc2Desc: "Calculate your inflation-adjusted retirement corpus and required monthly SIP.",
+        calc3Title: "Term Cover Estimator",
+        calc3Desc: "Assess adequate family protection cover based on income, liabilities, and goals.",
+        liveBadge: "Available",
+        comingSoonBadge: "Coming Soon",
+        comingSoonBtn: "Coming Soon",
+        openCalcBtn: "Open Calculator \u2192",
+        contactTitle: "Connect with AUMRMoney",
+        contactSubtitle: "Reach out for mutual fund distribution, SIP setup, or retirement planning discussions.",
+        formTitle: "Send an Inquiry",
+        labelName: "Full Name",
+        labelPhone: "Phone / WhatsApp",
+        labelGoal: "Goal or Message",
+        phName: "Your name",
+        phPhone: "+91 9099910615",
+        phGoal: "Tell us about your investment or retirement goal",
+        submitBtn: "Request Callback",
+        formSuccess: "Thank you! Your inquiry is ready. You may also call or WhatsApp +91 9099910615 directly.",
+        directTitle: "Direct Contact & UPI",
+        directDesc: "Available for structured financial awareness, goal planning, and mutual fund distribution consultations from Vadodara, Gujarat.",
+        directPhoneLabel: "Phone / WhatsApp",
+        directEmailLabel: "Email",
+        upiLabel: "UPI ID for Consultation / Service Support:",
+        copyUpiBtn: "Copy UPI ID",
+        copiedUpiBtn: "Copied!",
+        footerBrand: "AUMRMoney \u2022 Shirish Mohite (ARN - 362794) \u2022 Vadodara, Gujarat",
+        footerPartners: "Partners: NJ IndiaInvest \u2022 ICICI Prudential Mutual Fund \u2022 HDFC Mutual Fund \u2022 SBI Mutual Fund \u2022 Axis Mutual Fund \u2022 Kotak Mahindra Mutual Fund \u2022 Nippon India Mutual Fund \u2022 UTI Mutual Fund \u2022 Mirae Asset Mutual Fund \u2022 Edelweiss Mutual Fund",
+        footerDisclaimer: "Disclaimer: Mutual Fund investments are subject to market risks, read all scheme related documents carefully."
       },
       hi: {
-        nav_solutions: "समाधान",
-        nav_calculators: "कैलकुलेटर",
-        nav_connect: "संपर्क",
-        hero_badge: "वडोदरा, गुजरात \u2022 वित्तीय जागरूकता एवं योजना",
-        hero_title_1: "अनुशासित संपत्ति निर्माण एवं",
-        hero_title_gold: "व्यावहारिक वित्तीय उपकरण",
-        hero_desc: "AUMRMoney म्यूचुअल फंड वितरण मार्गदर्शन, SIP योजना, जोखिम मूल्यांकन, रिटायरमेंट रोडमैप और टर्म प्रोटेक्शन के माध्यम से व्यक्तियों और परिवारों को स्थिर वित्तीय आदतें बनाने में मदद करता है।",
-        hero_cta: "कॉल बैक का अनुरोध करें",
-        services_title: "मुख्य कार्य क्षेत्र",
-        s1_title: "म्यूचुअल फंड और SIP",
-        s1_desc: "लक्ष्य-आधारित सिस्टेमैटिक इन्वेस्टमेंट प्लान (SIP) और फंड श्रेणी की जानकारी, जो अल्पकालिक उतार-चढ़ाव के बजाय दीर्घकालिक निरंतरता के लिए डिज़ाइन की गई है।",
-        s2_title: "जोखिम प्रोफाइलिंग और रिटायरमेंट",
-        s2_desc: "समय अवधि, बाजार उतार-चढ़ाव की सहजता और टिकाऊ रिटायरमेंट कैश-फ्लो योजना पर व्यवस्थित मार्गदर्शन।",
-        s3_title: "टर्म इंश्योरेंस और सुरक्षा",
-        s3_desc: "सरल आय-प्रतिस्थापन कवर योजना ताकि अनपेक्षित परिस्थितियों में भी परिवार के मुख्य लक्ष्य सुरक्षित रहें।",
-        calc_title: "वित्तीय योजना कैलकुलेटर",
-        c1_title: "दीर्घकालिक इक्विटी प्लानर",
-        c1_desc: "अनुशासित मासिक SIP योगदान के माध्यम से दीर्घकालिक संपत्ति निर्माण का अनुमान लगाएं।",
-        c2_title: "रिटायरमेंट प्लानर (Rcalc1)",
-        c2_desc: "सेवानिवृत्ति के बाद के आरामदायक वर्षों के लिए आवश्यक लक्ष्य राशि और मासिक बचत का अनुमान लगाएं।",
-        c3_title: "टर्म कवर एस्टिमेटर",
-        c3_desc: "वार्षिक आय, देनदारियों और पारिवारिक जरूरतों के आधार पर पर्याप्त बीमा सुरक्षा का आकलन करें।",
-        contact_title: "संपर्क करें",
-        form_title: "त्वरित पूछताछ फॉर्म",
-        label_name: "पूरा नाम",
-        ph_name: "अपना नाम दर्ज करें",
-        label_phone: "फोन / व्हाट्सएप",
-        label_goal: "वित्तीय लक्ष्य",
-        ph_goal: "जैसे, SIP, रिटायरमेंट, टर्म प्लान",
-        btn_submit: "पूछताछ भेजें",
-        direct_title: "सीधा संपर्क और UPI",
-        direct_desc: "वडोदरा, गुजरात से व्यवस्थित वित्तीय जागरूकता, लक्ष्य योजना और म्यूचुअल फंड वितरण परामर्श के लिए उपलब्ध।",
-        upi_label: "परामर्श / सेवा सहायता के लिए UPI ID:",
-        btn_copy: "UPI ID कॉपी करें",
-        footer_loc: "वडोदरा, गुजरात, भारत",
-        footer_disclaimer: "अस्वीकरण: म्यूचुअल फंड निवेश बाजार जोखिमों के अधीन हैं। निवेश करने से पहले योजना से संबंधित सभी दस्तावेज़ ध्यानपूर्वक पढ़ें। इस वेबसाइट की सामग्री केवल शैक्षिक और सूचनात्मक उद्देश्यों के लिए है और इसे गारंटीड रिटर्न की सलाह नहीं माना जाना चाहिए।",
-        copy_ok: "UPI ID कॉपी हो गई: shirish.mohite@okicici",
-        copy_fail: "कॉपी विफल। कृपया shirish.mohite@okicici मैन्युअल रूप से कॉपी करें।",
-        form_ok: "धन्यवाद, {name}। आपका पूछताछ विवरण तैयार है—सीधे सबमिशन प्राप्त करने के लिए इस फॉर्म को Formspree, Google Apps Script या EmailJS से जोड़ें।"
+        navServices: "\u0938\u092e\u093e\u0927\u093e\u0928",
+        navCalculators: "\u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091f\u0930",
+        navContact: "\u0938\u0902\u092a\u0930\u094d\u0915",
+        heroEyebrow: "AMFI-\u092a\u0902\u091c\u0940\u0915\u0943\u0924 \u092e\u094d\u092f\u0942\u091a\u0941\u0905\u0932 \u092b\u0902\u0921 \u0935\u093f\u0924\u0930\u0915 \u2022 ARN - 362794",
+        heroTitle: "\u0905\u0928\u0941\u0936\u093e\u0938\u093f\u0924 \u0938\u0902\u092a\u0924\u094d\u0924\u093f \u0928\u093f\u0930\u094d\u092e\u093e\u0923 \u0914\u0930 \u0935\u094d\u092f\u093e\u0935\u0939\u093e\u0930\u093f\u0915 \u0935\u093f\u0924\u094d\u0924\u0940\u092f \u0938\u094d\u092a\u0937\u094d\u091f\u0924\u093e",
+        heroDesc: "\u0936\u093f\u0930\u0940\u0937 \u092e\u094b\u0939\u093f\u0924\u0947 (AUMRMoney), \u0935\u0921\u094b\u0926\u0930\u093e \u0926\u094d\u0935\u093e\u0930\u093e \u0938\u0941\u0935\u094d\u092f\u0935\u0938\u094d\u0925\u093f\u0924 SIP \u092f\u094b\u091c\u0928\u093e, \u0932\u0915\u094d\u0937\u094d\u092f-\u0906\u0927\u093e\u0930\u093f\u0924 \u092e\u094d\u092f\u0942\u091a\u0941\u0905\u0932 \u092b\u0902\u0921 \u0935\u093f\u0924\u0930\u0923 \u0914\u0930 \u0930\u093f\u091f\u093e\u092f\u0930\u092e\u0947\u0902\u091f \u0924\u0948\u092f\u093e\u0930\u0940 \u091f\u0942\u0932\u094d\u0938\u0964",
+        heroCtaPrimary: "\u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091f\u0930 \u0926\u0947\u0916\u0947\u0902",
+        heroCtaSecondary: "\u092a\u0930\u093e\u092e\u0930\u094d\u0936 \u092c\u0941\u0915 \u0915\u0930\u0947\u0902",
+        servicesTitle: "\u0935\u093f\u0924\u094d\u0924\u0940\u092f \u0938\u092e\u093e\u0927\u093e\u0928",
+        servicesSubtitle: "\u092a\u0930\u093f\u0935\u093e\u0930\u094b\u0902, \u092a\u0947\u0936\u0947\u0935\u0930\u094b\u0902 \u0914\u0930 \u0938\u0947\u0935\u093e\u0928\u093f\u0935\u0943\u0924\u094d\u0924 \u0932\u094b\u0917\u094b\u0902 \u0915\u0947 \u0932\u093f\u090f \u0938\u0930\u0932 \u0914\u0930 \u0932\u0915\u094d\u0937\u094d\u092f-\u0906\u0927\u093e\u0930\u093f\u0924 \u092e\u093e\u0930\u094d\u0917\u0926\u0930\u094d\u0936\u0928\u0964",
+        svc1Title: "\u0932\u0915\u094d\u0937\u094d\u092f-\u0906\u0927\u093e\u0930\u093f\u0924 SIP \u092f\u094b\u091c\u0928\u093e",
+        svc1Desc: "\u0936\u093f\u0915\u094d\u0937\u093e, \u0918\u0930 \u0916\u0930\u0940\u0926\u0928\u0947 \u0914\u0930 \u0926\u0940\u0930\u094d\u0918\u0915\u093e\u0932\u093f\u0915 \u0938\u0902\u092a\u0924\u094d\u0924\u093f \u0928\u093f\u0930\u094d\u092e\u093e\u0923 \u091c\u0948\u0938\u0947 \u0932\u0915\u094d\u0937\u094d\u092f\u094b\u0902 \u0915\u0947 \u0938\u093e\u0925 \u092e\u093e\u0938\u093f\u0915 \u0928\u093f\u0935\u0947\u0936 \u0915\u094b \u091c\u094b\u0921\u093c\u0947\u0902\u0964",
+        svc2Title: "\u0930\u093f\u091f\u093e\u092f\u0930\u092e\u0947\u0902\u091f \u0924\u0948\u092f\u093e\u0930\u0940",
+        svc2Desc: "\u092e\u0939\u0902\u0917\u093e\u0908-\u0938\u092e\u093e\u092f\u094b\u091c\u093f\u0924 \u0930\u093f\u091f\u093e\u092f\u0930\u092e\u0947\u0902\u091f \u092b\u0902\u0921 \u0915\u0940 \u0917\u0923\u0928\u093e \u0915\u0930\u0947\u0902 \u0914\u0930 \u0938\u094d\u0925\u093f\u0930 \u0928\u093f\u0935\u0947\u0936 \u092f\u094b\u091c\u0928\u093e \u092c\u0928\u093e\u090f\u0902\u0964",
+        svc3Title: "\u092a\u094b\u0930\u094d\u091f\u092b\u094b\u0932\u093f\u092f\u094b \u0914\u0930 \u091c\u094b\u0916\u093f\u092e \u0938\u092e\u0940\u0915\u094d\u0937\u093e",
+        svc3Desc: "\u0938\u0902\u0924\u0941\u0932\u093f\u0924 \u092a\u093e\u0930\u093f\u0935\u093e\u0930\u093f\u0915 \u0938\u0941\u0930\u0915\u094d\u0937\u093e \u0915\u0947 \u0932\u093f\u090f \u0938\u092e\u092f-\u0938\u092e\u092f \u092a\u0930 \u090f\u0938\u0947\u091f \u090f\u0932\u094b\u0915\u0947\u0936\u0928 \u091c\u093e\u0902\u091a \u0914\u0930 \u091f\u0930\u094d\u092e \u0915\u0935\u0930 \u091c\u093e\u0917\u0930\u0942\u0915\u0924\u093e\u0964",
+        calcTitle: "\u0935\u093f\u0924\u094d\u0924\u0940\u092f \u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091f\u0930",
+        calcSubtitle: "\u0932\u0915\u094d\u0937\u094d\u092f \u0905\u0928\u0941\u092e\u093e\u0928\u093f\u0924 \u0915\u0930\u0928\u0947 \u0914\u0930 \u0915\u0902\u092a\u093e\u0909\u0902\u0921\u093f\u0902\u0917 \u0938\u092e\u091d\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f \u0907\u0902\u091f\u0930\u0948\u0915\u094d\u091f\u093f\u0935 \u091f\u0942\u0932\u094d\u0938\u0964",
+        calc1Title: "\u0926\u0940\u0930\u094d\u0918\u0915\u093e\u0932\u093f\u0915 \u0907\u0915\u094d\u0935\u093f\u091f\u0940 \u092a\u094d\u0932\u093e\u0928\u0930",
+        calc1Desc: "\u092c\u093e\u091c\u093e\u0930 \u091a\u0915\u094d\u0930\u094b\u0902 \u092e\u0947\u0902 \u0926\u0940\u0930\u094d\u0918\u0915\u093e\u0932\u093f\u0915 SIP \u0915\u0902\u092a\u093e\u0909\u0902\u0921\u093f\u0902\u0917 \u0914\u0930 \u0938\u0902\u092a\u0924\u094d\u0924\u093f \u0935\u0943\u0926\u094d\u0927\u093f \u0915\u093e \u0905\u0928\u0941\u092e\u093e\u0928 \u0932\u0917\u093e\u090f\u0902\u0964",
+        calc2Title: "\u0930\u093f\u091f\u093e\u092f\u0930\u092e\u0947\u0902\u091f \u092a\u094d\u0932\u093e\u0928\u0930",
+        calc2Desc: "\u092e\u0939\u0902\u0917\u093e\u0908-\u0938\u092e\u093e\u092f\u094b\u091c\u093f\u0924 \u0930\u093f\u091f\u093e\u092f\u0930\u092e\u0947\u0902\u091f \u0915\u0949\u0930\u094d\u092a\u0938 \u0914\u0930 \u0906\u0935\u0936\u094d\u092f\u0915 \u092e\u093e\u0938\u093f\u0915 SIP \u0915\u0940 \u0917\u0923\u0928\u093e \u0915\u0930\u0947\u0902\u0964",
+        calc3Title: "\u091f\u0930\u094d\u092e \u0915\u0935\u0930 \u0905\u0928\u0941\u092e\u093e\u0928\u0915",
+        calc3Desc: "\u0906\u092f, \u0926\u0947\u0928\u0926\u093e\u0930\u093f\u092f\u094b\u0902 \u0914\u0930 \u0932\u0915\u094d\u0937\u094d\u092f\u094b\u0902 \u0915\u0947 \u0906\u0927\u093e\u0930 \u092a\u0930 \u092a\u0930\u094d\u092f\u093e\u092a\u094d\u0924 \u092a\u093e\u0930\u093f\u0935\u093e\u0930\u093f\u0915 \u0938\u0941\u0930\u0915\u094d\u0937\u093e \u0915\u0935\u0930 \u0915\u093e \u0906\u0915\u0932\u0928 \u0915\u0930\u0947\u0902\u0964",
+        liveBadge: "\u0909\u092a\u0932\u092c\u094d\u0927",
+        comingSoonBadge: "\u091c\u0932\u094d\u0926 \u0906 \u0930\u0939\u093e \u0939\u0948",
+        comingSoonBtn: "\u091c\u0932\u094d\u0926 \u0906 \u0930\u0939\u093e \u0939\u0948",
+        openCalcBtn: "\u0915\u0948\u0932\u0915\u0941\u0932\u0947\u091f\u0930 \u0916\u094b\u0932\u0947\u0902 \u2192",
+        contactTitle: "AUMRMoney \u0938\u0947 \u091c\u0941\u0921\u093c\u0947\u0902",
+        contactSubtitle: "\u092e\u094d\u092f\u0942\u091a\u0941\u0905\u0932 \u092b\u0902\u0921 \u0935\u093f\u0924\u0930\u0923, SIP \u0938\u0947\u091f\u0905\u092a \u092f\u093e \u0930\u093f\u091f\u093e\u092f\u0930\u092e\u0947\u0902\u091f \u092a\u094d\u0932\u093e\u0928\u093f\u0902\u0917 \u091a\u0930\u094d\u091a\u093e \u0915\u0947 \u0932\u093f\u090f \u0938\u0902\u092a\u0930\u094d\u0915 \u0915\u0930\u0947\u0902\u0964",
+        formTitle: "\u092a\u0942\u091b\u0924\u093e\u091b \u092d\u0947\u091c\u0947\u0902",
+        labelName: "\u092a\u0942\u0930\u093e \u0928\u093e\u092e",
+        labelPhone: "\u092b\u093c\u094b\u0928 / WhatsApp",
+        labelGoal: "\u0932\u0915\u094d\u0937\u094d\u092f \u092f\u093e \u0938\u0902\u0926\u0947\u0936",
+        phName: "\u0906\u092a\u0915\u093e \u0928\u093e\u092e",
+        phPhone: "+91 9099910615",
+        phGoal: "\u0905\u092a\u0928\u0947 \u0928\u093f\u0935\u0947\u0936 \u092f\u093e \u0930\u093f\u091f\u093e\u092f\u0930\u092e\u0947\u0902\u091f \u0932\u0915\u094d\u0937\u094d\u092f \u0915\u0947 \u092c\u093e\u0930\u0947 \u092e\u0947\u0902 \u092c\u0924\u093e\u090f\u0902",
+        submitBtn: "\u0915\u0949\u0932\u092c\u0948\u0915 \u0915\u093e \u0905\u0928\u0941\u0930\u094b\u0927 \u0915\u0930\u0947\u0902",
+        formSuccess: "\u0927\u0928\u094d\u092f\u0935\u093e\u0926! \u0906\u092a\u0915\u0940 \u092a\u0942\u091b\u0924\u093e\u091b \u0924\u0948\u092f\u093e\u0930 \u0939\u0948\u0964 \u0906\u092a \u0938\u0940\u0927\u0947 +91 9099910615 \u092a\u0930 \u0915\u0949\u0932 \u092f\u093e WhatsApp \u092d\u0940 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902\u0964",
+        directTitle: "\u0938\u0940\u0927\u093e \u0938\u0902\u092a\u0930\u094d\u0915 \u0914\u0930 UPI",
+        directDesc: "\u0935\u0921\u094b\u0926\u0930\u093e, \u0917\u0941\u091c\u0930\u093e\u0924 \u0938\u0947 \u0935\u093f\u0924\u094d\u0924\u0940\u092f \u091c\u093e\u0917\u0930\u0942\u0915\u0924\u093e, \u0932\u0915\u094d\u0937\u094d\u092f \u092f\u094b\u091c\u0928\u093e \u0914\u0930 \u092e\u094d\u092f\u0942\u091a\u0941\u0905\u0932 \u092b\u0902\u0921 \u0935\u093f\u0924\u0930\u0923 \u092a\u0930\u093e\u092e\u0930\u094d\u0936 \u0915\u0947 \u0932\u093f\u090f \u0909\u092a\u0932\u092c\u094d\u0927\u0964",
+        directPhoneLabel: "\u092b\u093c\u094b\u0928 / WhatsApp",
+        directEmailLabel: "\u0908\u092e\u0947\u0932",
+        upiLabel: "\u092a\u0930\u093e\u092e\u0930\u094d\u0936 / \u0938\u0947\u0935\u093e \u0938\u0939\u093e\u092f\u0924\u093e \u0915\u0947 \u0932\u093f\u090f UPI ID:",
+        copyUpiBtn: "UPI ID \u0915\u0949\u092a\u0940 \u0915\u0930\u0947\u0902",
+        copiedUpiBtn: "\u0915\u0949\u092a\u0940 \u0939\u094b \u0917\u092f\u093e!",
+        footerBrand: "AUMRMoney \u2022 \u0936\u093f\u0930\u0940\u0937 \u092e\u094b\u0939\u093f\u0924\u0947 (ARN - 362794) \u2022 \u0935\u0921\u094b\u0926\u0930\u093e, \u0917\u0941\u091c\u0930\u093e\u0924",
+        footerPartners: "\u0938\u093e\u091d\u0947\u0926\u093e\u0930: NJ IndiaInvest \u2022 ICICI Prudential Mutual Fund \u2022 HDFC Mutual Fund \u2022 SBI Mutual Fund \u2022 Axis Mutual Fund \u2022 Kotak Mahindra Mutual Fund \u2022 Nippon India Mutual Fund \u2022 UTI Mutual Fund \u2022 Mirae Asset Mutual Fund \u2022 Edelweiss Mutual Fund",
+        footerDisclaimer: "\u0905\u0938\u094d\u0935\u0940\u0915\u0930\u0923: \u092e\u094d\u092f\u0942\u091a\u0941\u0905\u0932 \u092b\u0902\u0921 \u0928\u093f\u0935\u0947\u0936 \u092c\u093e\u091c\u093e\u0930 \u091c\u094b\u0916\u093f\u092e\u094b\u0902 \u0915\u0947 \u0905\u0927\u0940\u0928 \u0939\u0948\u0902, \u0915\u0943\u092a\u092f\u093e \u092f\u094b\u091c\u0928\u093e \u0938\u0947 \u0938\u0902\u092c\u0902\u0927\u093f\u0924 \u0938\u092d\u0940 \u0926\u0938\u094d\u0924\u093e\u0935\u0947\u091c\u093c \u0927\u094d\u092f\u093e\u0928 \u0938\u0947 \u092a\u0922\u093c\u0947\u0902\u0964"
       },
       mr: {
-        nav_solutions: "उपाय",
-        nav_calculators: "कॅल्क्युलेटर्स",
-        nav_connect: "संपर्क",
-        hero_badge: "वडोदरा, गुजरात \u2022 आर्थिक जागरूकता आणि नियोजन",
-        hero_title_1: "शिस्तबद्ध संपत्ती निर्मिती आणि",
-        hero_title_gold: "व्यावहारिक आर्थिक साधने",
-        hero_desc: "AUMRMoney म्युच्युअल फंड वितरण मार्गदर्शन, SIP नियोजन, जोखीम मूल्यांकन, निवृत्ती आराखडा आणि टर्म प्रोटेक्शनद्वारे व्यक्ती आणि कुटुंबांना स्थिर आर्थिक सवयी लावण्यास मदत करते.",
-        hero_cta: "कॉल बॅकची विनंती करा",
-        services_title: "मुख्य कार्यक्षेत्रे",
-        s1_title: "म्युच्युअल फंड आणि SIP",
-        s1_desc: "अल्पकालीन चढ-उतारांऐवजी दीर्घकालीन सातत्यासाठी तयार केलेल्या उद्दिष्ट-आधारित सिस्टिमॅटिक इन्व्हेस्टमेंट प्लॅन्स (SIP) आणि फंड प्रकारांचे मार्गदर्शन.",
-        s2_title: "जोखीम प्रोफाइलिंग आणि निवृत्ती",
-        s2_desc: "गुंतवणूक कालावधी, बाजार अस्थिरतेची क्षमता आणि शाश्वत निवृत्ती कॅश-फ्लो नियोजनाबाबत सुसूत्र मार्गदर्शन.",
-        s3_title: "टर्म इन्शुरन्स आणि संरक्षण",
-        s3_desc: "अनपेक्षित प्रसंगांतही कुटुंबाची मुख्य उद्दिष्टे सुरक्षित राहावीत यासाठी सोपे उत्पन्न-पर्यायी विमा नियोजन.",
-        calc_title: "नियोजन कॅल्क्युलेटर्स",
-        c1_title: "दीर्घकालीन इक्विटी प्लॅनर",
-        c1_desc: "शिस्तबद्ध मासिक SIP योगदानाद्वारे दीर्घकालीन संपत्ती निर्मितीचा अंदाज घ्या.",
-        c2_title: "निवृत्ती प्लॅनर (Rcalc1)",
-        c2_desc: "निवृत्तीनंतरच्या आरामदायी वर्षांसाठी आवश्यक लक्ष्य निधी आणि मासिक बचतीचा अंदाज घ्या.",
-        c3_title: "टर्म कव्हर एस्टिमेटर",
-        c3_desc: "वार्षिक उत्पन्न, दायित्वे आणि कौटुंबिक गरजांवर आधारित योग्य विमा संरक्षणाचे मूल्यांकन करा.",
-        contact_title: "संपर्क साधा",
-        form_title: "त्वरित चौकशी फॉर्म",
-        label_name: "पूर्ण नाव",
-        ph_name: "तुमचे नाव लिहा",
-        label_phone: "फोन / व्हॉट्सॲप",
-        label_goal: "आर्थिक उद्दिष्ट",
-        ph_goal: "उदा., SIP, निवृत्ती, टर्म प्लॅन",
-        btn_submit: "चौकशी पाठवा",
-        direct_title: "थेट संपर्क आणि UPI",
-        direct_desc: "वडोदरा, गुजरात येथून सुसूत्र आर्थिक जागरूकता, उद्दिष्ट नियोजन आणि म्युच्युअल फंड वितरण सल्ल्यासाठी उपलब्ध.",
-        upi_label: "सल्लामसलत / सेवा सहाय्यासाठी UPI ID:",
-        btn_copy: "UPI ID कॉपी करा",
-        footer_loc: "वडोदरा, गुजरात, भारत",
-        footer_disclaimer: "अस्वीकरण: म्युच्युअल फंड गुंतवणूक बाजारातील जोखमीच्या अधीन असते. गुंतवणूक करण्यापूर्वी योजनेशी संबंधित सर्व कागदपत्रे काळजीपूर्वक वाचा. या वेबसाइटवरील मजकूर केवळ शैक्षणिक आणि माहितीच्या उद्देशाने आहे आणि तो हमी परताव्याचा सल्ला मानू नये.",
-        copy_ok: "UPI ID कॉपी झाला: shirish.mohite@okicici",
-        copy_fail: "कॉपी अयशस्वी. कृपया shirish.mohite@okicici स्वतः कॉपी करा.",
-        form_ok: "धन्यवाद, {name}. तुमचा चौकशी तपशील तयार आहे—थेट सबमिशन मिळवण्यासाठी हा फॉर्म Formspree, Google Apps Script किंवा EmailJS शी जोडा."
+        navServices: "\u0909\u092a\u093e\u092f",
+        navCalculators: "\u0915\u0945\u0932\u094d\u0915\u094d\u092f\u0941\u0932\u0947\u091f\u0930",
+        navContact: "\u0938\u0902\u092a\u0930\u094d\u0915",
+        heroEyebrow: "AMFI-\u0928\u094b\u0902\u0926\u0923\u0940\u0915\u0943\u0924 \u092e\u094d\u092f\u0941\u091a\u094d\u092f\u0941\u0905\u0932 \u092b\u0902\u0921 \u0935\u093f\u0924\u0930\u0915 \u2022 ARN - 362794",
+        heroTitle: "\u0936\u093f\u0938\u094d\u0924\u092c\u0926\u094d\u0927 \u0938\u0902\u092a\u0924\u094d\u0924\u0940 \u0928\u093f\u0930\u094d\u092e\u093f\u0924\u0940 \u0906\u0923\u093f \u0935\u094d\u092f\u0935\u0939\u093e\u0930\u094d\u092f \u0906\u0930\u094d\u0925\u093f\u0915 \u0938\u094d\u092a\u0937\u094d\u091f\u0924\u093e",
+        heroDesc: "\u0936\u093f\u0930\u0940\u0937 \u092e\u094b\u0939\u093f\u0924\u0947 (AUMRMoney), \u0935\u0921\u094b\u0926\u0930\u093e \u092f\u093e\u0902\u091a\u094d\u092f\u093e\u0915\u0921\u0942\u0928 \u0938\u0941\u0928\u093f\u092f\u094b\u091c\u093f\u0924 SIP \u0928\u093f\u092f\u094b\u091c\u0928, \u0927\u094d\u092f\u0947\u092f-\u0906\u0927\u093e\u0930\u093f\u0924 \u092e\u094d\u092f\u0941\u091a\u094d\u092f\u0941\u0905\u0932 \u092b\u0902\u0921 \u0935\u093f\u0924\u0930\u0923 \u0906\u0923\u093f \u0928\u093f\u0935\u0943\u0924\u094d\u0924\u0940 \u0928\u093f\u092f\u094b\u091c\u0928 \u0938\u093e\u0927\u0928\u0947.",
+        heroCtaPrimary: "\u0915\u0945\u0932\u094d\u0915\u094d\u092f\u0941\u0932\u0947\u091f\u0930 \u092a\u0939\u093e",
+        heroCtaSecondary: "\u0938\u0932\u094d\u0932\u093e\u092e\u0938\u0932\u0924 \u092c\u0941\u0915 \u0915\u0930\u093e",
+        servicesTitle: "\u0906\u0930\u094d\u0925\u093f\u0915 \u0909\u092a\u093e\u092f",
+        servicesSubtitle: "\u0915\u0941\u091f\u0941\u0902\u092c\u0947, \u0935\u094d\u092f\u093e\u0935\u0938\u093e\u092f\u093f\u0915 \u0906\u0923\u093f \u0928\u093f\u0935\u0943\u0924\u094d\u0924 \u0932\u094b\u0915\u093e\u0902\u0938\u093e\u0920\u0940 \u0938\u094b\u092a\u0947, \u0927\u094d\u092f\u0947\u092f-\u0905\u092d\u093f\u092e\u0941\u0916 \u092e\u093e\u0930\u094d\u0917\u0926\u0930\u094d\u0936\u0928.",
+        svc1Title: "\u0927\u094d\u092f\u0947\u092f-\u0906\u0927\u093e\u0930\u093f\u0924 SIP \u0928\u093f\u092f\u094b\u091c\u0928",
+        svc1Desc: "\u0936\u093f\u0915\u094d\u0937\u0923, \u0918\u0930 \u0916\u0930\u0947\u0926\u0940 \u0906\u0923\u093f \u0926\u0940\u0930\u094d\u0918\u0915\u093e\u0932\u0940\u0928 \u0938\u0902\u092a\u0924\u094d\u0924\u0940 \u0928\u093f\u0930\u094d\u092e\u093f\u0924\u0940 \u092f\u093e\u0902\u0938\u093e\u0930\u0916\u094d\u092f\u093e \u091f\u092a\u094d\u092a\u094d\u092f\u093e\u0902\u0936\u0940 \u092e\u093e\u0938\u093f\u0915 \u0917\u0941\u0902\u0924\u0935\u0923\u0942\u0915 \u091c\u094b\u0921\u093e.",
+        svc2Title: "\u0928\u093f\u0935\u0943\u0924\u094d\u0924\u0940 \u0938\u091c\u094d\u091c\u0924\u093e",
+        svc2Desc: "\u092e\u0939\u093e\u0917\u093e\u0908-\u0938\u092e\u093e\u092f\u094b\u091c\u093f\u0924 \u0928\u093f\u0935\u0943\u0924\u094d\u0924\u0940 \u0928\u093f\u0927\u0940\u091a\u094d\u092f\u093e \u0917\u0930\u091c\u093e\u0902\u091a\u093e \u0905\u0902\u0926\u093e\u091c \u0918\u094d\u092f\u093e \u0906\u0923\u093f \u0938\u094d\u0925\u093f\u0930 \u0917\u0941\u0902\u0924\u0935\u0923\u0942\u0915 \u0906\u0930\u093e\u0916\u0921\u093e \u0924\u092f\u093e\u0930 \u0915\u0930\u093e.",
+        svc3Title: "\u092a\u094b\u0930\u094d\u091f\u092b\u094b\u0932\u093f\u0913 \u0906\u0923\u093f \u091c\u094b\u0916\u0940\u092e \u0906\u0922\u093e\u0935\u093e",
+        svc3Desc: "\u0938\u0902\u0924\u0941\u0932\u093f\u0924 \u0915\u094c\u091f\u0941\u0902\u092c\u093f\u0915 \u0938\u0941\u0930\u0915\u094d\u0937\u0947\u0938\u093e\u0920\u0940 \u0928\u093f\u092f\u092e\u093f\u0924 \u092e\u093e\u0932\u092e\u0924\u094d\u0924\u093e \u0935\u093e\u091f\u092a \u0924\u092a\u093e\u0938\u0923\u0940 \u0906\u0923\u093f \u091f\u0930\u094d\u092e \u0938\u0902\u0930\u0915\u094d\u0937\u0923 \u091c\u093e\u0917\u0930\u0942\u0915\u0924\u093e.",
+        calcTitle: "\u0906\u0930\u094d\u0925\u093f\u0915 \u0915\u0945\u0932\u094d\u0915\u094d\u092f\u0941\u0932\u0947\u091f\u0930",
+        calcSubtitle: "\u0909\u0926\u094d\u0926\u093f\u0937\u094d\u091f\u0947 \u0905\u0902\u0926\u093e\u091c\u0923\u094d\u092f\u093e\u0938\u093e\u0920\u0940 \u0906\u0923\u093f \u091a\u0915\u094d\u0930\u0935\u093e\u0922 \u0935\u094d\u092f\u093e\u091c \u0938\u092e\u091c\u0942\u0928 \u0918\u0947\u0923\u094d\u092f\u093e\u0938\u093e\u0920\u0940 \u0938\u0902\u0935\u093e\u0926\u093e\u0924\u094d\u092e\u0915 \u0938\u093e\u0927\u0928\u0947.",
+        calc1Title: "\u0926\u0940\u0930\u094d\u0918\u0915\u093e\u0932\u0940\u0928 \u0907\u0915\u094d\u0935\u093f\u091f\u0940 \u092a\u094d\u0932\u0945\u0928\u0930",
+        calc1Desc: "\u092c\u093e\u091c\u093e\u0930 \u091a\u0915\u094d\u0930\u093e\u0902\u092e\u0927\u094d\u092f\u0947 \u0926\u0940\u0930\u094d\u0918\u0915\u093e\u0932\u0940\u0928 SIP \u091a\u0915\u094d\u0930\u0935\u093e\u0922 \u0906\u0923\u093f \u0938\u0902\u092a\u0924\u094d\u0924\u0940 \u0935\u093e\u0922\u0940\u091a\u093e \u0905\u0902\u0926\u093e\u091c \u092c\u093e\u0902\u0927\u093e.",
+        calc2Title: "\u0930\u093f\u091f\u093e\u092f\u0930\u092e\u0947\u0902\u091f \u092a\u094d\u0932\u0945\u0928\u0930",
+        calc2Desc: "\u0924\u0941\u092e\u091a\u094d\u092f\u093e \u092e\u0939\u093e\u0917\u093e\u0908-\u0938\u092e\u093e\u092f\u094b\u091c\u093f\u0924 \u0928\u093f\u0935\u0943\u0924\u094d\u0924\u0940 \u0928\u093f\u0927\u0940\u091a\u0940 \u0906\u0923\u093f \u0906\u0935\u0936\u094d\u092f\u0915 \u092e\u093e\u0938\u093f\u0915 SIP \u091a\u0940 \u0917\u0923\u0928\u093e \u0915\u0930\u093e.",
+        calc3Title: "\u091f\u0930\u094d\u092e \u0915\u0935\u094d\u0939\u0930 \u0905\u0902\u0926\u093e\u091c\u0915",
+        calc3Desc: "\u0909\u0924\u094d\u092a\u0928\u094d\u0928, \u0926\u0947\u0923\u0940 \u0906\u0923\u093f \u0927\u094d\u092f\u0947\u092f\u093e\u0902\u091a\u094d\u092f\u093e \u0906\u0927\u093e\u0930\u093e\u0935\u0930 \u092a\u0941\u0930\u0947\u0936\u093e \u0915\u094c\u091f\u0941\u0902\u092c\u093f\u0915 \u0938\u0941\u0930\u0915\u094d\u0937\u093e \u0915\u0935\u091a\u093e\u091a\u0947 \u092e\u0942\u0932\u094d\u092f\u093e\u0902\u0915\u0928 \u0915\u0930\u093e.",
+        liveBadge: "\u0909\u092a\u0932\u092c\u094d\u0927",
+        comingSoonBadge: "\u0932\u0935\u0915\u0930\u091a \u092f\u0947\u0924 \u0906\u0939\u0947",
+        comingSoonBtn: "\u0932\u0935\u0915\u0930\u091a \u092f\u0947\u0924 \u0906\u0939\u0947",
+        openCalcBtn: "\u0915\u0945\u0932\u094d\u0915\u094d\u092f\u0941\u0932\u0947\u091f\u0930 \u0909\u0918\u0921\u093e \u2192",
+        contactTitle: "AUMRMoney \u0936\u0940 \u0938\u0902\u092a\u0930\u094d\u0915 \u0938\u093e\u0927\u093e",
+        contactSubtitle: "\u092e\u094d\u092f\u0941\u091a\u094d\u092f\u0941\u0905\u0932 \u092b\u0902\u0921 \u0935\u093f\u0924\u0930\u0923, SIP \u0938\u0947\u091f\u0905\u092a \u0915\u093f\u0902\u0935\u093e \u0928\u093f\u0935\u0943\u0924\u094d\u0924\u0940 \u0928\u093f\u092f\u094b\u091c\u0928 \u091a\u0930\u094d\u091a\u0947\u0938\u093e\u0920\u0940 \u0938\u0902\u092a\u0930\u094d\u0915 \u0915\u0930\u093e.",
+        formTitle: "\u091a\u094c\u0915\u0936\u0940 \u092a\u093e\u0920\u0935\u093e",
+        labelName: "\u092a\u0942\u0930\u094d\u0923 \u0928\u093e\u0935",
+        labelPhone: "\u092b\u094b\u0928 / WhatsApp",
+        labelGoal: "\u0927\u094d\u092f\u0947\u092f \u0915\u093f\u0902\u0935\u093e \u0938\u0902\u0926\u0947\u0936",
+        phName: "\u0924\u0941\u092e\u091a\u0947 \u0928\u093e\u0935",
+        phPhone: "+91 9099910615",
+        phGoal: "\u0924\u0941\u092e\u091a\u094d\u092f\u093e \u0917\u0941\u0902\u0924\u0935\u0923\u0942\u0915 \u0915\u093f\u0902\u0935\u093e \u0928\u093f\u0935\u0943\u0924\u094d\u0924\u0940 \u0927\u094d\u092f\u0947\u092f\u093e\u092c\u0926\u094d\u0926\u0932 \u0938\u093e\u0902\u0917\u093e",
+        submitBtn: "\u0915\u0949\u0932\u092c\u0945\u0915\u091a\u0940 \u0935\u093f\u0928\u0902\u0924\u0940 \u0915\u0930\u093e",
+        formSuccess: "\u0927\u0928\u094d\u092f\u0935\u093e\u0926! \u0924\u0941\u092e\u091a\u0940 \u091a\u094c\u0915\u0936\u0940 \u0924\u092f\u093e\u0930 \u0906\u0939\u0947. \u0924\u0941\u092e\u094d\u0939\u0940 \u0925\u0947\u091f +91 9099910615 \u0935\u0930 \u0915\u0949\u0932 \u0915\u093f\u0902\u0935\u093e WhatsApp \u0926\u0947\u0916\u0940\u0932 \u0915\u0930\u0942 \u0936\u0915\u0924\u093e.",
+        directTitle: "\u0925\u0947\u091f \u0938\u0902\u092a\u0930\u094d\u0915 \u0906\u0923\u093f UPI",
+        directDesc: "\u0935\u0921\u094b\u0926\u0930\u093e, \u0917\u0941\u091c\u0930\u093e\u0924 \u092f\u0947\u0925\u0942\u0928 \u0906\u0930\u094d\u0925\u093f\u0915 \u091c\u093e\u0917\u0930\u0942\u0915\u0924\u093e, \u0927\u094d\u092f\u0947\u092f \u0928\u093f\u092f\u094b\u091c\u0928 \u0906\u0923\u093f \u092e\u094d\u092f\u0941\u091a\u094d\u092f\u0941\u0905\u0932 \u092b\u0902\u0921 \u0935\u093f\u0924\u0930\u0923 \u0938\u0932\u094d\u0932\u094d\u092f\u093e\u0938\u093e\u0920\u0940 \u0909\u092a\u0932\u092c\u094d\u0927.",
+        directPhoneLabel: "\u092b\u094b\u0928 / WhatsApp",
+        directEmailLabel: "\u0908\u092e\u0947\u0932",
+        upiLabel: "\u0938\u0932\u094d\u0932\u093e / \u0938\u0947\u0935\u093e \u0938\u0939\u093e\u092f\u094d\u092f\u093e\u0938\u093e\u0920\u0940 UPI ID:",
+        copyUpiBtn: "UPI ID \u0915\u0949\u092a\u0940 \u0915\u0930\u093e",
+        copiedUpiBtn: "\u0915\u0949\u092a\u0940 \u091d\u093e\u0932\u0947!",
+        footerBrand: "AUMRMoney \u2022 \u0936\u093f\u0930\u0940\u0937 \u092e\u094b\u0939\u093f\u0924\u0947 (ARN - 362794) \u2022 \u0935\u0921\u094b\u0926\u0930\u093e, \u0917\u0941\u091c\u0930\u093e\u0924",
+        footerPartners: "\u092d\u093e\u0917\u0940\u0926\u093e\u0930: NJ IndiaInvest \u2022 ICICI Prudential Mutual Fund \u2022 HDFC Mutual Fund \u2022 SBI Mutual Fund \u2022 Axis Mutual Fund \u2022 Kotak Mahindra Mutual Fund \u2022 Nippon India Mutual Fund \u2022 UTI Mutual Fund \u2022 Mirae Asset Mutual Fund \u2022 Edelweiss Mutual Fund",
+        footerDisclaimer: "\u0905\u0938\u094d\u0935\u0940\u0915\u0930\u0923: \u092e\u094d\u092f\u0941\u091a\u094d\u092f\u0941\u0905\u0932 \u092b\u0902\u0921 \u0917\u0941\u0902\u0924\u0935\u0923\u0942\u0915 \u092c\u093e\u091c\u093e\u0930 \u091c\u094b\u0916\u092e\u0940\u0902\u091a\u094d\u092f\u093e \u0905\u0927\u0940\u0928 \u0906\u0939\u0947, \u0915\u0943\u092a\u092f\u093e \u092f\u094b\u091c\u0928\u0947\u0936\u0940 \u0938\u0902\u092c\u0902\u0927\u093f\u0924 \u0938\u0930\u094d\u0935 \u0915\u093e\u0917\u0926\u092a\u0924\u094d\u0930\u0947 \u0915\u093e\u0933\u091c\u0940\u092a\u0942\u0930\u094d\u0935\u0915 \u0935\u093e\u091a\u093e."
       },
       gu: {
-        nav_solutions: "ઉપાયો",
-        nav_calculators: "કેલ્ક્યુલેટર્સ",
-        nav_connect: "સંપર્ક",
-        hero_badge: "વડોદરા, ગુજરાત \u2022 નાણાકીય જાગૃતિ અને આયોજન",
-        hero_title_1: "શિસ્તબદ્ધ સંપત્તિ નિર્માણ અને",
-        hero_title_gold: "વ્યવહારુ નાણાકીય સાધનો",
-        hero_desc: "AUMRMoney મ્યુચ્યુઅલ ફંડ વિતરણ માર્ગદર્શન, SIP આયોજન, જોખમ મૂલ્યાંકન, નિવૃત્તિ રોડમેપ અને ટર્મ પ્રોટેક્શન દ્વારા વ્યક્તિઓ અને પરિવારોને સ્થિર નાણાકીય આદતો વિકસાવવામાં મદદ કરે છે.",
-        hero_cta: "કોલબેકની વિનંતી કરો",
-        services_title: "મુખ્ય કાર્યક્ષેત્રો",
-        s1_title: "મ્યુચ્યુઅલ ફંડ અને SIP",
-        s1_desc: "ટૂંકા ગાળાની વધઘટને બદલે લાંબા ગાળાની સાતત્યતા માટે રચાયેલ ધ્યેય-આધારિત સિસ્ટમેટિક ઇન્વેસ્ટમેન્ટ પ્લાન્સ (SIP) અને ફંડ શ્રેણીનું માર્ગદર્શન.",
-        s2_title: "જોખમ પ્રોફાઇલિંગ અને નિવૃત્તિ",
-        s2_desc: "સમય મર્યાદા, બજારની અસ્થિરતા સાથેની અનુકૂળતા અને ટકાઉ નિવૃત્તિ કેશ-ફ્લો આયોજન અંગે વ્યવસ્થિત માર્ગદર્શન.",
-        s3_title: "ટર્મ ઇન્શ્યોરન્સ અને સુરક્ષા",
-        s3_desc: "અણધાર્યા સંજોગોમાં પણ પરિવારના મુખ્ય ધ્યેયો સુરક્ષિત રહે તે માટે સરળ આવક-વિકલ્પ કવર આયોજન.",
-        calc_title: "આયોજન કેલ્ક્યુલેટર્સ",
-        c1_title: "લાંબા ગાળાના ઇક્વિટી પ્લાનર",
-        c1_desc: "શિસ્તબદ્ધ માસિક SIP યોગદાન દ્વારા લાંબા ગાળાના સંપત્તિ નિર્માણનો અંદાજ લગાવો.",
-        c2_title: "નિવૃત્તિ પ્લાનર (Rcalc1)",
-        c2_desc: "નિવૃત્તિ પછીના આરામદાયક વર્ષો માટે જરૂરી લક્ષ્ય ભંડોળ અને માસિક બચતનો અંદાજ લગાવો.",
-        c3_title: "ટર્મ કવર એસ્ટિમેટર",
-        c3_desc: "વાર્ષિક આવક, જવાબદારીઓ અને પારિવારિક જરૂરિયાતોના આધારે પૂરતી વીમા સુરક્ષાનું મૂલ્યાંકન કરો.",
-        contact_title: "સંપર્ક કરો",
-        form_title: "ઝડપી પૂછપરછ ફોર્મ",
-        label_name: "પૂરું નામ",
-        ph_name: "તમારું નામ દાખલ કરો",
-        label_phone: "ફોન / વોટ્સએપ",
-        label_goal: "નાણાકીય ધ્યેય",
-        ph_goal: "દા.ત., SIP, નિવૃત્તિ, ટર્મ પ્લાન",
-        btn_submit: "પૂછપરછ મોકલો",
-        direct_title: "સીધો સંપર્ક અને UPI",
-        direct_desc: "વડોદરા, ગુજરાતથી વ્યવસ્થિત નાણાકીય જાગૃતિ, ધ્યેય આયોજન અને મ્યુચ્યુઅલ ફંડ વિતરણ પરામર્શ માટે ઉપલબ્ધ.",
-        upi_label: "પરામર્શ / સેવા સહાય માટે UPI ID:",
-        btn_copy: "UPI ID કોપી કરો",
-        footer_loc: "વડોદરા, ગુજરાત, ભારત",
-        footer_disclaimer: "અસ્વીકરણ: મ્યુચ્યુઅલ ફંડ રોકાણ બજારના જોખમોને આધીન છે. રોકાણ કરતા પહેલા યોજના સંબંધિત તમામ દસ્તાવેજો કાળજીપૂર્વક વાંચો. આ વેબસાઇટ પરની સામગ્રી માત્ર શૈક્ષણિક અને માહિતીપ્રદ હેતુઓ માટે છે અને તેને ખાતરીપૂર્વકના વળતરની સલાહ ગણવી જોઈએ નહીં.",
-        copy_ok: "UPI ID કોપી થઈ ગઈ: shirish.mohite@okicici",
-        copy_fail: "કોપી નિષ્ફળ ગઈ. કૃપા કરીને shirish.mohite@okicici જાતે કોપી કરો.",
-        form_ok: "આભાર, {name}. તમારી પૂછપરછની વિગતો તૈયાર છે—સીધા સબમિશન મેળવવા માટે આ ફોર્મને Formspree, Google Apps Script અથવા EmailJS સાથે જોડો."
+        navServices: "\u0a89\u0a15\u0ac7\u0ab2\u0acb",
+        navCalculators: "\u0a95\u0ac7\u0ab2\u0acd\u0a95\u0acd\u0aaf\u0ac1\u0ab2\u0ac7\u0a9f\u0ab0",
+        navContact: "\u0ab8\u0a82\u0aaa\u0ab0\u0acd\u0a95",
+        heroEyebrow: "AMFI-\u0ab0\u0a9c\u0abf\u0ab8\u0acd\u0a9f\u0ab0\u0acd\u0aa1 \u0aae\u0acd\u0aaf\u0ac1\u0a9a\u0acd\u0aaf\u0ac1\u0a85\u0ab2 \u0aab\u0a82\u0aa1 \u0ab5\u0abf\u0aa4\u0ab0\u0a95 \u2022 ARN - 362794",
+        heroTitle: "\u0ab6\u0abf\u0ab8\u0acd\u0aa4\u0aac\u0aa6\u0acd\u0aa7 \u0ab8\u0a82\u0aaa\u0aa4\u0acd\u0aa4\u0abf \u0aa8\u0abf\u0ab0\u0acd\u0aae\u0abe\u0aa3 \u0a85\u0aa8\u0ac7 \u0ab5\u0acd\u0aaf\u0ab5\u0ab9\u0abe\u0ab0\u0ac1 \u0aa8\u0abe\u0aa3\u0abe\u0a95\u0ac0\u0aaf \u0ab8\u0acd\u0aaa\u0ab7\u0acd\u0a9f\u0aa4\u0abe",
+        heroDesc: "\u0ab6\u0abf\u0ab0\u0ac0\u0ab7 \u0aae\u0acb\u0ab9\u0abf\u0aa4\u0ac7 (AUMRMoney), \u0ab5\u0aa1\u0acb\u0aa6\u0ab0\u0abe \u0aa6\u0acd\u0ab5\u0abe\u0ab0\u0abe \u0ab8\u0ac1\u0ab5\u0acd\u0aaf\u0ab5\u0ab8\u0acd\u0aa5\u0abf\u0aa4 SIP \u0a86\u0aaf\u0acb\u0a9c\u0aa8, \u0ab2\u0a95\u0acd\u0ab7\u0acd\u0aaf-\u0a86\u0aa7\u0abe\u0ab0\u0abf\u0aa4 \u0aae\u0acd\u0aaf\u0ac1\u0a9a\u0acd\u0aaf\u0ac1\u0a85\u0ab2 \u0aab\u0a82\u0aa1 \u0ab5\u0abf\u0aa4\u0ab0\u0aa3 \u0a85\u0aa8\u0ac7 \u0aa8\u0abf\u0ab5\u0ac3\u0aa4\u0acd\u0aa4\u0abf \u0aa4\u0ac8\u0aaf\u0abe\u0ab0\u0ac0 \u0ab8\u0abe\u0aa7\u0aa8\u0acb.",
+        heroCtaPrimary: "\u0a95\u0ac7\u0ab2\u0acd\u0a95\u0acd\u0aaf\u0ac1\u0ab2\u0ac7\u0a9f\u0ab0 \u0a9c\u0ac1\u0a93",
+        heroCtaSecondary: "\u0aaa\u0ab0\u0abe\u0aae\u0ab0\u0acd\u0ab6 \u0aac\u0ac1\u0a95 \u0a95\u0ab0\u0acb",
+        servicesTitle: "\u0aa8\u0abe\u0aa3\u0abe\u0a95\u0ac0\u0aaf \u0a89\u0a95\u0ac7\u0ab2\u0acb",
+        servicesSubtitle: "\u0aaa\u0ab0\u0abf\u0ab5\u0abe\u0ab0\u0acb, \u0ab5\u0acd\u0aaf\u0ab5\u0ab8\u0abe\u0aaf\u0abf\u0a95\u0acb \u0a85\u0aa8\u0ac7 \u0aa8\u0abf\u0ab5\u0ac3\u0aa4\u0acd\u0aa4 \u0ab2\u0acb\u0a95\u0acb \u0aae\u0abe\u0a9f\u0ac7 \u0ab8\u0ab0\u0ab3, \u0ab2\u0a95\u0acd\u0ab7\u0acd\u0aaf-\u0a86\u0aa7\u0abe\u0ab0\u0abf\u0aa4 \u0aae\u0abe\u0ab0\u0acd\u0a97\u0aa6\u0ab0\u0acd\u0ab6\u0aa8.",
+        svc1Title: "\u0ab2\u0a95\u0acd\u0ab7\u0acd\u0aaf-\u0a86\u0aa7\u0abe\u0ab0\u0abf\u0aa4 SIP \u0a86\u0aaf\u0acb\u0a9c\u0aa8",
+        svc1Desc: "\u0ab6\u0abf\u0a95\u0acd\u0ab7\u0aa3, \u0a98\u0ab0 \u0a96\u0ab0\u0ac0\u0aa6\u0ac0 \u0a85\u0aa8\u0ac7 \u0ab2\u0abe\u0a82\u0aac\u0abe \u0a97\u0abe\u0ab3\u0abe\u0aa8\u0ac0 \u0ab8\u0a82\u0aaa\u0aa4\u0acd\u0aa4\u0abf \u0ab8\u0ab0\u0acd\u0a9c\u0aa8 \u0a9c\u0ac7\u0ab5\u0abe \u0ab2\u0a95\u0acd\u0ab7\u0acd\u0aaf\u0acb \u0ab8\u0abe\u0aa5\u0ac7 \u0aae\u0abe\u0ab8\u0abf\u0a95 \u0ab0\u0acb\u0a95\u0abe\u0aa3\u0aa8\u0ac7 \u0a9c\u0acb\u0aa1\u0acb.",
+        svc2Title: "\u0aa8\u0abf\u0ab5\u0ac3\u0aa4\u0acd\u0aa4\u0abf \u0ab8\u0a9c\u0acd\u0a9c\u0aa4\u0abe",
+        svc2Desc: "\u0aab\u0ac1\u0a97\u0abe\u0ab5\u0abe-\u0ab8\u0aae\u0abe\u0aaf\u0acb\u0a9c\u0abf\u0aa4 \u0aa8\u0abf\u0ab5\u0ac3\u0aa4\u0acd\u0aa4\u0abf \u0aab\u0a82\u0aa1\u0aa8\u0ac0 \u0a9c\u0ab0\u0ac2\u0ab0\u0abf\u0aaf\u0abe\u0aa4\u0acb\u0aa8\u0acb \u0a85\u0a82\u0aa6\u0abe\u0a9c \u0ab2\u0a97\u0abe\u0ab5\u0acb \u0a85\u0aa8\u0ac7 \u0ab8\u0acd\u0aa5\u0abf\u0ab0 \u0ab0\u0acb\u0a95\u0abe\u0aa3 \u0aaf\u0acb\u0a9c\u0aa8\u0abe \u0aac\u0aa8\u0abe\u0ab5\u0acb.",
+        svc3Title: "\u0aaa\u0acb\u0ab0\u0acd\u0a9f\u0aab\u0acb\u0ab2\u0abf\u0aaf\u0acb \u0a85\u0aa8\u0ac7 \u0a9c\u0acb\u0a96\u0aae \u0ab8\u0aae\u0ac0\u0a95\u0acd\u0ab7\u0abe",
+        svc3Desc: "\u0ab8\u0a82\u0aa4\u0ac1\u0ab2\u0abf\u0aa4 \u0a95\u0acc\u0a9f\u0ac1\u0a82\u0aac\u0abf\u0a95 \u0ab8\u0ac1\u0ab0\u0a95\u0acd\u0ab7\u0abe \u0aae\u0abe\u0a9f\u0ac7 \u0ab8\u0aae\u0aaf\u0ab8\u0ab0 \u0a8f\u0ab8\u0ac7\u0a9f \u0a8f\u0ab2\u0acb\u0a95\u0ac7\u0ab6\u0aa8 \u0aa4\u0aaa\u0abe\u0ab8\u0aa3\u0ac0 \u0a85\u0aa8\u0ac7 \u0a9f\u0ab0\u0acd\u0aae \u0a95\u0ab5\u0ab0 \u0a9c\u0abe\u0a97\u0ac3\u0aa4\u0abf.",
+        calcTitle: "\u0aa8\u0abe\u0aa3\u0abe\u0a95\u0ac0\u0aaf \u0a95\u0ac7\u0ab2\u0acd\u0a95\u0acd\u0aaf\u0ac1\u0ab2\u0ac7\u0a9f\u0ab0",
+        calcSubtitle: "\u0ab2\u0a95\u0acd\u0ab7\u0acd\u0aaf\u0acb\u0aa8\u0acb \u0a85\u0a82\u0aa6\u0abe\u0a9c \u0ab2\u0a97\u0abe\u0ab5\u0ab5\u0abe \u0a85\u0aa8\u0ac7 \u0a9a\u0a95\u0acd\u0ab0\u0ab5\u0ac3\u0aa6\u0acd\u0aa7\u0abf \u0ab8\u0aae\u0a9c\u0ab5\u0abe \u0aae\u0abe\u0a9f\u0ac7 \u0a87\u0aa8\u0acd\u0a9f\u0ab0\u0a8f\u0a95\u0acd\u0a9f\u0abf\u0ab5 \u0ab8\u0abe\u0aa7\u0aa8\u0acb.",
+        calc1Title: "\u0ab2\u0abe\u0a82\u0aac\u0abe \u0a97\u0abe\u0ab3\u0abe\u0aa8\u0ac1\u0a82 \u0a87\u0a95\u0acd\u0ab5\u0abf\u0a9f\u0ac0 \u0aaa\u0acd\u0ab2\u0abe\u0aa8\u0ab0",
+        calc1Desc: "\u0aac\u0a9c\u0abe\u0ab0 \u0a9a\u0a95\u0acd\u0ab0\u0acb\u0aae\u0abe\u0a82 \u0ab2\u0abe\u0a82\u0aac\u0abe \u0a97\u0abe\u0ab3\u0abe\u0aa8\u0ac0 SIP \u0a9a\u0a95\u0acd\u0ab0\u0ab5\u0ac3\u0aa6\u0acd\u0aa7\u0abf \u0a85\u0aa8\u0ac7 \u0ab8\u0a82\u0aaa\u0aa4\u0acd\u0aa4\u0abf \u0ab5\u0ac3\u0aa6\u0acd\u0aa7\u0abf\u0aa8\u0acb \u0a85\u0a82\u0aa6\u0abe\u0a9c \u0ab2\u0a97\u0abe\u0ab5\u0acb.",
+        calc2Title: "\u0ab0\u0abf\u0a9f\u0abe\u0aaf\u0ab0\u0aae\u0ac7\u0aa8\u0acd\u0a9f \u0aaa\u0acd\u0ab2\u0abe\u0aa8\u0ab0",
+        calc2Desc: "\u0aa4\u0aae\u0abe\u0ab0\u0abe \u0aab\u0ac1\u0a97\u0abe\u0ab5\u0abe-\u0ab8\u0aae\u0abe\u0aaf\u0acb\u0a9c\u0abf\u0aa4 \u0aa8\u0abf\u0ab5\u0ac3\u0aa4\u0acd\u0aa4\u0abf \u0aad\u0a82\u0aa1\u0acb\u0ab3 \u0a85\u0aa8\u0ac7 \u0a9c\u0ab0\u0ac2\u0ab0\u0ac0 \u0aae\u0abe\u0ab8\u0abf\u0a95 SIP \u0aa8\u0ac0 \u0a97\u0aa3\u0aa4\u0ab0\u0ac0 \u0a95\u0ab0\u0acb.",
+        calc3Title: "\u0a9f\u0ab0\u0acd\u0aae \u0a95\u0ab5\u0ab0 \u0a85\u0a82\u0aa6\u0abe\u0a9c\u0a95",
+        calc3Desc: "\u0a86\u0ab5\u0a95, \u0a9c\u0ab5\u0abe\u0aac\u0aa6\u0abe\u0ab0\u0ac0\u0a93 \u0a85\u0aa8\u0ac7 \u0ab2\u0a95\u0acd\u0ab7\u0acd\u0aaf\u0acb\u0aa8\u0abe \u0a86\u0aa7\u0abe\u0ab0\u0ac7 \u0aaa\u0ac2\u0ab0\u0aa4\u0abe \u0a95\u0acc\u0a9f\u0ac1\u0a82\u0aac\u0abf\u0a95 \u0ab8\u0ac1\u0ab0\u0a95\u0acd\u0ab7\u0abe \u0a95\u0ab5\u0a9a\u0aa8\u0ac1\u0a82 \u0aae\u0ac2\u0ab2\u0acd\u0aaf\u0abe\u0a82\u0a95\u0aa8 \u0a95\u0ab0\u0acb.",
+        liveBadge: "\u0a89\u0aaa\u0ab2\u0aac\u0acd\u0aa7",
+        comingSoonBadge: "\u0a9f\u0ac2\u0a82\u0a95 \u0ab8\u0aae\u0aaf\u0aae\u0abe\u0a82 \u0a86\u0ab5\u0ac0 \u0ab0\u0ab9\u0acd\u0aaf\u0ac1\u0a82 \u0a9b\u0ac7",
+        comingSoonBtn: "\u0a9f\u0ac2\u0a82\u0a95 \u0ab8\u0aae\u0aaf\u0aae\u0abe\u0a82 \u0a86\u0ab5\u0ac0 \u0ab0\u0ab9\u0acd\u0aaf\u0ac1\u0a82 \u0a9b\u0ac7",
+        openCalcBtn: "\u0a95\u0ac7\u0ab2\u0acd\u0a95\u0acd\u0aaf\u0ac1\u0ab2\u0ac7\u0a9f\u0ab0 \u0a96\u0acb\u0ab2\u0acb \u2192",
+        contactTitle: "AUMRMoney \u0ab8\u0abe\u0aa5\u0ac7 \u0a9c\u0acb\u0aa1\u0abe\u0a93",
+        contactSubtitle: "\u0aae\u0acd\u0aaf\u0ac1\u0a9a\u0acd\u0aaf\u0ac1\u0a85\u0ab2 \u0aab\u0a82\u0aa1 \u0ab5\u0abf\u0aa4\u0ab0\u0aa3, SIP \u0ab8\u0ac7\u0a9f\u0a85\u0aaa \u0a85\u0aa5\u0ab5\u0abe \u0aa8\u0abf\u0ab5\u0ac3\u0aa4\u0acd\u0aa4\u0abf \u0a86\u0aaf\u0acb\u0a9c\u0aa8 \u0a9a\u0ab0\u0acd\u0a9a\u0abe \u0aae\u0abe\u0a9f\u0ac7 \u0ab8\u0a82\u0aaa\u0ab0\u0acd\u0a95 \u0a95\u0ab0\u0acb.",
+        formTitle: "\u0aaa\u0ac2\u0a9b\u0aaa\u0ab0\u0a9b \u0aae\u0acb\u0a95\u0ab2\u0acb",
+        labelName: "\u0aaa\u0ac2\u0ab0\u0ac1\u0a82 \u0aa8\u0abe\u0aae",
+        labelPhone: "\u0aab\u0acb\u0aa8 / WhatsApp",
+        labelGoal: "\u0ab2\u0a95\u0acd\u0ab7\u0acd\u0aaf \u0a85\u0aa5\u0ab5\u0abe \u0ab8\u0a82\u0aa6\u0ac7\u0ab6",
+        phName: "\u0aa4\u0aae\u0abe\u0ab0\u0ac1\u0a82 \u0aa8\u0abe\u0aae",
+        phPhone: "+91 9099910615",
+        phGoal: "\u0aa4\u0aae\u0abe\u0ab0\u0abe \u0ab0\u0acb\u0a95\u0abe\u0aa3 \u0a85\u0aa5\u0ab5\u0abe \u0aa8\u0abf\u0ab5\u0ac3\u0aa4\u0acd\u0aa4\u0abf \u0ab2\u0a95\u0acd\u0ab7\u0acd\u0aaf \u0ab5\u0abf\u0ab6\u0ac7 \u0a9c\u0aa3\u0abe\u0ab5\u0acb",
+        submitBtn: "\u0a95\u0ac9\u0ab2\u0aac\u0ac7\u0a95\u0aa8\u0ac0 \u0ab5\u0abf\u0aa8\u0a82\u0aa4\u0ac0 \u0a95\u0ab0\u0acb",
+        formSuccess: "\u0a86\u0aad\u0abe\u0ab0! \u0aa4\u0aae\u0abe\u0ab0\u0ac0 \u0aaa\u0ac2\u0a9b\u0aaa\u0ab0\u0a9b \u0aa4\u0ac8\u0aaf\u0abe\u0ab0 \u0a9b\u0ac7. \u0aa4\u0aae\u0ac7 \u0ab8\u0ac0\u0aa7\u0abe +91 9099910615 \u0aaa\u0ab0 \u0a95\u0ac9\u0ab2 \u0a85\u0aa5\u0ab5\u0abe WhatsApp \u0aaa\u0aa3 \u0a95\u0ab0\u0ac0 \u0ab6\u0a95\u0acb \u0a9b\u0acb.",
+        directTitle: "\u0ab8\u0ac0\u0aa7\u0acb \u0ab8\u0a82\u0aaa\u0ab0\u0acd\u0a95 \u0a85\u0aa8\u0ac7 UPI",
+        directDesc: "\u0ab5\u0aa1\u0acb\u0aa6\u0ab0\u0abe, \u0a97\u0ac1\u0a9c\u0ab0\u0abe\u0aa4\u0aa5\u0ac0 \u0aa8\u0abe\u0aa3\u0abe\u0a95\u0ac0\u0aaf \u0a9c\u0abe\u0a97\u0ac3\u0aa4\u0abf, \u0ab2\u0a95\u0acd\u0ab7\u0acd\u0aaf \u0a86\u0aaf\u0acb\u0a9c\u0aa8 \u0a85\u0aa8\u0ac7 \u0aae\u0acd\u0aaf\u0ac1\u0a9a\u0acd\u0aaf\u0ac1\u0a85\u0ab2 \u0aab\u0a82\u0aa1 \u0ab5\u0abf\u0aa4\u0ab0\u0aa3 \u0aaa\u0ab0\u0abe\u0aae\u0ab0\u0acd\u0ab6 \u0aae\u0abe\u0a9f\u0ac7 \u0a89\u0aaa\u0ab2\u0aac\u0acd\u0aa7.",
+        directPhoneLabel: "\u0aab\u0acb\u0aa8 / WhatsApp",
+        directEmailLabel: "\u0a88\u0aae\u0ac7\u0ab2",
+        upiLabel: "\u0aaa\u0ab0\u0abe\u0aae\u0ab0\u0acd\u0ab6 / \u0ab8\u0ac7\u0ab5\u0abe \u0ab8\u0ab9\u0abe\u0aaf \u0aae\u0abe\u0a9f\u0ac7 UPI ID:",
+        copyUpiBtn: "UPI ID \u0a95\u0ac9\u0aaa\u0abf \u0a95\u0ab0\u0acb",
+        copiedUpiBtn: "\u0a95\u0ac9\u0aaa\u0abf \u0aa5\u0aaf\u0ac1\u0a82!",
+        footerBrand: "AUMRMoney \u2022 \u0ab6\u0abf\u0ab0\u0ac0\u0ab7 \u0aae\u0acb\u0ab9\u0abf\u0aa4\u0ac7 (ARN - 362794) \u2022 \u0ab5\u0aa1\u0acb\u0aa6\u0ab0\u0abe, \u0a97\u0ac1\u0a9c\u0ab0\u0abe\u0aa4",
+        footerPartners: "\u0aad\u0abe\u0a97\u0ac0\u0aa6\u0abe\u0ab0\u0acb: NJ IndiaInvest \u2022 ICICI Prudential Mutual Fund \u2022 HDFC Mutual Fund \u2022 SBI Mutual Fund \u2022 Axis Mutual Fund \u2022 Kotak Mahindra Mutual Fund \u2022 Nippon India Mutual Fund \u2022 UTI Mutual Fund \u2022 Mirae Asset Mutual Fund \u2022 Edelweiss Mutual Fund",
+        footerDisclaimer: "\u0a85\u0ab8\u0acd\u0ab5\u0ac0\u0a95\u0ab0\u0aa3: \u0aae\u0acd\u0aaf\u0ac1\u0a9a\u0acd\u0aaf\u0ac1\u0a85\u0ab2 \u0aab\u0a82\u0aa1 \u0ab0\u0acb\u0a95\u0abe\u0aa3\u0acb \u0aac\u0a9c\u0abe\u0ab0\u0aa8\u0abe \u0a9c\u0acb\u0a96\u0aae\u0acb\u0aa8\u0ac7 \u0a86\u0aa7\u0ac0\u0aa8 \u0a9b\u0ac7, \u0a95\u0ac3\u0aaa\u0abe \u0a95\u0ab0\u0ac0\u0aa8\u0ac7 \u0aaf\u0acb\u0a9c\u0aa8\u0abe \u0ab8\u0a82\u0aac\u0a82\u0aa7\u0abf\u0aa4 \u0aa4\u0aae\u0abe\u0aae \u0aa6\u0ab8\u0acd\u0aa4\u0abe\u0ab5\u0ac7\u0a9c\u0acb \u0aa7\u0acd\u0aaf\u0abe\u0aa8\u0aaa\u0ac2\u0ab0\u0acd\u0ab5\u0a95 \u0ab5\u0abe\u0a82\u0a9a\u0acb."
       }
     };
 
     let currentLang = "en";
-    const langButtons = document.querySelectorAll(".lang-btn");
 
-    function setLanguage(lang) {
-      if (!translations[lang]) return;
-      currentLang = lang;
-      document.documentElement.lang = lang;
-      const dict = translations[lang];
+    function applyLanguage(lang) {
+      currentLang = translations[lang] ? lang : "en";
+      const dict = translations[currentLang];
+      document.documentElement.lang = currentLang;
 
       document.querySelectorAll("[data-i18n]").forEach((el) => {
         const key = el.getAttribute("data-i18n");
@@ -664,37 +873,43 @@
         }
       });
 
-      langButtons.forEach((btn) => {
-        btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        btn.classList.toggle("active", btn.getAttribute("data-lang") === currentLang);
       });
     }
 
-    langButtons.forEach((btn) => {
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
-        setLanguage(btn.getAttribute("data-lang"));
+        applyLanguage(btn.getAttribute("data-lang"));
       });
     });
 
-    const form = document.getElementById("inquiryForm");
-    const statusEl = document.getElementById("formStatus");
-    const copyBtn = document.getElementById("copyUpiBtn");
-    const copyStatus = document.getElementById("copyStatus");
+    document.getElementById("contactForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      document.getElementById("formMsg").textContent = translations[currentLang].formSuccess;
+      event.target.reset();
+    });
 
-    copyBtn.addEventListener("click", async () => {
+    document.getElementById("copyUpiBtn").addEventListener("click", async () => {
+      const upiId = document.getElementById("upiIdText").textContent.trim();
+      const btn = document.getElementById("copyUpiBtn");
       try {
-        await navigator.clipboard.writeText("shirish.mohite@okicici");
-        copyStatus.textContent = translations[currentLang].copy_ok;
-      } catch (err) {
-        copyStatus.textContent = translations[currentLang].copy_fail;
+        await navigator.clipboard.writeText(upiId);
+      } catch (e) {
+        const temp = document.createElement("input");
+        temp.value = upiId;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
       }
+      btn.textContent = translations[currentLang].copiedUpiBtn;
+      setTimeout(() => {
+        btn.textContent = translations[currentLang].copyUpiBtn;
+      }, 2000);
     });
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      statusEl.textContent = translations[currentLang].form_ok.replace("{name}", name);
-      form.reset();
-    });
+    applyLanguage("en");
   </script>
 </body>
 </html>

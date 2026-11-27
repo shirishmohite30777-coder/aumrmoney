@@ -57,7 +57,10 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 68px;
+      min-height: 68px;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 8px 0;
     }
 
     .brand {
@@ -71,6 +74,13 @@
       color: var(--orange);
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
     .nav-links {
       display: flex;
       gap: 24px;
@@ -81,6 +91,35 @@
 
     .nav-links a:hover {
       color: var(--orange-dark);
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .lang-btn {
+      background: var(--bg);
+      color: var(--green-dark);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .lang-btn:hover {
+      border-color: var(--orange);
+      color: var(--orange-dark);
+    }
+
+    .lang-btn.active {
+      background: var(--green-dark);
+      color: #ffffff;
+      border-color: var(--gold);
     }
 
     /* Dark Green, Gold & Bright Orange Welcome Banner */
@@ -307,47 +346,58 @@
   <header>
     <div class="container nav">
       <a href="#" class="brand">AUMR<span>Money</span></a>
-      <nav class="nav-links">
-        <a href="#services">Solutions</a>
-        <a href="#calculators">Calculators</a>
-        <a href="#contact">Connect</a>
-      </nav>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="#services" data-i18n="nav_solutions">Solutions</a>
+          <a href="#calculators" data-i18n="nav_calculators">Calculators</a>
+          <a href="#contact" data-i18n="nav_connect">Connect</a>
+        </nav>
+        <div class="lang-switcher" role="group" aria-label="Language switcher">
+          <button type="button" class="lang-btn active" data-lang="en">English</button>
+          <button type="button" class="lang-btn" data-lang="hi">हिन्दी</button>
+          <button type="button" class="lang-btn" data-lang="mr">मराठी</button>
+          <button type="button" class="lang-btn" data-lang="gu">ગુજરાતી</button>
+        </div>
+      </div>
     </div>
   </header>
 
   <main class="container">
     <div class="hero-wrap">
       <section class="hero">
-        <span class="badge">Vadodara, Gujarat &bull; Financial Awareness &amp; Planning</span>
-        <h1>Disciplined Wealth Building &amp; <span class="gold-text">Practical Financial Tools</span></h1>
-        <p>
+        <span class="badge" data-i18n="hero_badge">Vadodara, Gujarat &bull; Financial Awareness &amp; Planning</span>
+        <h1>
+          <span data-i18n="hero_title_1">Disciplined Wealth Building &amp;</span>
+          <span class="gold-text" data-i18n="hero_title_gold">Practical Financial Tools</span>
+        </h1>
+        <p data-i18n="hero_desc">
           AUMRMoney helps individuals and families build steady financial habits through mutual fund
           distribution guidance, SIP planning, risk profiling, retirement roadmaps, and term protection.
         </p>
-        <a href="#contact" class="btn">Request a Callback</a>
+        <a href="#contact" class="btn" data-i18n="hero_cta">Request a Callback</a>
       </section>
     </div>
 
     <section id="services">
-      <h2 class="section-title">Core Focus Areas</h2>
+      <h2 class="section-title" data-i18n="services_title">Core Focus Areas</h2>
       <div class="grid-3">
         <div class="card">
-          <h3>Mutual Funds &amp; SIPs</h3>
-          <p>
+          <h3 data-i18n="s1_title">Mutual Funds &amp; SIPs</h3>
+          <p data-i18n="s1_desc">
             Goal-aligned Systematic Investment Plans and fund category education designed for long-term
             consistency rather than short-term noise.
           </p>
         </div>
         <div class="card">
-          <h3>Risk Profiling &amp; Retirement</h3>
-          <p>
+          <h3 data-i18n="s2_title">Risk Profiling &amp; Retirement</h3>
+          <p data-i18n="s2_desc">
             Structured conversations around time horizon, comfort with volatility, and sustainable
             retirement cash-flow planning.
           </p>
         </div>
         <div class="card">
-          <h3>Term Insurance &amp; Protection</h3>
-          <p>
+          <h3 data-i18n="s3_title">Term Insurance &amp; Protection</h3>
+          <p data-i18n="s3_desc">
             Straightforward income-replacement cover planning so core family goals stay protected
             against unexpected events.
           </p>
@@ -356,67 +406,56 @@
     </section>
 
     <section id="calculators">
-      <h2 class="section-title">Planning Calculators &amp; Resources</h2>
+      <h2 class="section-title" data-i18n="calc_title">Planning Calculators</h2>
       <div class="grid-3">
         <div class="card">
-          <h3>Retirement Planner</h3>
-          <p>Estimate target corpus and monthly savings needed for comfortable post-work years.</p>
+          <h3 data-i18n="c1_title">Long-Term Equity Planner</h3>
+          <p data-i18n="c1_desc">Project long-term wealth creation through disciplined monthly SIP contributions.</p>
         </div>
         <div class="card">
-          <h3>Long-Term Equity Planner</h3>
-          <p>Model multi-year compounding scenarios across varying investment horizons and step-ups.</p>
+          <h3><a href="rcalc1.html" style="text-decoration:underline;" data-i18n="c2_title">Retirement Planner (Rcalc1)</a></h3>
+          <p data-i18n="c2_desc">Estimate target corpus and monthly savings needed for comfortable post-work years.</p>
         </div>
         <div class="card">
-          <h3>Term Cover Estimator</h3>
-          <p>Check baseline protection needs based on annual expenses, liabilities, and dependents.</p>
+          <h3 data-i18n="c3_title">Term Cover Estimator</h3>
+          <p data-i18n="c3_desc">Assess adequate protection based on annual income, liabilities, and family needs.</p>
         </div>
       </div>
     </section>
 
     <section id="contact">
-      <h2 class="section-title">Get in Touch</h2>
+      <h2 class="section-title" data-i18n="contact_title">Get in Touch</h2>
       <div class="split">
         <div class="card">
-          <h3>Quick Inquiry Form</h3>
-          <p style="margin-bottom: 16px;">Share your details and we will follow up on your planning or calculator request.</p>
+          <h3 data-i18n="form_title">Quick Inquiry Form</h3>
           <form id="inquiryForm">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your full name" required />
+            <label for="name" data-i18n="label_name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" data-i18n-placeholder="ph_name" required />
 
-            <label for="phone">Phone Number</label>
-            <input id="phone" name="phone" type="tel" placeholder="+91 98XXX XXXXX" required />
+            <label for="phone" data-i18n="label_phone">Phone / WhatsApp</label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required />
 
-            <label for="email">Email ID</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            <label for="goal" data-i18n="label_goal">Financial Goal</label>
+            <input type="text" id="goal" name="goal" placeholder="e.g., SIP, Retirement, Term Plan" data-i18n-placeholder="ph_goal" required />
 
-            <button type="submit" class="btn btn-green">Submit Inquiry</button>
-            <p id="formStatus" class="status-msg" aria-live="polite"></p>
+            <button type="submit" class="btn btn-green" data-i18n="btn_submit">Send Inquiry</button>
+            <p class="status-msg" id="formStatus"></p>
           </form>
         </div>
 
         <div class="card">
-          <h3>Calculator Access &amp; UPI Details</h3>
-          <p>
-            Pay via UPI using the ID below or scan the QR image once uploaded as <code>qr.png</code>
-            in your repository.
+          <h3 data-i18n="direct_title">Direct Contact &amp; UPI</h3>
+          <p data-i18n="direct_desc">
+            Available for structured financial awareness, goal planning, and mutual fund distribution
+            consultations from Vadodara, Gujarat.
           </p>
           <div class="upi-box">
-            <strong>UPI Payment Details</strong>
+            <strong data-i18n="upi_label">UPI ID for Consultation / Service Support:</strong>
             <div class="upi-row">
-              <span id="upiValue" class="upi-id">9099910615@ybl</span>
-              <button type="button" id="copyUpiBtn" class="copy-btn">Copy UPI ID</button>
+              <span class="upi-id" id="upiValue">shirish.mohite@okicici</span>
+              <button type="button" class="copy-btn" id="copyUpiBtn" data-i18n="btn_copy">Copy UPI ID</button>
             </div>
-            <p id="copyStatus" class="status-msg" aria-live="polite" style="margin-top:8px;"></p>
-            <img
-              id="qrImage"
-              src="qr.png"
-              alt="AUMRMoney UPI QR Code"
-              style="display:block;max-width:180px;margin-top:12px;border-radius:8px;border:1px solid #d4af37;"
-              onerror="this.style.display='none'; document.getElementById('qrFallback').style.display='block';"
-            />
-            <p id="qrFallback" style="display:none;margin-top:10px;font-size:0.84rem;color:#4a5d54;">
-              Upload your QR image file as <code>qr.png</code> in the repository root to display it here automatically.
-            </p>
+            <p class="status-msg" id="copyStatus" style="margin-top: 8px;"></p>
           </div>
         </div>
       </div>
@@ -425,526 +464,236 @@
 
   <footer>
     <div class="container">
-      <div><strong>AUMRMoney</strong> &bull; Built with GitHub Pages</div>
-      <p class="disclaimer">
-        Disclaimer: Mutual fund investments are subject to market risks. Read all scheme-related
-        documents carefully before investing. Calculators and informational content on this page are
-        for educational and planning illustration purposes only.
-      </p>
+      <div><strong>AUMRMoney</strong> &bull; <span data-i18n="footer_loc">Vadodara, Gujarat, India</span></div>
+      <div class="disclaimer" data-i18n="footer_disclaimer">
+        Disclaimer: Mutual fund investments are subject to market risks. Read all scheme related
+        documents carefully before investing. Content on this website is for educational and
+        informational purposes only and should not be construed as guaranteed return advice.
+      </div>
     </div>
   </footer>
 
   <script>
+    const translations = {
+      en: {
+        nav_solutions: "Solutions",
+        nav_calculators: "Calculators",
+        nav_connect: "Connect",
+        hero_badge: "Vadodara, Gujarat \u2022 Financial Awareness & Planning",
+        hero_title_1: "Disciplined Wealth Building &",
+        hero_title_gold: "Practical Financial Tools",
+        hero_desc: "AUMRMoney helps individuals and families build steady financial habits through mutual fund distribution guidance, SIP planning, risk profiling, retirement roadmaps, and term protection.",
+        hero_cta: "Request a Callback",
+        services_title: "Core Focus Areas",
+        s1_title: "Mutual Funds & SIPs",
+        s1_desc: "Goal-aligned Systematic Investment Plans and fund category education designed for long-term consistency rather than short-term noise.",
+        s2_title: "Risk Profiling & Retirement",
+        s2_desc: "Structured conversations around time horizon, comfort with volatility, and sustainable retirement cash-flow planning.",
+        s3_title: "Term Insurance & Protection",
+        s3_desc: "Straightforward income-replacement cover planning so core family goals stay protected against unexpected events.",
+        calc_title: "Planning Calculators",
+        c1_title: "Long-Term Equity Planner",
+        c1_desc: "Project long-term wealth creation through disciplined monthly SIP contributions.",
+        c2_title: "Retirement Planner (Rcalc1)",
+        c2_desc: "Estimate target corpus and monthly savings needed for comfortable post-work years.",
+        c3_title: "Term Cover Estimator",
+        c3_desc: "Assess adequate protection based on annual income, liabilities, and family needs.",
+        contact_title: "Get in Touch",
+        form_title: "Quick Inquiry Form",
+        label_name: "Full Name",
+        ph_name: "Enter your name",
+        label_phone: "Phone / WhatsApp",
+        label_goal: "Financial Goal",
+        ph_goal: "e.g., SIP, Retirement, Term Plan",
+        btn_submit: "Send Inquiry",
+        direct_title: "Direct Contact & UPI",
+        direct_desc: "Available for structured financial awareness, goal planning, and mutual fund distribution consultations from Vadodara, Gujarat.",
+        upi_label: "UPI ID for Consultation / Service Support:",
+        btn_copy: "Copy UPI ID",
+        footer_loc: "Vadodara, Gujarat, India",
+        footer_disclaimer: "Disclaimer: Mutual fund investments are subject to market risks. Read all scheme related documents carefully before investing. Content on this website is for educational and informational purposes only and should not be construed as guaranteed return advice.",
+        copy_ok: "UPI ID copied: shirish.mohite@okicici",
+        copy_fail: "Copy failed. Please copy shirish.mohite@okicici manually.",
+        form_ok: "Thank you, {name}. Your inquiry details are ready—connect this form to Formspree, Google Apps Script, or EmailJS to receive submissions directly."
+      },
+      hi: {
+        nav_solutions: "समाधान",
+        nav_calculators: "कैलकुलेटर",
+        nav_connect: "संपर्क",
+        hero_badge: "वडोदरा, गुजरात \u2022 वित्तीय जागरूकता एवं योजना",
+        hero_title_1: "अनुशासित संपत्ति निर्माण एवं",
+        hero_title_gold: "व्यावहारिक वित्तीय उपकरण",
+        hero_desc: "AUMRMoney म्यूचुअल फंड वितरण मार्गदर्शन, SIP योजना, जोखिम मूल्यांकन, रिटायरमेंट रोडमैप और टर्म प्रोटेक्शन के माध्यम से व्यक्तियों और परिवारों को स्थिर वित्तीय आदतें बनाने में मदद करता है।",
+        hero_cta: "कॉल बैक का अनुरोध करें",
+        services_title: "मुख्य कार्य क्षेत्र",
+        s1_title: "म्यूचुअल फंड और SIP",
+        s1_desc: "लक्ष्य-आधारित सिस्टेमैटिक इन्वेस्टमेंट प्लान (SIP) और फंड श्रेणी की जानकारी, जो अल्पकालिक उतार-चढ़ाव के बजाय दीर्घकालिक निरंतरता के लिए डिज़ाइन की गई है।",
+        s2_title: "जोखिम प्रोफाइलिंग और रिटायरमेंट",
+        s2_desc: "समय अवधि, बाजार उतार-चढ़ाव की सहजता और टिकाऊ रिटायरमेंट कैश-फ्लो योजना पर व्यवस्थित मार्गदर्शन।",
+        s3_title: "टर्म इंश्योरेंस और सुरक्षा",
+        s3_desc: "सरल आय-प्रतिस्थापन कवर योजना ताकि अनपेक्षित परिस्थितियों में भी परिवार के मुख्य लक्ष्य सुरक्षित रहें।",
+        calc_title: "वित्तीय योजना कैलकुलेटर",
+        c1_title: "दीर्घकालिक इक्विटी प्लानर",
+        c1_desc: "अनुशासित मासिक SIP योगदान के माध्यम से दीर्घकालिक संपत्ति निर्माण का अनुमान लगाएं।",
+        c2_title: "रिटायरमेंट प्लानर (Rcalc1)",
+        c2_desc: "सेवानिवृत्ति के बाद के आरामदायक वर्षों के लिए आवश्यक लक्ष्य राशि और मासिक बचत का अनुमान लगाएं।",
+        c3_title: "टर्म कवर एस्टिमेटर",
+        c3_desc: "वार्षिक आय, देनदारियों और पारिवारिक जरूरतों के आधार पर पर्याप्त बीमा सुरक्षा का आकलन करें।",
+        contact_title: "संपर्क करें",
+        form_title: "त्वरित पूछताछ फॉर्म",
+        label_name: "पूरा नाम",
+        ph_name: "अपना नाम दर्ज करें",
+        label_phone: "फोन / व्हाट्सएप",
+        label_goal: "वित्तीय लक्ष्य",
+        ph_goal: "जैसे, SIP, रिटायरमेंट, टर्म प्लान",
+        btn_submit: "पूछताछ भेजें",
+        direct_title: "सीधा संपर्क और UPI",
+        direct_desc: "वडोदरा, गुजरात से व्यवस्थित वित्तीय जागरूकता, लक्ष्य योजना और म्यूचुअल फंड वितरण परामर्श के लिए उपलब्ध।",
+        upi_label: "परामर्श / सेवा सहायता के लिए UPI ID:",
+        btn_copy: "UPI ID कॉपी करें",
+        footer_loc: "वडोदरा, गुजरात, भारत",
+        footer_disclaimer: "अस्वीकरण: म्यूचुअल फंड निवेश बाजार जोखिमों के अधीन हैं। निवेश करने से पहले योजना से संबंधित सभी दस्तावेज़ ध्यानपूर्वक पढ़ें। इस वेबसाइट की सामग्री केवल शैक्षिक और सूचनात्मक उद्देश्यों के लिए है और इसे गारंटीड रिटर्न की सलाह नहीं माना जाना चाहिए।",
+        copy_ok: "UPI ID कॉपी हो गई: shirish.mohite@okicici",
+        copy_fail: "कॉपी विफल। कृपया shirish.mohite@okicici मैन्युअल रूप से कॉपी करें।",
+        form_ok: "धन्यवाद, {name}। आपका पूछताछ विवरण तैयार है—सीधे सबमिशन प्राप्त करने के लिए इस फॉर्म को Formspree, Google Apps Script या EmailJS से जोड़ें।"
+      },
+      mr: {
+        nav_solutions: "उपाय",
+        nav_calculators: "कॅल्क्युलेटर्स",
+        nav_connect: "संपर्क",
+        hero_badge: "वडोदरा, गुजरात \u2022 आर्थिक जागरूकता आणि नियोजन",
+        hero_title_1: "शिस्तबद्ध संपत्ती निर्मिती आणि",
+        hero_title_gold: "व्यावहारिक आर्थिक साधने",
+        hero_desc: "AUMRMoney म्युच्युअल फंड वितरण मार्गदर्शन, SIP नियोजन, जोखीम मूल्यांकन, निवृत्ती आराखडा आणि टर्म प्रोटेक्शनद्वारे व्यक्ती आणि कुटुंबांना स्थिर आर्थिक सवयी लावण्यास मदत करते.",
+        hero_cta: "कॉल बॅकची विनंती करा",
+        services_title: "मुख्य कार्यक्षेत्रे",
+        s1_title: "म्युच्युअल फंड आणि SIP",
+        s1_desc: "अल्पकालीन चढ-उतारांऐवजी दीर्घकालीन सातत्यासाठी तयार केलेल्या उद्दिष्ट-आधारित सिस्टिमॅटिक इन्व्हेस्टमेंट प्लॅन्स (SIP) आणि फंड प्रकारांचे मार्गदर्शन.",
+        s2_title: "जोखीम प्रोफाइलिंग आणि निवृत्ती",
+        s2_desc: "गुंतवणूक कालावधी, बाजार अस्थिरतेची क्षमता आणि शाश्वत निवृत्ती कॅश-फ्लो नियोजनाबाबत सुसूत्र मार्गदर्शन.",
+        s3_title: "टर्म इन्शुरन्स आणि संरक्षण",
+        s3_desc: "अनपेक्षित प्रसंगांतही कुटुंबाची मुख्य उद्दिष्टे सुरक्षित राहावीत यासाठी सोपे उत्पन्न-पर्यायी विमा नियोजन.",
+        calc_title: "नियोजन कॅल्क्युलेटर्स",
+        c1_title: "दीर्घकालीन इक्विटी प्लॅनर",
+        c1_desc: "शिस्तबद्ध मासिक SIP योगदानाद्वारे दीर्घकालीन संपत्ती निर्मितीचा अंदाज घ्या.",
+        c2_title: "निवृत्ती प्लॅनर (Rcalc1)",
+        c2_desc: "निवृत्तीनंतरच्या आरामदायी वर्षांसाठी आवश्यक लक्ष्य निधी आणि मासिक बचतीचा अंदाज घ्या.",
+        c3_title: "टर्म कव्हर एस्टिमेटर",
+        c3_desc: "वार्षिक उत्पन्न, दायित्वे आणि कौटुंबिक गरजांवर आधारित योग्य विमा संरक्षणाचे मूल्यांकन करा.",
+        contact_title: "संपर्क साधा",
+        form_title: "त्वरित चौकशी फॉर्म",
+        label_name: "पूर्ण नाव",
+        ph_name: "तुमचे नाव लिहा",
+        label_phone: "फोन / व्हॉट्सॲप",
+        label_goal: "आर्थिक उद्दिष्ट",
+        ph_goal: "उदा., SIP, निवृत्ती, टर्म प्लॅन",
+        btn_submit: "चौकशी पाठवा",
+        direct_title: "थेट संपर्क आणि UPI",
+        direct_desc: "वडोदरा, गुजरात येथून सुसूत्र आर्थिक जागरूकता, उद्दिष्ट नियोजन आणि म्युच्युअल फंड वितरण सल्ल्यासाठी उपलब्ध.",
+        upi_label: "सल्लामसलत / सेवा सहाय्यासाठी UPI ID:",
+        btn_copy: "UPI ID कॉपी करा",
+        footer_loc: "वडोदरा, गुजरात, भारत",
+        footer_disclaimer: "अस्वीकरण: म्युच्युअल फंड गुंतवणूक बाजारातील जोखमीच्या अधीन असते. गुंतवणूक करण्यापूर्वी योजनेशी संबंधित सर्व कागदपत्रे काळजीपूर्वक वाचा. या वेबसाइटवरील मजकूर केवळ शैक्षणिक आणि माहितीच्या उद्देशाने आहे आणि तो हमी परताव्याचा सल्ला मानू नये.",
+        copy_ok: "UPI ID कॉपी झाला: shirish.mohite@okicici",
+        copy_fail: "कॉपी अयशस्वी. कृपया shirish.mohite@okicici स्वतः कॉपी करा.",
+        form_ok: "धन्यवाद, {name}. तुमचा चौकशी तपशील तयार आहे—थेट सबमिशन मिळवण्यासाठी हा फॉर्म Formspree, Google Apps Script किंवा EmailJS शी जोडा."
+      },
+      gu: {
+        nav_solutions: "ઉપાયો",
+        nav_calculators: "કેલ્ક્યુલેટર્સ",
+        nav_connect: "સંપર્ક",
+        hero_badge: "વડોદરા, ગુજરાત \u2022 નાણાકીય જાગૃતિ અને આયોજન",
+        hero_title_1: "શિસ્તબદ્ધ સંપત્તિ નિર્માણ અને",
+        hero_title_gold: "વ્યવહારુ નાણાકીય સાધનો",
+        hero_desc: "AUMRMoney મ્યુચ્યુઅલ ફંડ વિતરણ માર્ગદર્શન, SIP આયોજન, જોખમ મૂલ્યાંકન, નિવૃત્તિ રોડમેપ અને ટર્મ પ્રોટેક્શન દ્વારા વ્યક્તિઓ અને પરિવારોને સ્થિર નાણાકીય આદતો વિકસાવવામાં મદદ કરે છે.",
+        hero_cta: "કોલબેકની વિનંતી કરો",
+        services_title: "મુખ્ય કાર્યક્ષેત્રો",
+        s1_title: "મ્યુચ્યુઅલ ફંડ અને SIP",
+        s1_desc: "ટૂંકા ગાળાની વધઘટને બદલે લાંબા ગાળાની સાતત્યતા માટે રચાયેલ ધ્યેય-આધારિત સિસ્ટમેટિક ઇન્વેસ્ટમેન્ટ પ્લાન્સ (SIP) અને ફંડ શ્રેણીનું માર્ગદર્શન.",
+        s2_title: "જોખમ પ્રોફાઇલિંગ અને નિવૃત્તિ",
+        s2_desc: "સમય મર્યાદા, બજારની અસ્થિરતા સાથેની અનુકૂળતા અને ટકાઉ નિવૃત્તિ કેશ-ફ્લો આયોજન અંગે વ્યવસ્થિત માર્ગદર્શન.",
+        s3_title: "ટર્મ ઇન્શ્યોરન્સ અને સુરક્ષા",
+        s3_desc: "અણધાર્યા સંજોગોમાં પણ પરિવારના મુખ્ય ધ્યેયો સુરક્ષિત રહે તે માટે સરળ આવક-વિકલ્પ કવર આયોજન.",
+        calc_title: "આયોજન કેલ્ક્યુલેટર્સ",
+        c1_title: "લાંબા ગાળાના ઇક્વિટી પ્લાનર",
+        c1_desc: "શિસ્તબદ્ધ માસિક SIP યોગદાન દ્વારા લાંબા ગાળાના સંપત્તિ નિર્માણનો અંદાજ લગાવો.",
+        c2_title: "નિવૃત્તિ પ્લાનર (Rcalc1)",
+        c2_desc: "નિવૃત્તિ પછીના આરામદાયક વર્ષો માટે જરૂરી લક્ષ્ય ભંડોળ અને માસિક બચતનો અંદાજ લગાવો.",
+        c3_title: "ટર્મ કવર એસ્ટિમેટર",
+        c3_desc: "વાર્ષિક આવક, જવાબદારીઓ અને પારિવારિક જરૂરિયાતોના આધારે પૂરતી વીમા સુરક્ષાનું મૂલ્યાંકન કરો.",
+        contact_title: "સંપર્ક કરો",
+        form_title: "ઝડપી પૂછપરછ ફોર્મ",
+        label_name: "પૂરું નામ",
+        ph_name: "તમારું નામ દાખલ કરો",
+        label_phone: "ફોન / વોટ્સએપ",
+        label_goal: "નાણાકીય ધ્યેય",
+        ph_goal: "દા.ત., SIP, નિવૃત્તિ, ટર્મ પ્લાન",
+        btn_submit: "પૂછપરછ મોકલો",
+        direct_title: "સીધો સંપર્ક અને UPI",
+        direct_desc: "વડોદરા, ગુજરાતથી વ્યવસ્થિત નાણાકીય જાગૃતિ, ધ્યેય આયોજન અને મ્યુચ્યુઅલ ફંડ વિતરણ પરામર્શ માટે ઉપલબ્ધ.",
+        upi_label: "પરામર્શ / સેવા સહાય માટે UPI ID:",
+        btn_copy: "UPI ID કોપી કરો",
+        footer_loc: "વડોદરા, ગુજરાત, ભારત",
+        footer_disclaimer: "અસ્વીકરણ: મ્યુચ્યુઅલ ફંડ રોકાણ બજારના જોખમોને આધીન છે. રોકાણ કરતા પહેલા યોજના સંબંધિત તમામ દસ્તાવેજો કાળજીપૂર્વક વાંચો. આ વેબસાઇટ પરની સામગ્રી માત્ર શૈક્ષણિક અને માહિતીપ્રદ હેતુઓ માટે છે અને તેને ખાતરીપૂર્વકના વળતરની સલાહ ગણવી જોઈએ નહીં.",
+        copy_ok: "UPI ID કોપી થઈ ગઈ: shirish.mohite@okicici",
+        copy_fail: "કોપી નિષ્ફળ ગઈ. કૃપા કરીને shirish.mohite@okicici જાતે કોપી કરો.",
+        form_ok: "આભાર, {name}. તમારી પૂછપરછની વિગતો તૈયાર છે—સીધા સબમિશન મેળવવા માટે આ ફોર્મને Formspree, Google Apps Script અથવા EmailJS સાથે જોડો."
+      }
+    };
+
+    let currentLang = "en";
+    const langButtons = document.querySelectorAll(".lang-btn");
+
+    function setLanguage(lang) {
+      if (!translations[lang]) return;
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      const dict = translations[lang];
+
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key]) {
+          el.textContent = dict[key];
+        }
+      });
+
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-placeholder");
+        if (dict[key]) {
+          el.setAttribute("placeholder", dict[key]);
+        }
+      });
+
+      langButtons.forEach((btn) => {
+        btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+      });
+    }
+
+    langButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        setLanguage(btn.getAttribute("data-lang"));
+      });
+    });
+
     const form = document.getElementById("inquiryForm");
     const statusEl = document.getElementById("formStatus");
     const copyBtn = document.getElementById("copyUpiBtn");
     const copyStatus = document.getElementById("copyStatus");
-    const upiValue = document.getElementById("upiValue").textContent.trim();
 
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      statusEl.textContent =
-        "Thank you, " +
-        name +
-        ". Your inquiry details are ready—connect this form to Formspree, Google Apps Script, or your CRM to capture submissions automatically.";
-      form.reset();
-    });
-
-    copyBtn.addEventListener("click", function () {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(upiValue).then(function () {
-          copyStatus.textContent = "Copied UPI ID: " + upiValue;
-        }).catch(function () {
-          copyStatus.textContent = "UPI ID: " + upiValue;
-        });
-      } else {
-        copyStatus.textContent = "UPI ID: " + upiValue;
-      }
-    });
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AUMRMoney | Practical Wealth, SIPs & Financial Clarity</title>
-  <style>
-    :root {
-      --bg: #f6f8f5;
-      --surface: #ffffff;
-      --text: #0f1f19;
-      --muted: #4a5d54;
-      --green-dark: #0b3d2e;
-      --green-mid: #14533e;
-      --gold: #d4af37;
-      --gold-light: #fef9e7;
-      --orange: #f97316;
-      --orange-dark: #ea580c;
-      --border: #dce5df;
-      --radius: 14px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    header {
-      background: var(--surface);
-      border-bottom: 2px solid var(--gold);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 68px;
-    }
-
-    .brand {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--green-dark);
-      letter-spacing: -0.02em;
-    }
-
-    .brand span {
-      color: var(--orange);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--muted);
-    }
-
-    .nav-links a:hover {
-      color: var(--orange-dark);
-    }
-
-    .hero-wrap {
-      padding: 28px 0 16px;
-    }
-
-    .hero {
-      background: linear-gradient(125deg, var(--green-dark) 0%, var(--green-mid) 52%, var(--orange) 130%);
-      color: #ffffff;
-      border: 2px solid var(--gold);
-      border-radius: 20px;
-      padding: 56px 28px;
-      text-align: center;
-      box-shadow: 0 14px 32px rgba(11, 61, 46, 0.18);
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(212, 175, 55, 0.2);
-      color: #fde68a;
-      font-size: 0.84rem;
-      font-weight: 600;
-      padding: 6px 16px;
-      border-radius: 999px;
-      margin-bottom: 18px;
-      border: 1px solid var(--gold);
-    }
-
-    h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      max-width: 760px;
-      margin: 0 auto 18px;
-    }
-
-    h1 .gold-text {
-      color: #fde047;
-    }
-
-    .hero p {
-      font-size: 1.06rem;
-      color: rgba(255, 255, 255, 0.94);
-      max-width: 640px;
-      margin: 0 auto 28px;
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--orange);
-      color: #ffffff;
-      font-weight: 700;
-      padding: 12px 24px;
-      border-radius: 8px;
-      border: 1px solid #fde047;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: transform 0.15s ease, background 0.15s ease;
-    }
-
-    .btn:hover {
-      background: var(--orange-dark);
-      transform: translateY(-1px);
-    }
-
-    .btn-green {
-      background: var(--green-dark);
-      color: #ffffff;
-      border: 1px solid var(--gold);
-    }
-
-    .btn-green:hover {
-      background: var(--green-mid);
-    }
-
-    section {
-      padding: 36px 0;
-    }
-
-    .section-title {
-      font-size: 1.5rem;
-      color: var(--green-dark);
-      margin-bottom: 20px;
-      letter-spacing: -0.02em;
-      border-left: 4px solid var(--gold);
-      padding-left: 12px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-top: 4px solid var(--gold);
-      border-radius: var(--radius);
-      padding: 24px;
-    }
-
-    .card:nth-child(2) {
-      border-top-color: var(--orange);
-    }
-
-    .card:nth-child(3) {
-      border-top-color: var(--green-dark);
-    }
-
-    .card h3 {
-      font-size: 1.12rem;
-      margin-bottom: 8px;
-      color: var(--green-dark);
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      align-items: start;
-    }
-
-    form label {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--green-dark);
-      margin-bottom: 6px;
-    }
-
-    form input {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.95rem;
-      margin-bottom: 14px;
-    }
-
-    form input:focus {
-      outline: none;
-      border-color: var(--orange);
-    }
-
-    .upi-box {
-      background: var(--gold-light);
-      border: 1px solid var(--gold);
-      border-radius: 12px;
-      padding: 18px;
-      margin-top: 14px;
-      font-size: 0.92rem;
-    }
-
-    .upi-row {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .upi-id {
-      font-family: monospace;
-      font-size: 0.98rem;
-      font-weight: 700;
-      color: var(--orange-dark);
-      background: var(--surface);
-      padding: 5px 10px;
-      border-radius: 6px;
-      border: 1px solid var(--gold);
-      display: inline-block;
-    }
-
-    .copy-btn {
-      background: var(--orange);
-      color: #ffffff;
-      border: none;
-      border-radius: 6px;
-      padding: 6px 12px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .copy-btn:hover {
-      background: var(--orange-dark);
-    }
-
-    .status-msg {
-      margin-top: 12px;
-      font-size: 0.9rem;
-      color: var(--green-mid);
-      font-weight: 600;
-    }
-
-    footer {
-      margin-top: 36px;
-      background: var(--green-dark);
-      border-top: 3px solid var(--gold);
-      padding: 28px 0;
-      color: rgba(255, 255, 255, 0.85);
-      font-size: 0.85rem;
-    }
-
-    .disclaimer {
-      margin-top: 12px;
-      font-size: 0.78rem;
-      line-height: 1.5;
-      color: rgba(255, 255, 255, 0.72);
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="container nav">
-      <a href="#" class="brand">AUMR<span>Money</span></a>
-      <nav class="nav-links">
-        <a href="#services">Solutions</a>
-        <a href="#calculators">Calculators</a>
-        <a href="#contact">Connect</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <div class="hero-wrap">
-      <section class="hero">
-        <span class="badge">Vadodara, Gujarat &bull; Financial Awareness &amp; Planning</span>
-        <h1>Disciplined Wealth Building &amp; <span class="gold-text">Practical Financial Tools</span></h1>
-        <p>
-          AUMRMoney helps individuals and families build steady financial habits through mutual fund
-          distribution guidance, SIP planning, risk profiling, retirement roadmaps, and term protection.
-        </p>
-        <a href="#contact" class="btn">Request a Callback</a>
-      </section>
-    </div>
-
-    <section id="services">
-      <h2 class="section-title">Core Focus Areas</h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Mutual Funds &amp; SIPs</h3>
-          <p>
-            Goal-aligned Systematic Investment Plans and fund category education designed for long-term
-            consistency rather than short-term noise.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Risk Profiling &amp; Retirement</h3>
-          <p>
-            Structured conversations around time horizon, comfort with volatility, and sustainable
-            retirement cash-flow planning.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Term Insurance &amp; Protection</h3>
-          <p>
-            Straightforward income-replacement cover planning so core family goals stay protected
-            against unexpected events.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="calculators">
-      <h2 class="section-title">Planning Calculators &amp; Resources</h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3><a href="rcalc1.html" style="text-decoration:underline;">Retirement Planner (Rcalc1)</a></h3>
-          <p>Estimate target corpus and monthly savings needed for comfortable post-work years.</p>
-        </div>
-        <div class="card">
-          <h3>Long-Term Equity Planner</h3>
-          <p>Model multi-year compounding scenarios across varying investment horizons and step-ups.</p>
-        </div>
-        <div class="card">
-          <h3>Term Cover Estimator</h3>
-          <p>Check baseline protection needs based on annual expenses, liabilities, and dependents.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2 class="section-title">Get in Touch</h2>
-      <div class="split">
-        <div class="card">
-          <h3>Quick Inquiry Form</h3>
-          <p style="margin-bottom: 16px;">Share your details and we will follow up on your planning or calculator request.</p>
-          <form id="inquiryForm">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your full name" required />
-
-            <label for="phone">Phone Number</label>
-            <input id="phone" name="phone" type="tel" placeholder="+91 98XXX XXXXX" required />
-
-            <label for="email">Email ID</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required />
-
-            <button type="submit" class="btn btn-green">Submit Inquiry</button>
-            <p id="formStatus" class="status-msg" aria-live="polite"></p>
-          </form>
-        </div>
-
-        <div class="card">
-          <h3>Calculator Access &amp; UPI Details</h3>
-          <p>
-            Pay via UPI using the ID below or scan the QR image once uploaded as <code>qr.png</code>
-            in your repository.
-          </p>
-          <div class="upi-box">
-            <strong>UPI Payment Details</strong>
-            <div class="upi-row">
-              <span id="upiValue" class="upi-id">9099910615@ybl</span>
-              <button type="button" id="copyUpiBtn" class="copy-btn">Copy UPI ID</button>
-            </div>
-            <p id="copyStatus" class="status-msg" aria-live="polite" style="margin-top:8px;"></p>
-            <img
-              id="qrImage"
-              src="qr.png"
-              alt="AUMRMoney UPI QR Code"
-              style="display:block;max-width:180px;margin-top:12px;border-radius:8px;border:1px solid #d4af37;"
-              onerror="this.style.display='none'; document.getElementById('qrFallback').style.display='block';"
-            />
-            <p id="qrFallback" style="display:none;margin-top:10px;font-size:0.84rem;color:#4a5d54;">
-              Upload your QR image file as <code>qr.png</code> in the repository root to display it here automatically.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div><strong>AUMRMoney</strong> &bull; Built with GitHub Pages</div>
-      <p class="disclaimer">
-        Disclaimer: Mutual fund investments are subject to market risks. Read all scheme-related
-        documents carefully before investing. Calculators and informational content on this page are
-        for educational and planning illustration purposes only.
-      </p>
-    </div>
-  </footer>
-
-  <script>
-    const WEB_APP_URL = "PASTE_YOUR_WEB_APP_URL_HERE";
-    const form = document.getElementById("inquiryForm");
-    const statusEl = document.getElementById("formStatus");
-    const copyBtn = document.getElementById("copyUpiBtn");
-    const copyStatus = document.getElementById("copyStatus");
-    const upiValue = document.getElementById("upiValue").textContent.trim();
-
-    form.addEventListener("submit", async function (event) {
-      event.preventDefault();
-      const payload = {
-        name: document.getElementById("name").value.trim(),
-        phone: document.getElementById("phone").value.trim(),
-        email: document.getElementById("email").value.trim()
-      };
-
-      if (!WEB_APP_URL || WEB_APP_URL === "PASTE_YOUR_WEB_APP_URL_HERE") {
-        statusEl.textContent = "Please add your deployed Google Apps Script Web App URL first.";
-        return;
-      }
-
-      statusEl.textContent = "Submitting your inquiry...";
-
+    copyBtn.addEventListener("click", async () => {
       try {
-        await fetch(WEB_APP_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-        statusEl.textContent =
-          "Thank you, " + payload.name + ". Your inquiry has been recorded.";
-        form.reset();
-      } catch (error) {
-        statusEl.textContent =
-          "Could not send right now. Please reach out directly at aumrmoney@gmail.com or 9099910615.";
+        await navigator.clipboard.writeText("shirish.mohite@okicici");
+        copyStatus.textContent = translations[currentLang].copy_ok;
+      } catch (err) {
+        copyStatus.textContent = translations[currentLang].copy_fail;
       }
     });
 
-    copyBtn.addEventListener("click", function () {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(upiValue).then(function () {
-          copyStatus.textContent = "Copied UPI ID: " + upiValue;
-        }).catch(function () {
-          copyStatus.textContent = "UPI ID: " + upiValue;
-        });
-      } else {
-        copyStatus.textContent = "UPI ID: " + upiValue;
-      }
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      statusEl.textContent = translations[currentLang].form_ok.replace("{name}", name);
+      form.reset();
     });
   </script>
 </body>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AUMRMoney | Practical Wealth, SIPs &amp; Financial Clarity</title>
-  <meta name="description" content="Practical mutual fund guidance, goal-based SIP planning, retirement calculators, and transparent financial education by AUMRMoney." />
+  <meta name="description" content="Practical mutual fund guidance, goal-based SIP planning, retirement calculators, equity study tools, and social channels by AUMRMoney." />
   <style>
     :root {
       --green-dark: #0b3d2e;
@@ -102,9 +102,10 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
       font-size: 0.95rem;
       font-weight: 500;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
@@ -152,7 +153,7 @@
     .hero {
       background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 68%, #184e68 100%);
       color: #ffffff;
-      padding: 64px 0 56px;
+      padding: 60px 0 52px;
       border-bottom: 4px solid var(--gold);
     }
 
@@ -171,12 +172,12 @@
     .hero h1 {
       font-size: clamp(1.9rem, 4vw, 2.85rem);
       line-height: 1.2;
-      max-width: 20ch;
+      max-width: 22ch;
       margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 62ch;
+      max-width: 64ch;
       color: #d9ebe4;
       font-size: 1.05rem;
       margin-bottom: 24px;
@@ -237,11 +238,11 @@
 
     /* Sections */
     section {
-      padding: 56px 0;
+      padding: 54px 0;
     }
 
     .section-head {
-      margin-bottom: 28px;
+      margin-bottom: 26px;
     }
 
     .section-kicker {
@@ -261,7 +262,7 @@
 
     .section-head p {
       color: var(--muted);
-      max-width: 64ch;
+      max-width: 66ch;
     }
 
     .grid-3 {
@@ -282,6 +283,13 @@
       gap: 14px;
     }
 
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
     .badge {
       display: inline-block;
       width: fit-content;
@@ -297,12 +305,6 @@
       border: 1px solid #b7d7c8;
     }
 
-    .badge-soon {
-      background: var(--gold-soft);
-      color: #7c5800;
-      border: 1px solid #e6cf85;
-    }
-
     .card h3 {
       font-size: 1.15rem;
       color: var(--green-dark);
@@ -312,6 +314,60 @@
     .card p {
       color: var(--muted);
       font-size: 0.94rem;
+    }
+
+    /* SIP Quick Estimator Panel */
+    .sip-panel {
+      margin-top: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .sip-panel h3 {
+      color: var(--green-dark);
+      font-size: 1.15rem;
+      margin-bottom: 14px;
+    }
+
+    .sip-inputs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .sip-results {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      background: var(--green-light);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .sip-metric-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .sip-metric-value {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--green-dark);
+      margin-top: 2px;
+    }
+
+    /* Social Section */
+    .social-links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
     }
 
     /* Contact Section */
@@ -372,42 +428,6 @@
       font-size: 0.93rem;
     }
 
-    .upi-box {
-      background: var(--green-light);
-      border: 1px dashed var(--green-mid);
-      border-radius: 12px;
-      padding: 14px;
-      margin-top: 10px;
-    }
-
-    .upi-code {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-top: 8px;
-      background: #ffffff;
-      padding: 8px 12px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      font-family: monospace;
-      font-size: 0.9rem;
-    }
-
-    .qr-wrap {
-      margin-top: 14px;
-      text-align: center;
-    }
-
-    .qr-wrap img {
-      max-width: 150px;
-      height: auto;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: #ffffff;
-      padding: 6px;
-    }
-
     /* Footer */
     .site-footer {
       background: var(--green-dark);
@@ -415,6 +435,18 @@
       padding: 36px 0;
       border-top: 3px solid var(--gold);
       font-size: 0.86rem;
+    }
+
+    .footer-social {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer-social a {
+      color: var(--gold-soft);
+      text-decoration: underline;
     }
 
     .disclaimer {
@@ -427,7 +459,9 @@
 
     @media (max-width: 860px) {
       .grid-3,
-      .contact-grid {
+      .contact-grid,
+      .sip-inputs,
+      .sip-results {
         grid-template-columns: 1fr;
       }
     }
@@ -451,6 +485,7 @@
       <nav class="nav-links" aria-label="Primary Navigation">
         <a href="#services" data-i18n="navServices">Solutions</a>
         <a href="#calculators" data-i18n="navCalculators">Calculators</a>
+        <a href="#social" data-i18n="navSocial">Social Media</a>
         <a href="#contact" data-i18n="navContact">Connect</a>
       </nav>
 
@@ -469,7 +504,7 @@
         <span class="eyebrow" data-i18n="eyebrow">AMFI-Registered Mutual Fund Distributor • Practical Guidance</span>
         <h1 data-i18n="heroTitle">Disciplined Wealth Building &amp; Practical Financial Clarity</h1>
         <p data-i18n="heroSubtitle">
-          Explore goal-based SIP planning, retirement readiness tools, and structured equity study calculators designed for long-term investors.
+          Explore goal-based SIP planning, retirement readiness calculators, equity study workflows, and educational channels by AUMRMoney.
         </p>
         <div class="hero-actions">
           <a href="#calculators" class="btn btn-primary" data-i18n="ctaCalculators">Explore Calculators</a>
@@ -516,17 +551,31 @@
         <div class="section-head">
           <div class="section-kicker" data-i18n="calcKicker">Interactive Tools</div>
           <h2 data-i18n="calcTitle">Financial Calculators</h2>
-          <p data-i18n="calcDesc">Test assumptions and plan scenarios using our browser and sheet-based tools.</p>
+          <p data-i18n="calcDesc">Test SIP projections, retirement readiness, and equity study workflows.</p>
         </div>
 
         <div class="grid-3">
           <article class="card">
             <div>
               <span class="badge badge-live" data-i18n="statusLive">Available</span>
+              <h3 style="margin-top: 10px;" data-i18n="calcSipTitle">SIP Calculator</h3>
+              <p data-i18n="calcSipDesc">Estimate future maturity value for monthly SIP contributions across chosen tenure and assumed return rates.</p>
+            </div>
+            <div class="card-actions">
+              <a href="#sip-quick-box" class="btn btn-primary" data-i18n="quickEstimate">Quick Estimate</a>
+              <a href="sip-calculator.html" class="btn btn-outline" data-i18n="openTool">Open Calculator</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div>
+              <span class="badge badge-live" data-i18n="statusLive">Available</span>
               <h3 style="margin-top: 10px;" data-i18n="calc1Title">Retirement Planner (Rcalc1)</h3>
               <p data-i18n="calc1Desc">Model retirement corpus requirements and monthly SIP contributions with realistic return assumptions.</p>
             </div>
-            <a href="rcalc1.html" class="btn btn-primary" data-i18n="openTool">Open Calculator</a>
+            <div class="card-actions">
+              <a href="rcalc1.html" class="btn btn-secondary" data-i18n="openTool">Open Calculator</a>
+            </div>
           </article>
 
           <article class="card">
@@ -535,17 +584,65 @@
               <h3 style="margin-top: 10px;" data-i18n="calc2Title">Bharat Wealth Equity Study</h3>
               <p data-i18n="calc2Desc">Explore structured equity screening and educational paper-testing workflows.</p>
             </div>
-            <a href="bharat-wealth.html" class="btn btn-secondary" data-i18n="openTool">Open Calculator</a>
-          </article>
-
-          <article class="card">
-            <div>
-              <span class="badge badge-soon" data-i18n="statusSoon">Coming Soon</span>
-              <h3 style="margin-top: 10px;" data-i18n="calc3Title">Life Risk &amp; Term Estimator</h3>
-              <p data-i18n="calc3Desc">Age-aware protection and term coverage planning tool currently in development.</p>
+            <div class="card-actions">
+              <a href="bharat-wealth.html" class="btn btn-secondary" data-i18n="openTool">Open Calculator</a>
             </div>
-            <button type="button" class="btn btn-outline" disabled data-i18n="statusSoon">Coming Soon</button>
           </article>
+        </div>
+
+        <div id="sip-quick-box" class="sip-panel">
+          <h3 data-i18n="sipQuickTitle">Interactive SIP Projection Calculator</h3>
+          <div class="sip-inputs">
+            <div>
+              <label for="sipMonthly" data-i18n="sipMonthlyLabel">Monthly SIP (₹)</label>
+              <input id="sipMonthly" type="number" min="500" max="10000000" step="500" value="10000" />
+            </div>
+            <div>
+              <label for="sipRate" data-i18n="sipRateLabel">Assumed Annual Return (% p.a.)</label>
+              <input id="sipRate" type="number" min="1" max="30" step="0.5" value="12" />
+            </div>
+            <div>
+              <label for="sipYears" data-i18n="sipYearsLabel">Investment Period (Years)</label>
+              <input id="sipYears" type="number" min="1" max="50" step="1" value="10" />
+            </div>
+          </div>
+
+          <div class="sip-results">
+            <div>
+              <div class="sip-metric-label" data-i18n="sipInvestedLabel">Total Invested</div>
+              <div class="sip-metric-value" id="sipInvestedVal">₹12,00,000</div>
+            </div>
+            <div>
+              <div class="sip-metric-label" data-i18n="sipEstGainLabel">Estimated Wealth Gain</div>
+              <div class="sip-metric-value" id="sipGainVal">₹11,23,391</div>
+            </div>
+            <div>
+              <div class="sip-metric-label" data-i18n="sipTotalLabel">Estimated Maturity Value</div>
+              <div class="sip-metric-value" id="sipTotalVal">₹23,23,391</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="social">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker" data-i18n="socialKicker">Social Media</div>
+          <h2 data-i18n="socialTitle">Follow AUMRMoney Channels</h2>
+          <p data-i18n="socialDesc">Educational clips, SIP explainers, and updates across YouTube, Instagram, and Facebook.</p>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3 data-i18n="socialCardTitle">Official Social Media Profiles</h3>
+            <p data-i18n="socialCardDesc">Connect with AUMRMoney on your preferred platform (update handle URLs below if your exact channel handles differ):</p>
+          </div>
+          <div class="social-links-row">
+            <a href="https://www.youtube.com/@aumrmoney" target="_blank" rel="noopener noreferrer" class="btn btn-primary">YouTube — @aumrmoney</a>
+            <a href="https://www.instagram.com/aumrmoney/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Instagram — @aumrmoney</a>
+            <a href="https://www.facebook.com/aumrmoney/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Facebook — @aumrmoney</a>
+          </div>
         </div>
       </div>
     </section>
@@ -555,24 +652,24 @@
         <div class="section-head">
           <div class="section-kicker" data-i18n="contactKicker">Get in Touch</div>
           <h2 data-i18n="contactTitle">Connect with AUMRMoney</h2>
-          <p data-i18n="contactDesc">Share your contact details for a callback or reach out directly.</p>
+          <p data-i18n="contactDesc">Share your Name, Phone, and Email for a callback or reach out directly.</p>
         </div>
 
         <div class="contact-grid">
           <div class="card">
             <form id="leadForm" novalidate>
               <div class="form-row">
-                <label for="leadName" data-i18n="labelName">Full Name</label>
+                <label for="leadName" data-i18n="labelName">Name</label>
                 <input id="leadName" name="name" type="text" required placeholder="Your full name" />
               </div>
 
               <div class="form-row">
-                <label for="leadPhone" data-i18n="labelPhone">Phone / WhatsApp</label>
+                <label for="leadPhone" data-i18n="labelPhone">Phone</label>
                 <input id="leadPhone" name="phone" type="tel" required placeholder="+91 98765 43210" />
               </div>
 
               <div class="form-row">
-                <label for="leadEmail" data-i18n="labelEmail">Email Address</label>
+                <label for="leadEmail" data-i18n="labelEmail">Email</label>
                 <input id="leadEmail" name="email" type="email" required placeholder="you@example.com" />
               </div>
 
@@ -583,24 +680,13 @@
 
           <div class="card">
             <div>
-              <h3 data-i18n="directTitle">Direct Contact &amp; UPI</h3>
+              <h3 data-i18n="directTitle">Direct Contact</h3>
               <ul class="info-list">
                 <li><strong>Advisor:</strong> Shirish Mohite (ARN - 362794)</li>
                 <li><strong>Location:</strong> Vadodara, Gujarat</li>
                 <li><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/919099910615" target="_blank" rel="noopener noreferrer">+91 9099910615</a></li>
                 <li><strong>Email:</strong> <a href="mailto:aumrmoney@gmail.com">aumrmoney@gmail.com</a></li>
               </ul>
-
-              <div class="upi-box">
-                <strong data-i18n="upiLabel">UPI ID (Educational / Resource Contributions)</strong>
-                <div class="upi-code">
-                  <span id="upiIdText">shirish.mohite@okicici</span>
-                  <button type="button" id="copyUpiBtn" class="btn btn-outline" style="padding: 5px 10px; font-size: 0.8rem;" data-i18n="copyBtn">Copy</button>
-                </div>
-                <div class="qr-wrap">
-                  <img src="qr.png" alt="AUMRMoney UPI QR Code" onerror="this.style.display='none'" />
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -613,6 +699,11 @@
       <div>
         <strong>AUMRMoney</strong> — Shirish Mohite | AMFI-Registered Mutual Fund Distributor (ARN - 362794)
       </div>
+      <div class="footer-social">
+        <a href="https://www.youtube.com/@aumrmoney" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://www.instagram.com/aumrmoney/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/aumrmoney/" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
       <div class="disclaimer" data-i18n="disclaimer">
         Mutual fund investments are subject to market risks. Read all scheme-related documents carefully before investing. Calculators and screening tools on this site are for educational and planning illustration purposes and do not constitute guaranteed returns or investment advice.
       </div>
@@ -620,17 +711,18 @@
   </footer>
 
   <script>
-    // Optional: Replace with your deployed Google Apps Script Web App URL if desired
+    // Paste your deployed Google Apps Script Web App URL below when ready
     const APPS_SCRIPT_URL = "";
 
     const translations = {
       en: {
         navServices: "Solutions",
         navCalculators: "Calculators",
+        navSocial: "Social Media",
         navContact: "Connect",
         eyebrow: "AMFI-Registered Mutual Fund Distributor • Practical Guidance",
         heroTitle: "Disciplined Wealth Building & Practical Financial Clarity",
-        heroSubtitle: "Explore goal-based SIP planning, retirement readiness tools, and structured equity study calculators designed for long-term investors.",
+        heroSubtitle: "Explore goal-based SIP planning, retirement readiness calculators, equity study workflows, and educational channels by AUMRMoney.",
         ctaCalculators: "Explore Calculators",
         ctaConnect: "Request a Callback",
         servicesKicker: "Financial Solutions",
@@ -644,36 +736,46 @@
         svc3Desc: "Periodic check-ins to review asset allocation, overlap, and alignment with your plan.",
         calcKicker: "Interactive Tools",
         calcTitle: "Financial Calculators",
-        calcDesc: "Test assumptions and plan scenarios using our browser and sheet-based tools.",
+        calcDesc: "Test SIP projections, retirement readiness, and equity study workflows.",
         statusLive: "Available",
-        statusSoon: "Coming Soon",
+        calcSipTitle: "SIP Calculator",
+        calcSipDesc: "Estimate future maturity value for monthly SIP contributions across chosen tenure and assumed return rates.",
         calc1Title: "Retirement Planner (Rcalc1)",
         calc1Desc: "Model retirement corpus requirements and monthly SIP contributions with realistic return assumptions.",
         calc2Title: "Bharat Wealth Equity Study",
         calc2Desc: "Explore structured equity screening and educational paper-testing workflows.",
-        calc3Title: "Life Risk & Term Estimator",
-        calc3Desc: "Age-aware protection and term coverage planning tool currently in development.",
+        quickEstimate: "Quick Estimate",
         openTool: "Open Calculator",
+        sipQuickTitle: "Interactive SIP Projection Calculator",
+        sipMonthlyLabel: "Monthly SIP (₹)",
+        sipRateLabel: "Assumed Annual Return (% p.a.)",
+        sipYearsLabel: "Investment Period (Years)",
+        sipInvestedLabel: "Total Invested",
+        sipEstGainLabel: "Estimated Wealth Gain",
+        sipTotalLabel: "Estimated Maturity Value",
+        socialKicker: "Social Media",
+        socialTitle: "Follow AUMRMoney Channels",
+        socialDesc: "Educational clips, SIP explainers, and updates across YouTube, Instagram, and Facebook.",
+        socialCardTitle: "Official Social Media Profiles",
+        socialCardDesc: "Connect with AUMRMoney on your preferred platform:",
         contactKicker: "Get in Touch",
         contactTitle: "Connect with AUMRMoney",
-        contactDesc: "Share your contact details for a callback or reach out directly.",
-        labelName: "Full Name",
-        labelPhone: "Phone / WhatsApp",
-        labelEmail: "Email Address",
+        contactDesc: "Share your Name, Phone, and Email for a callback or reach out directly.",
+        labelName: "Name",
+        labelPhone: "Phone",
+        labelEmail: "Email",
         submitBtn: "Request Callback",
-        directTitle: "Direct Contact & UPI",
-        upiLabel: "UPI ID (Educational / Resource Contributions)",
-        copyBtn: "Copy",
-        copiedBtn: "Copied",
+        directTitle: "Direct Contact",
         disclaimer: "Mutual fund investments are subject to market risks. Read all scheme-related documents carefully before investing. Calculators and screening tools on this site are for educational and planning illustration purposes and do not constitute guaranteed returns or investment advice."
       },
       hi: {
         navServices: "समाधान",
         navCalculators: "कैलकुलेटर",
+        navSocial: "सोशल मीडिया",
         navContact: "संपर्क",
         eyebrow: "AMFI पंजीकृत म्यूचुअल फंड वितरक • व्यावहारिक मार्गदर्शन",
         heroTitle: "अनुशासित वेल्थ निर्माण और स्पष्ट वित्तीय योजना",
-        heroSubtitle: "लक्ष्य-आधारित SIP योजना, रिटायरमेंट तैयारी टूल्स और इक्विटी स्टडी कैलकुलेटर देखें।",
+        heroSubtitle: "लक्ष्य-आधारित SIP योजना, रिटायरमेंट कैलकुलेटर, इक्विटी स्टडी टूल्स और AUMRMoney के शैक्षणिक चैनल देखें।",
         ctaCalculators: "कैलकुलेटर देखें",
         ctaConnect: "कॉल-बैक अनुरोध करें",
         servicesKicker: "वित्तीय समाधान",
@@ -687,36 +789,46 @@
         svc3Desc: "एसेट एलोकेशन और ओवरलैप की समय-समय पर समीक्षा करें।",
         calcKicker: "इंटरैक्टिव टूल्स",
         calcTitle: "वित्तीय कैलकुलेटर",
-        calcDesc: "विभिन्न मान्यताओं के साथ अपने वित्तीय लक्ष्यों का आकलन करें।",
+        calcDesc: "SIP अनुमान, रिटायरमेंट तैयारी और इक्विटी स्टडी वर्कफ़्लो का परीक्षण करें।",
         statusLive: "उपलब्ध",
-        statusSoon: "जल्द आ रहा है",
+        calcSipTitle: "SIP कैलकुलेटर",
+        calcSipDesc: "अवधि और अनुमानित रिटर्न के आधार पर मासिक SIP के संभावित मूल्य का अनुमान लगाएं।",
         calc1Title: "रिटायरमेंट प्लानर (Rcalc1)",
         calc1Desc: "रिटायरमेंट कॉर्पस और मासिक SIP की गणना व्यावहारिक रिटर्न मान्यताओं के साथ करें।",
         calc2Title: "भारत वेल्थ इक्विटी स्टडी",
         calc2Desc: "इक्विटी स्क्रीनिंग और पेपर-टेस्टिंग वर्कफ़्लो का अध्ययन करें।",
-        calc3Title: "लाइफ रिस्क और टर्म एस्टिमेटर",
-        calc3Desc: "आयु-आधारित टर्म कवरेज और सुरक्षा अनुमान टूल निर्माणाधीन है।",
+        quickEstimate: "त्वरित अनुमान",
         openTool: "कैलकुलेटर खोलें",
+        sipQuickTitle: "इंटरैक्टिव SIP अनुमान कैलकुलेटर",
+        sipMonthlyLabel: "मासिक SIP (₹)",
+        sipRateLabel: "अनुमानित वार्षिक रिटर्न (% प्रति वर्ष)",
+        sipYearsLabel: "निवेश अवधि (वर्ष)",
+        sipInvestedLabel: "कुल निवेश",
+        sipEstGainLabel: "अनुमानित लाभ",
+        sipTotalLabel: "अनुमानित परिपक्वता मूल्य",
+        socialKicker: "सोशल मीडिया",
+        socialTitle: "AUMRMoney चैनलों से जुड़ें",
+        socialDesc: "YouTube, Instagram और Facebook पर शैक्षणिक वीडियो और अपडेट देखें।",
+        socialCardTitle: "आधिकारिक सोशल मीडिया प्रोफ़ाइल",
+        socialCardDesc: "अपने पसंदीदा प्लेटफॉर्म पर AUMRMoney से जुड़ें:",
         contactKicker: "संपर्क करें",
         contactTitle: "AUMRMoney से जुड़ें",
-        contactDesc: "कॉल-बैक के लिए अपना विवरण साझा करें या सीधे संपर्क करें।",
-        labelName: "पूरा नाम",
-        labelPhone: "फ़ोन / व्हाट्सएप",
-        labelEmail: "ईमेल पता",
+        contactDesc: "कॉल-बैक के लिए अपना नाम, फ़ोन और ईमेल साझा करें या सीधे संपर्क करें।",
+        labelName: "नाम",
+        labelPhone: "फ़ोन",
+        labelEmail: "ईमेल",
         submitBtn: "कॉल-बैक अनुरोध करें",
-        directTitle: "सीधा संपर्क और UPI",
-        upiLabel: "UPI ID (शैक्षणिक / संसाधन योगदान)",
-        copyBtn: "कॉपी करें",
-        copiedBtn: "कॉपी हो गया",
+        directTitle: "सीधा संपर्क",
         disclaimer: "म्यूचुअल फंड निवेश बाजार जोखिमों के अधीन हैं। निवेश करने से पहले योजना से संबंधित सभी दस्तावेजों को ध्यान से पढ़ें। इस वेबसाइट पर दिए गए कैलकुलेटर केवल शैक्षणिक और योजना उदाहरण के लिए हैं; ये सुनिश्चित रिटर्न या निवेश सलाह नहीं हैं।"
       },
       mr: {
         navServices: "उपाय",
         navCalculators: "कॅल्क्युलेटर्स",
+        navSocial: "सोशल मीडिया",
         navContact: "संपर्क",
         eyebrow: "AMFI नोंदणीकृत म्युच्युअल फंड वितरक • व्यावहारिक मार्गदर्शन",
         heroTitle: "शिस्तबद्ध संपत्ती निर्मिती आणि स्पष्ट आर्थिक नियोजन",
-        heroSubtitle: "ध्येयनिहाय SIP नियोजन, निवृत्ती तयारी साधने आणि इक्विटी अभ्यास कॅल्क्युलेटर्स पहा.",
+        heroSubtitle: "ध्येयनिहाय SIP नियोजन, निवृत्ती कॅल्क्युलेटर्स, इक्विटी अभ्यास साधने आणि AUMRMoney चॅनेल्स पहा.",
         ctaCalculators: "कॅल्क्युलेटर्स पहा",
         ctaConnect: "कॉल-बॅक विनंती करा",
         servicesKicker: "आर्थिक उपाय",
@@ -730,36 +842,46 @@
         svc3Desc: "अॅसेट अलोकेशन आणि ओव्हरलॅपचा नियमित आढावा घ्या.",
         calcKicker: "संवादात्मक साधने",
         calcTitle: "आर्थिक कॅल्क्युलेटर्स",
-        calcDesc: "वेगवेगळ्या गृहीतकांसह आर्थिक उद्दिष्टांची चाचणी घ्या.",
+        calcDesc: "SIP अंदाज, निवृत्ती नियोजन आणि इक्विटी अभ्यास साधने तपासा.",
         statusLive: "उपलब्ध",
-        statusSoon: "लवकरच येत आहे",
+        calcSipTitle: "SIP कॅल्क्युलेटर",
+        calcSipDesc: "कालावधी आणि गृहीत परताव्यानुसार मासिक SIP चे संभाव्य मूल्य मोजा.",
         calc1Title: "निवृत्ती प्लॅनर (Rcalc1)",
         calc1Desc: "निवृत्ती निधी आणि मासिक SIP ची गणना वास्तववादी परताव्याच्या गृहीतकांसह करा.",
         calc2Title: "भारत वेल्थ इक्विटी स्टडी",
         calc2Desc: "इक्विटी स्क्रिनिंग आणि पेपर-टेस्टिंग पद्धती समजून घ्या.",
-        calc3Title: "लाइफ रिस्क व टर्म एस्टिमेटर",
-        calc3Desc: "वयोमानानुसार टर्म कव्हरेज नियोजन साधन तयार केले जात आहे.",
+        quickEstimate: "त्वरित अंदाज",
         openTool: "कॅल्क्युलेटर उघडा",
+        sipQuickTitle: "इंटरैक्टिव SIP अंदाज कॅल्क्युलेटर",
+        sipMonthlyLabel: "मासिक SIP (₹)",
+        sipRateLabel: "अनुमानित वार्षिक परतावा (% प्रति वर्ष)",
+        sipYearsLabel: "गुंतवणूक कालावधी (वर्षे)",
+        sipInvestedLabel: "एकूण गुंतवणूक",
+        sipEstGainLabel: "अनुमानित नफा",
+        sipTotalLabel: "अनुमानित परिपक्वता मूल्य",
+        socialKicker: "सोशल मीडिया",
+        socialTitle: "AUMRMoney चॅनेल्स फॉलो करा",
+        socialDesc: "YouTube, Instagram आणि Facebook वर शैक्षणिक माहिती व अपडेट्स पहा.",
+        socialCardTitle: "अधिकृत सोशल मीडिया खाती",
+        socialCardDesc: "तुमच्या पसंतीच्या माध्यमावरून AUMRMoney शी जोडले जा:",
         contactKicker: "संपर्क साधा",
         contactTitle: "AUMRMoney शी संपर्क साधा",
-        contactDesc: "कॉल-बॅकसाठी तुमचा तपशील भरा किंवा थेट संपर्क साधा.",
-        labelName: "पूर्ण नाव",
-        labelPhone: "फोन / व्हॉट्सॲप",
-        labelEmail: "ईमेल पत्ता",
+        contactDesc: "कॉल-बॅकसाठी तुमचे नाव, फोन आणि ईमेल भरा किंवा थेट संपर्क साधा.",
+        labelName: "नाव",
+        labelPhone: "फोन",
+        labelEmail: "ईमेल",
         submitBtn: "कॉल-बॅक विनंती करा",
-        directTitle: "थेट संपर्क व UPI",
-        upiLabel: "UPI ID (शैक्षणिक / संसाधन सहकार्य)",
-        copyBtn: "कॉपी करा",
-        copiedBtn: "कॉपी झाले",
+        directTitle: "थेट संपर्क",
         disclaimer: "म्युच्युअल फंड गुंतवणूक बाजार जोखमींच्या अधीन आहे. गुंतवणूक करण्यापूर्वी योजनेशी संबंधित सर्व कागदपत्रे काळजीपूर्वक वाचा. या साइटवरील कॅल्क्युलेटर्स केवळ शैक्षणिक व नियोजन उदाहरणासाठी आहेत; हा हमी परतावा किंवा गुंतवणूक सल्ला नाही."
       },
       gu: {
         navServices: "ઉકેલો",
         navCalculators: "કેલ્ક્યુલેટર્સ",
+        navSocial: "સોશિયલ મીડિયા",
         navContact: "સંપર્ક",
         eyebrow: "AMFI રજિસ્ટર્ડ મ્યુચ્યુઅલ ફંડ ડિસ્ટ્રિબ્યુટર • વ્યવહારુ માર્ગદર્શન",
         heroTitle: "શિસ્તબદ્ધ સંપત્તિ નિર્માણ અને સ્પષ્ટ નાણાકીય આયોજન",
-        heroSubtitle: "લક્ષ્ય આધારિત SIP આયોજન, નિવૃત્તિ તૈયારી ટૂલ્સ અને ઇક્વિટી અભ્યાસ કેલ્ક્યુલેટર્સ જુઓ.",
+        heroSubtitle: "લક્ષ્ય આધારિત SIP આયોજન, નિવૃત્તિ કેલ્ક્યુલેટર્સ, ઇક્વિટી અભ્યાસ ટૂલ્સ અને AUMRMoney ચેનલ્સ જુઓ.",
         ctaCalculators: "કેલ્ક્યુલેટર્સ જુઓ",
         ctaConnect: "કોલ-બેક વિનંતી કરો",
         servicesKicker: "નાણાકીય ઉકેલો",
@@ -773,37 +895,44 @@
         svc3Desc: "એસેટ એલોકેશન અને ઓવરલેપની નિયમિત સમીક્ષા કરો.",
         calcKicker: "ઇન્ટરેક્ટિવ ટૂલ્સ",
         calcTitle: "નાણાકીય કેલ્ક્યુલેટર્સ",
-        calcDesc: "વિવિધ ધારણાઓ સાથે નાણાકીય લક્ષ્યોનું આયોજન કરો.",
+        calcDesc: "SIP અંદાજ, નિવૃત્તિ આયોજન અને ઇક્વિટી અભ્યાસ ટૂલ્સ તપાસો.",
         statusLive: "ઉપલબ્ધ",
-        statusSoon: "ટૂંક સમયમાં આવી રહ્યું છે",
+        calcSipTitle: "SIP કેલ્ક્યુલેટર",
+        calcSipDesc: "સમયગાળા અને અંદાજિત વળતરના આધારે માસિક SIP નું સંભવિત મૂલ્ય જાણો.",
         calc1Title: "નિવૃત્તિ પ્લાનર (Rcalc1)",
         calc1Desc: "નિવૃત્તિ ફંડ અને માસિક SIP ની ગણતરી વાસ્તવિક વળતર ધારણાઓ સાથે કરો.",
         calc2Title: "ભારત વેલ્થ ઇક્વિટી સ્ટડી",
         calc2Desc: "ઇક્વિટી સ્ક્રીનિંગ અને પેપર-ટેસ્ટિંગ પ્રક્રિયા સમજો.",
-        calc3Title: "લાઇફ રિસ્ક અને ટર્મ એસ્ટિમેટર",
-        calc3Desc: "ઉંમર આધારિત ટર્મ કવરેજ આયોજન ટૂલ વિકાસ હેઠળ છે.",
+        quickEstimate: "ઝડપી અંદાજ",
         openTool: "કેલ્ક્યુલેટર ખોલો",
+        sipQuickTitle: "ઇન્ટરેક્ટિવ SIP અંદાજ કેલ્ક્યુલેટર",
+        sipMonthlyLabel: "માસિક SIP (₹)",
+        sipRateLabel: "અંદાજિત વાર્ષિક વળતર (% પ્રતિ વર્ષ)",
+        sipYearsLabel: "રોકાણ સમયગાળો (વર્ષ)",
+        sipInvestedLabel: "કુલ રોકાણ",
+        sipEstGainLabel: "અંદાજિત નફો",
+        sipTotalLabel: "અંદાજિત પાકતી મુદતનું મૂલ્ય",
+        socialKicker: "સોશિયલ મીડિયા",
+        socialTitle: "AUMRMoney ચેનલ્સ ફોલો કરો",
+        socialDesc: "YouTube, Instagram અને Facebook પર શૈક્ષણિક માહિતી અને અપડેટ્સ જુઓ.",
+        socialCardTitle: "સત્તાવાર સોશિયલ મીડિયા પ્રોફાઇલ",
+        socialCardDesc: "તમારા પસંદગીના પ્લેટફોર્મ પર AUMRMoney સાથે જોડાઓ:",
         contactKicker: "સંપર્ક કરો",
         contactTitle: "AUMRMoney સાથે જોડાઓ",
-        contactDesc: "કોલ-બેક માટે તમારી વિગતો આપો અથવા સીધો સંપર્ક કરો.",
-        labelName: "પૂરું નામ",
-        labelPhone: "ફોન / વોટ્સએપ",
-        labelEmail: "ઈમેલ સરનામું",
+        contactDesc: "કોલ-બેક માટે તમારું નામ, ફોન અને ઈમેલ આપો અથવા સીધો સંપર્ક કરો.",
+        labelName: "નામ",
+        labelPhone: "ફોન",
+        labelEmail: "ઈમેલ",
         submitBtn: "કોલ-બેક વિનંતી કરો",
-        directTitle: "સીધો સંપર્ક અને UPI",
-        upiLabel: "UPI ID (શૈક્ષણિક / સંસાધન યોગદાન)",
-        copyBtn: "કોપી કરો",
-        copiedBtn: "કોપી થયું",
+        directTitle: "સીધો સંપર્ક",
         disclaimer: "મ્યુચ્યુઅલ ફંડ રોકાણ બજારના જોખમોને આધીન છે. રોકાણ કરતા પહેલાં યોજના સંબંધિત તમામ દસ્તાવેજો કાળજીપૂર્વક વાંચો. આ સાઇટ પરના કેલ્ક્યુલેટર્સ માત્ર શૈક્ષણિક અને આયોજન ઉદાહરણ માટે છે; આ ખાતરીપૂર્વકનું વળતર કે રોકાણ સલાહ નથી."
       }
     };
 
-    let currentLang = "en";
-
     function applyLanguage(lang) {
-      currentLang = translations[lang] ? lang : "en";
-      document.documentElement.lang = currentLang;
-      const dict = translations[currentLang];
+      const safeLang = translations[lang] ? lang : "en";
+      document.documentElement.lang = safeLang;
+      const dict = translations[safeLang];
 
       document.querySelectorAll("[data-i18n]").forEach((el) => {
         const key = el.getAttribute("data-i18n");
@@ -813,7 +942,7 @@
       });
 
       document.querySelectorAll(".lang-btn").forEach((btn) => {
-        btn.classList.toggle("active", btn.getAttribute("data-lang") === currentLang);
+        btn.classList.toggle("active", btn.getAttribute("data-lang") === safeLang);
       });
     }
 
@@ -821,6 +950,45 @@
       btn.addEventListener("click", () => applyLanguage(btn.getAttribute("data-lang")));
     });
 
+    // SIP Quick Estimator
+    const sipMonthlyEl = document.getElementById("sipMonthly");
+    const sipRateEl = document.getElementById("sipRate");
+    const sipYearsEl = document.getElementById("sipYears");
+    const sipInvestedVal = document.getElementById("sipInvestedVal");
+    const sipGainVal = document.getElementById("sipGainVal");
+    const sipTotalVal = document.getElementById("sipTotalVal");
+
+    const inrFormatter = new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0
+    });
+
+    function updateSipEstimate() {
+      const pmt = Math.max(0, Number(sipMonthlyEl.value) || 0);
+      const annualRate = Math.max(0, Number(sipRateEl.value) || 0);
+      const years = Math.max(0, Number(sipYearsEl.value) || 0);
+      const months = Math.round(years * 12);
+      const totalInvested = pmt * months;
+
+      let maturity = totalInvested;
+      if (months > 0 && annualRate > 0) {
+        const r = annualRate / 12 / 100;
+        maturity = pmt * ((Math.pow(1 + r, months) - 1) / r) * (1 + r);
+      }
+
+      const gain = Math.max(0, maturity - totalInvested);
+      sipInvestedVal.textContent = inrFormatter.format(totalInvested);
+      sipGainVal.textContent = inrFormatter.format(gain);
+      sipTotalVal.textContent = inrFormatter.format(maturity);
+    }
+
+    [sipMonthlyEl, sipRateEl, sipYearsEl].forEach((input) => {
+      input.addEventListener("input", updateSipEstimate);
+    });
+    updateSipEstimate();
+
+    // Lead Form Submission
     const leadForm = document.getElementById("leadForm");
     const formStatus = document.getElementById("formStatus");
 
@@ -832,15 +1000,21 @@
 
       if (!name || !phone || !email) {
         formStatus.className = "form-status status-err";
-        formStatus.textContent = "Please fill in your name, phone number, and email address.";
+        formStatus.textContent = "Please enter your Name, Phone, and Email.";
         return;
       }
 
-      const payload = { name, phone, email, submittedAt: new Date().toISOString(), source: "aumrmoney-index" };
+      const payload = {
+        name,
+        phone,
+        email,
+        submittedAt: new Date().toISOString(),
+        source: "aumrmoney-index"
+      };
 
       if (!APPS_SCRIPT_URL) {
         formStatus.className = "form-status status-ok";
-        formStatus.textContent = "Callback request noted. You can also message +91 9099910615 on WhatsApp.";
+        formStatus.textContent = "Callback details noted. You can also message +91 9099910615 on WhatsApp.";
         leadForm.reset();
         return;
       }
@@ -855,26 +1029,9 @@
         formStatus.className = "form-status status-ok";
         formStatus.textContent = "Thank you! Your callback request has been submitted.";
         leadForm.reset();
-      } catch (err) {
+      } catch (_) {
         formStatus.className = "form-status status-err";
         formStatus.textContent = "Could not submit automatically. Please reach out on WhatsApp at +91 9099910615.";
-      }
-    });
-
-    const copyUpiBtn = document.getElementById("copyUpiBtn");
-    const upiIdText = document.getElementById("upiIdText");
-
-    copyUpiBtn.addEventListener("click", async () => {
-      const upi = upiIdText.textContent.trim();
-      const dict = translations[currentLang];
-      try {
-        await navigator.clipboard.writeText(upi);
-        copyUpiBtn.textContent = dict.copiedBtn || "Copied";
-        setTimeout(() => {
-          copyUpiBtn.textContent = dict.copyBtn || "Copy";
-        }, 1800);
-      } catch (_) {
-        copyUpiBtn.textContent = upi;
       }
     });
   </script>
